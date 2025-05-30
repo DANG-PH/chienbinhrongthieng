@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chiến Binh Rồng Thiêng</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/icongame1.png" type="image/png" />
+</head>
+<body>
+  <div class="header">
+    <div style="overflow: hidden;">
+      <video autoplay muted loop playsinline class="header-video" style="animation: vid1 10s infinite;">
+        <source src="images/huongdanchoi1.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline class="header-video" style="animation: vid2 10s infinite;;height:130%">
+        <source src="images/huongdanchoi2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+        <div class="header-content" >
+            <h1>Kỹ Năng - Chiến Thuật</h1>
+            <div>
+                <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="nhanvat.html">Nhân Vật</a></li>
+                <li><a href="diendan.html">Diễn đàn</a></li>
+                <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="huongdanchoi.html"id="selected">Hướng dẫn chơi</a></li>
+                <li><a href="choingay.html">Chơi ngay</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-content1">
+        <div style="float:right;margin-top:5px">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <h2>Giới Thiệu Game</h2>
+        <p><strong>Chiến Binh Rồng Thiêng</strong> là một tựa game đối kháng hành động 2 người chơi, được xây dựng hoàn toàn bằng Python và thư viện Pygame. Đây là một dự án game độc lập với hệ thống kỹ năng và biến hình sâu sắc, mô phỏng lại những trận chiến nảy lửa giữa các chiến binh huyền thoại trong vũ trụ Dragon Ball. <br> Người chơi có thể lựa chọn 1 trong 5 nhân vật: Goku, Vegeta, Piccolo, Broly, hoặc Gohan, mỗi nhân vật đều sở hữu bộ kỹ năng riêng, từ khả năng phòng thủ, stun đối thủ, tăng sát thương, hồi máu đến những chiêu cuối mang tính "kết liễu". Game hỗ trợ cả chế độ PvP 2 người trên cùng máy và chế độ PvE với AI. <br>Hệ thống gameplay được thiết kế tỉ mỉ: mỗi nhân vật có thanh HP, thanh KI (năng lượng), kỹ năng thường (Skill 1, 2, 3, 4), chiêu cuối (Ultimate), và hai trạng thái biến hình đặc biệt – biến hình cấp T (nâng cao năng lực) và cấp O (hình thái tối thượng). Một số kỹ năng phụ thuộc vào tình trạng HP (như Gohan có thể hóa Max Beast nếu HP dưới 40%). Cơ chế dash, combo, phòng thủ, thời gian hồi chiêu và hiệu ứng đòn đánh đều được lập trình chi tiết, tạo nên một trải nghiệm đối kháng chiến thuật nhưng vẫn đậm chất hành động.</p>
+    </div>
+    <audio id="bg-music" autoplay loop>
+        <source src="sounds/op1.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <footer>
+        <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
+    </footer>
+    <script>
+        const toggle = document.getElementById("darkModeToggle");
+
+        // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
+        if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+        }
+
+        // Khi người dùng bật/tắt dark mode
+        toggle.addEventListener("change", function () {
+        const isDark = toggle.checked;
+        document.body.classList.toggle("dark-mode", isDark);
+        localStorage.setItem("darkMode", isDark);
+        });
+        //audio 
+        const bgMusic = document.getElementById("bg-music");
+        bgMusic.volume = 0.2; // âm lượng nhỏ (20%)
+    </script>
+</body>
+</html>

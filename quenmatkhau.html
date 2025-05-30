@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chiến Binh Rồng Thiêng</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/icongame1.png" type="image/png" />
+  <style>
+        .bg-content{
+            padding:0
+        }
+        *{
+        box-sizing: border-box;
+        }
+        
+        input{
+        border:none;
+        outline: none;
+        }
+        button{
+            border:none;
+        }
+        .cont{
+            overflow:hidden;
+            margin:auto;
+            position: relative;
+            max-width: 100%;
+            width: 900px;
+            height: 550px;
+            background: #f5f5f5;
+        }
+        body.dark-mode .cont{
+            background: #1e1e1e
+        }
+        .form{
+        position: relative;
+        width: 640px;
+        height: 100%;
+        padding: 50px 30px;
+        transition: transform 1.2s ease-in-out;
+        }
+        h2{
+        width: 100%;
+        font-size: 30px;
+        text-align: center;
+        }
+        h3{
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+        }
+        label{
+        display: block;
+        width: 260px;
+        margin: 25px auto 0;
+        text-align: center;
+        }
+        label span{
+        font-size: 14px;
+        font-weight: 600;
+        
+        text-transform: uppercase;
+        }
+        input{
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+        font-size: 16px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(109, 93, 93, 0.7);
+        text-align: center;
+        background-color:#f5f5f5;
+        }
+        body.dark-mode input{
+            border-bottom: 1px solid #9e9e9e;
+            background-color:#1e1e1e;
+            color:#d4d4d4
+        }
+        .button1{
+        display:block;
+        margin: 0 auto;
+        width: 260px;
+        height: 36px;
+        border-radius: 30px;
+        font-size: 15px;
+        cursor: pointer;
+        color:#000000
+        }
+        .submit{
+        margin-top: 40px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-family: 'Nunito', sans-serif;
+        background: linear-gradient(135deg, #d4d4d4, #9e9e9e);
+
+        }
+        .submit:hover{
+        background: linear-gradient(135deg, #9e9e9e,#d4d4d4);
+        transform: scale(1.05);
+        }
+        .forgot-pass{
+        margin-top: 15px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ;
+        }
+        .forgot-pass a{
+            color:	#444444;
+        }
+        .forgot-pass a:hover{
+        color:black
+        }
+        body.dark-mode .forgot-pass a:hover{
+            color:#ffa500
+        }
+        .social-media img{
+        width: 40px;
+        height: 40px;
+        }
+        .social-media {
+        text-align: center;
+        margin-top: 20px;
+        }
+        .social-media ul{
+        list-style: none;
+        }
+
+        .social-media ul li{
+        display: inline-block;
+        cursor: pointer;
+        margin: 25px 15px;
+        }
+        .sub-cont{
+        overflow:hidden;
+        position: absolute;
+        left: 640px;
+        top: 0px;
+        width: 900px;
+        height: 100%;
+        padding-left: 260px;
+        background: #f5f5f5;
+        transition: transform 1.2s ease-in-out;
+        }
+        body.dark-mode .sub-cont{
+            background:#1e1e1e;
+        }
+        .cont.s-signup .sub-cont{
+          transform:translate3d(-640px, 0, 0);
+        }
+        .img{
+        overflow:hidden;
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 260px;
+        height: 100%;
+        padding-top: 360px;
+        }
+        .img:before{
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 900px;
+        height: 100%;
+        animation: changeBg 6s infinite;
+        background-size: cover;
+        transition: transform 1.2s ease-in-out;
+        }
+        @keyframes changeBg {
+        0%, 50% {
+            background-image: url(images/dangnhap15.jpg);
+            
+        }
+        55%, 100% {
+            background-image: url(images/dangnhap12.jpg) ;
+            
+        }
+        }
+        .img:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        }
+        .cont.s-signup .img:before{
+          transform:translate3d(640px, 0, 0);
+        }
+        .img-text{
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        padding: 0 20px;
+        text-align: center;
+        color: #f5f5f5;
+        transition: transform 1.2s ease-in-out;
+        }
+        .img-text h3{
+        margin-bottom: 10px;
+        font-weight: normal;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+        }
+        .img-text p{
+        font-size: 14px;
+        line-height: 1.5;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+        }
+        .img-text.m-in{
+          transform:translateX(-520px);
+        }
+        .cont.s-signup .img-text.m-up{
+          transform:translateX(520px);
+        }
+        .cont.s-signup .img-text.m-in{
+          transform:translateX(0);
+        }
+        .cont.s-signup .sign-in{
+          transition-timing-function:ease-in-out;
+          transition-duration:1.2s; 
+          transform:translate3d(640px, 0, 0);
+        }
+        .img-btn{
+        overflow:hidden;
+        z-index: 1;
+        position: relative;
+        width: 136px;
+        height: 36px;
+        margin: 0 auto;
+        color:  #f5f5f5;
+        text-transform: uppercase;
+        border: 2px solid #f5f5f5 ;
+        font-size: 15px; ;
+        border-radius: 25px;
+        cursor: pointer;
+        }
+        .img-btn span{
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 1.2s;
+        }
+        .img-btn span.m-in{
+          transform:translateY(-72px);
+        }
+        .cont.s-signup .img-btn span.m-in{
+          transform:translateY(0);
+        } 
+        .cont.s-signup .img-btn span.m-up{
+          transform:translateY(72px);
+        }
+        .sign-up{
+          transform:translate3d(-900px, 0, 0);
+        }
+        .cont.s-signup .sign-up{
+          transform:translate3d(0, 0, 0);
+        }
+        @media (max-width: 768px) {
+            .cont {
+                height: auto;
+            }
+
+            .form, .sub-cont {
+                width: 100% !important;
+                height: auto !important;
+                position: static !important;
+                padding: 20px;
+                transform: none !important;
+            }
+
+            .img {
+                width: 100%;
+                height: 250px;
+                position: relative;
+                padding-top: 0;
+                order: -1;
+            }
+
+            .img:before, .img:after {
+                width: 100% !important;
+                height: 100% !important;
+                left: 0;
+                top: 0;
+                transform: none !important;
+            }
+
+            .img-text {
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 0 10px;
+                font-size: 16px;
+            }
+
+            .img-btn {
+                margin-top: 10px;
+            }
+
+            .img-text h3 {
+                font-size: 18px;
+            }
+
+            .img-text p {
+                font-size: 14px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            #toast {
+                padding:5px 12px;
+                font-size:11px
+            }
+        }
+        #toast {
+        position: fixed;
+        opacity:0;
+        bottom:60%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #9e9e9e;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+        color: black;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 9999;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        body.dark-mode #toast {
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+        color: #fff;
+        }
+        #toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        }
+        #toast.hidden {
+        opacity: 0;
+        pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+  <div class="header">
+    <div style="overflow: hidden;">
+      <video autoplay muted loop playsinline class="header-video" style="animation: vid1 10s infinite;">
+        <source src="images/gioithieu.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline class="header-video" style="animation: vid2 10s infinite;height: 100%;">
+        <source src="images/quenmatkhau2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+        <div class="header-content" >
+            <h1>Khôi Phục Sức Mạnh</h1>
+            <div>
+                <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="nhanvat.html">Nhân Vật</a></li>
+                <li><a href="diendan.html">Diễn đàn</a></li>
+                <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="huongdanchoi.html">Hướng dẫn chơi</a></li>
+                <li><a href="choingay.html">Chơi ngay</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-content1"style="padding-top: 1px;">
+        <div style="float:right;margin-top:5px">
+            <label class="switch" style="margin-top:20px;margin-right: -17px;">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div style="text-align: center;margin-top:62px">
+            <h2>“Khôi Phục Sức Mạnh – Đừng Để Truyền Kỳ Kết Thúc!”</h2>
+            <p><i><b>Chỉ một lần lãng quên – nhưng không phải là dấu chấm hết.  Hãy thức tỉnh chiến binh trong bạn, phục hồi sức mạnh, và tiếp tục viết nên huyền thoại Rồng Thiêng!</b></i></p>
+        </div>
+    </div>
+    <div class="bg-content">
+        <div class="cont">
+            <div class="form sign-in">
+                <h2>Quên Mật Khẩu</h2>
+                <label>
+                    <span>Tài Khoản</span>
+                    <input type="text" name="taikhoan" id="forgot-username">
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" name="email" id="forgot-email">
+                </label>
+                <button class="submit button1" type="button" onclick="handleForgotPassword()">Khôi Phục</button>
+                <p class="forgot-pass">Đã có mật khẩu ?<a href="dangnhap.html"> Đăng nhập</a></p>
+
+                <div class="social-media">
+                    <ul style="padding-left:0px">
+                        <li><a href="http://facebook.com/anghai.325820"><img src="images/facebook.png"></a></li>
+                        <li><a href="http://facebook.com/anghai.325820"><img src="images/twitter.png"></a></li>
+                        <li><a href="http://facebook.com/anghai.325820"><img src="images/linkedin.png"></a></li>
+                        <li><a href="http://facebook.com/anghai.325820"><img src="images/instagram.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="sub-cont">
+                <div class="img" >
+                    <div class="img-text m-up">
+                    <h3>Sức mạnh trong bạn vẫn chưa biến mất!<h3>
+                    <p>Hãy khôi phục tài khoản và trở lại mạnh mẽ hơn bao giờ hết!</p>
+                    </div>
+                    <div class="img-text m-in">
+                    <h3>Tái tạo niềm tin – tái lập sức mạnh!</h3>
+                    <p>Hãy mở cánh cổng sức mạnh – cuộc hành trình vẫn đang chờ đợi bạn!</p>
+                    </div>
+                    <div class="img-btn">
+                    <span class="m-up">Đổi Mật Khẩu</span>
+                    <span class="m-in">Quên Mật Khẩu</span>
+                    </div>
+                </div>
+                <div class="form sign-up">
+                    <h2>Đổi Mật Khẩu</h2>
+                    <label>
+                    <span>Email</span>
+                    <input type="email" id="reset-email">
+                    </label>
+                    <label>
+                    <span>Mật khẩu</span>
+                    <input type="password" id="reset-oldpass">
+                    </label>
+                    <label>
+                    <span>Mật khẩu mới</span>
+                    <input type="password" id="reset-newpass">
+                    </label>
+                    <label>
+                    <span>Xác nhận mật khẩu mới</span>
+                    <input type="password" id="reset-confirm">
+                    </label>
+                    <button type="button" class="submit button1" onclick="handleResetPassword()">Thiết Lập Mật Khẩu</button>
+            </div>
+        </div>
+    </div>
+    <audio id="bg-music" autoplay loop>
+        <source src="sounds/op1.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <footer>
+        <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
+    </footer>
+    <script>
+        const toggle = document.getElementById("darkModeToggle");
+
+        // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
+        if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+        }
+
+        // Khi người dùng bật/tắt dark mode
+        toggle.addEventListener("change", function () {
+        const isDark = toggle.checked;
+        document.body.classList.toggle("dark-mode", isDark);
+        localStorage.setItem("darkMode", isDark);
+        });
+        //audio 
+        const bgMusic = document.getElementById("bg-music");
+        bgMusic.volume = 0.2; // âm lượng nhỏ (20%)
+        document.querySelector('.img-btn').addEventListener('click', function()
+        {
+            document.querySelector('.cont').classList.toggle('s-signup')
+        }
+        );
+        function handleResetPassword() {
+            const email = document.getElementById("reset-email").value.trim();
+            const oldpass = document.getElementById("reset-oldpass").value;
+            const newpass = document.getElementById("reset-newpass").value;
+            const confirm = document.getElementById("reset-confirm").value;
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(u => u.email===email);
+            if (!email || !oldpass || !newpass || !confirm) {
+                showToast("⚠️ Thiếu dữ liệu! Hãy hoàn thiện thông tin để tái lập sức mạnh.");
+                return;
+            }
+
+            if (!user || user.password !== oldpass) {
+                showToast("❌ Kết nối thất bại – thông tin không khớp với chiến binh trước đó.");
+                return;
+            }
+
+            if (newpass !== confirm) {
+                showToast("⚠️ Sức mạnh không ổn định – mật khẩu xác nhận chưa trùng khớp.");
+                return;
+            }
+
+            user.password = newpass;
+            localStorage.setItem("users", JSON.stringify(users));
+            showToast("✅ Sức mạnh tái sinh thành công! Đã đến lúc quay lại chiến trường!");
+            setTimeout(()=>{
+                    window.location.href = "dangnhap.html";
+            },2000)
+        }
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.className = "show";
+            setTimeout(() => {
+                toast.className = "hidden";
+            }, 3000); // biến mất sau 3 giây
+        }
+        function handleForgotPassword() {
+            const username = document.getElementById("forgot-username").value.trim();
+            const email = document.getElementById("forgot-email").value.trim();
+
+            if (!username || !email) {
+                showToast("⚠️ Thiếu thông tin! Chiến binh cần nhập đầy đủ để khôi phục sức mạnh.");
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(u => u.username === username && u.email === email);
+
+            if (!user) {
+                showToast("❌ Không tìm thấy chiến binh nào khớp với thông tin trên!");
+                return;
+            }
+
+            showToast(`✅ Mật khẩu của chiến binh ${user.username} là: ${user.password}`);
+            setTimeout(()=>{
+                showToast("✅ Xác thực thành công – Chiến binh, hãy thiết lập mật khẩu mới để sẵn sàng bước vào trận chiến kế tiếp!")
+                document.querySelector('.cont').classList.add('s-signup'); 
+            },4000)
+        }
+
+    </script>
+    <div id="toast"></div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chiến Binh Rồng Thiêng</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/icongame1.png" type="image/png" />
+  <style>
+    .trai button:hover{
+      transform: translateX(-8px);
+      transition: transform 0.3s ;
+    }
+    .phai button:hover{
+      transform: translateX(8px);
+      transition: transform 0.3s ;
+    }
+    @media (max-width: 650px){
+      button{
+        padding:8px;
+        font-size:8px;
+        margin-top:2px;
+      }
+      .anhdong {
+      height:480px !important;
+    }
+      .anhdong p{
+        margin-top:245px !important;
+      }
+      .anhdong img{
+        height:220px !important;
+      }
+      }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div style="overflow: hidden;">
+      <video autoplay muted loop playsinline class="header-video" style="animation: vid1 10s infinite;height:100%">
+        <source src="images/nhanvat2.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline class="header-video" style="animation: vid2 10s infinite;">
+        <source src="images/nhanvat1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+        <div class="header-content" >
+            <h1>Hồ Sơ Nhân Vật</h1>
+            <div>
+                <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="nhanvat.html"id="selected">Nhân Vật</a></li>
+                <li><a href="diendan.html">Diễn đàn</a></li>
+                <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="huongdanchoi.html">Hướng dẫn chơi</a></li>
+                <li><a href="choingay.html">Chơi ngay</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-content1">
+        <div style="float:right;margin-top:5px">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <h2>Huyền Thoại Chiến Binh !</h2>
+        <h3>5 Gương Mặt – 5 Phong Cách – Bạn Thuộc Về Ai?</h3>
+        <p><i>Mỗi chiến binh là một lối chơi riêng biệt, mang trong mình tinh thần và sức mạnh đặc trưng của thế giới Dragon Ball.  <b>Bạn sẽ chọn ai để bước vào cuộc chiến Rồng Thiêng của riêng mình?</b></i></p>
+    </div>
+    <div class="bg-content1 anhdong" style="height:750px" >
+      <h3>1. Goku</h3>
+      <div style="position:relative" >
+        <img src="images/goku0.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+        <img src="images/goku1.png" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+        <img src="images/goku2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+      </div>
+      <p style="margin-top: 488px;">-Là nhân vật trung tâm của toàn bộ series Dragon Ball, Goku đại diện cho tinh thần không ngừng vượt qua giới hạn. Anh từng liều mạng dùng Kaioken, đạt tới trạng thái thần thánh Ultra Instinct sau khi bị dồn đến bước đường cùng.
+        <br>- Trong game, Goku được thiết kế đúng tinh thần ấy: có thể hy sinh máu để tăng sát thương (Kaioken), và hóa thân thành trạng thái né đòn gần như tuyệt đối (UI) khi đã "tỉnh ngộ".</p>
+      <div>
+        <a href="choingay.html" class="trai"><button>🔹 Bắt đầu với Goku</button></a>
+        <a href="huongdanchoi.html#goku" style="float:right" class="phai"><button>Chi tiết kỹ năng 🔸</button></a>
+      </div>
+    </div>
+    <div class="bg-content1 anhdong" style="height:760px">
+      <h3>2. Vegeta</h3>
+      <div style="position:relative" >
+        <img src="images/vegeta0.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+        <img src="images/vegeta1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+        <img src="images/vegeta2.webp" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+      </div>
+      <p style="margin-top: 488px;">- Niềm kiêu hãnh hoàng tộc, ý chí vươn lên từ thất bại là những gì định nghĩa Vegeta. Từng là đối thủ của Goku, nhưng về sau anh trở thành chiến binh luôn âm thầm mạnh mẽ vì gia đình. Vegeta không dễ từ bỏ, kể cả khi phải đánh đổi cả mạng sống.
+        <br>- Trong game, Vegeta là một chiến binh giàu sát thương, có khả năng hồi sinh hoặc hút máu sau khi hi sinh, thể hiện tinh thần "ngã xuống để trở lại mạnh hơn". Biến hình Oozaru giúp anh bùng nổ sức mạnh trong thời gian ngắn.</p>
+      <div style="margin-top:-10px">
+        <a href="choingay.html" class="trai"><button>🔹 Bắt đầu với Vegeta</button></a>
+        <a href="huongdanchoi.html#goku" style="float:right" class="phai"><button>Chi tiết kỹ năng 🔸</button></a>
+      </div>
+    </div>
+    <div class="bg-content1 anhdong" style="height:750px" >
+      <h3>3. Piccolo</h3>
+      <div style="position:relative" >
+        <img src="images/piccolo0.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+        <img src="images/piccolo1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+        <img src="images/piccolo2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+      </div>
+      <p style="margin-top: 488px;">- Từ một ác nhân, Piccolo trở thành một trong những người bảo vệ đáng tin cậy nhất. Anh thông minh, điềm tĩnh, luôn chiến đấu hết mình vì Gohan và Trái Đất. Trong các trận chiến, Piccolo là người giữ vai trò hỗ trợ, che chắn và phân tích tình huống.
+        <br>- Trong game, Piccolo có lượng HP cao, có thể hồi phục, phản sát thương và triệu hồi phân thân để chiến đấu – đúng như cách anh hỗ trợ đồng đội và sẵn sàng hy sinh vì mục tiêu lớn hơn.</p>
+      <div style="margin-top:-10px">
+        <a href="choingay.html" class="trai"><button>🔹 Bắt đầu với Piccolo</button></a>
+        <a href="huongdanchoi.html#goku" style="float:right" class="phai"><button>Chi tiết kỹ năng 🔸</button></a>
+      </div>
+      </div>
+    <div class="bg-content1 anhdong" style="height:750px" >
+      <h3>4. Broly</h3>
+      <div style="position:relative" >
+        <img src="images/broly0.png" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+        <img src="images/brl1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+        <img src="images/broly2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+      </div>
+      <p style="margin-top: 488px;">- Broly là hiện thân của cơn thịnh nộ bị dồn nén. Sinh ra với sức mạnh vượt trội, nhưng không kiểm soát được, Broly thường chiến đấu như một cơn bão hoang dại – vừa đáng sợ, vừa bi thương. Trong các phiên bản hiện đại, anh dần kiểm soát được bản thân hơn.
+      <br>- Trong game, Broly càng bị đánh càng mạnh, kỹ năng bộc phát khi HP thấp và biến hình SSJ4 giúp anh trở thành cỗ máy hủy diệt có thể hồi máu và gây sát thương vùng.</p>
+      <div style="margin-top:-10px">
+        <a href="choingay.html" class="trai"><button>🔹 Bắt đầu với Broly</button></a>
+        <a href="huongdanchoi.html#goku" style="float:right" class="phai"><button>Chi tiết kỹ năng 🔸</button></a>
+      </div>
+    </div>
+    <div class="bg-content1 anhdong" style="height:760px" >
+      <h3>5. Gohan</h3>
+      <div style="position:relative" >
+        <img src="images/gohan0.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+        <img src="images/gohan1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+        <img src="images/gohan2.webp" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+      </div>
+      <p style="margin-top: 488px;">- Là con trai của Goku, Gohan là chiến binh tiềm năng bậc nhất, từng vượt qua cha mình ở thời điểm còn nhỏ. Tuy nhiên, Gohan thường bị giằng xé giữa cuộc sống bình thường và chiến đấu. Mỗi lần rơi vào nghịch cảnh, Gohan lại bộc lộ sức mạnh khủng khiếp.
+       <br>- Trong game, Gohan có 4 trạng thái biến hình tùy vào lượng máu – phản ánh đúng tính cách và diễn biến nội tâm phức tạp của anh. Khi bị dồn ép, Gohan càng trở nên nguy hiểm hơn với kỹ năng phản đòn và ultimate mang tính kết liễu.</p>
+      <div style="margin-top:-9px">
+        <a href="choingay.html" class="trai"><button>🔹 Bắt đầu với Gohan</button></a>
+        <a href="huongdanchoi.html#goku" style="float:right" class="phai"><button>Chi tiết kỹ năng 🔸</button></a>
+      </div>
+    </div>
+    <audio id="bg-music" autoplay loop>
+        <source src="sounds/op1.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <footer>
+        <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
+    </footer>
+    <script>
+        const toggle = document.getElementById("darkModeToggle");
+
+        // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
+        if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+        }
+
+        // Khi người dùng bật/tắt dark mode
+        toggle.addEventListener("change", function () {
+        const isDark = toggle.checked;
+        document.body.classList.toggle("dark-mode", isDark);
+        localStorage.setItem("darkMode", isDark);
+        });
+        //audio 
+        const bgMusic = document.getElementById("bg-music");
+        bgMusic.volume = 0.2; // âm lượng nhỏ (20%)
+    </script>
+</body>
+</html>
