@@ -670,31 +670,23 @@ frameborder="1"
 
     /* Nút bấm phong cách game */
     #mobile-controls button {
-        padding: 10px 14px;
-        font-size: 14px;
-        border-radius: 12px;
+        padding: 6px 10px;
+        font-size: 12px;
+        border-radius: 8px;
+        min-width: 50px;
         background: linear-gradient(to bottom, #ffffffee, #ddd);
-        border: 2px solid #444;
-        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+        border: 1px solid #444;
+        box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
         cursor: pointer;
-        min-width: 70px;
         color: #111;
         font-weight: bold;
         transition: transform 0.1s, background 0.2s;
     }
 
     #mobile-controls button:active {
-        transform: scale(0.96);
+        transform: scale(0.95);
         background: #ccc;
-        box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (min-width: 768px) {
-        #mobile-controls button {
-            font-size: 16px;
-            padding: 12px 18px;
-            min-width: 90px;
-        }
+        box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.3);
     }
 
     </style>
