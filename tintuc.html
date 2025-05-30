@@ -6,6 +6,117 @@
   <title>Chiến Binh Rồng Thiêng</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .bg-content{
+      padding:0;
+    }
+    .main {
+      display: flex;
+    }
+    .sidebar {
+      width: 25%;
+      border-right: 2px solid black;
+      padding: 10px;
+    }
+    body.dark-mode .sidebar{
+      border-right: 2px solid #aaa;
+    }
+    .sidebar ul {
+      padding-left: 20px;
+    }
+    .content-area {
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+    }
+    .highlight-title {
+      border-bottom: 2px solid  black;
+      padding: 10px;
+    }
+    body.dark-mode .highlight-title{
+      border-bottom: 2px solid #aaa;
+    }
+    .highlight-title img {
+      height: 18px;
+    }
+    .articles {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .article {
+      width: 50%;
+      padding: 2px;
+    }
+    .article img {
+      width: 100%;
+    }
+    .more {
+      padding: 10px;
+    }
+    .more img {
+      height: 18px;
+      vertical-align: middle;
+    }
+    .others {
+      border-top: 2px solid black;
+      padding: 10px;
+    }
+    body.dark-mode .others{
+      border-top: 2px solid #aaa;
+    }
+    .others ul {
+      padding-left: 20px;
+    }
+    a {
+        color:black;
+        text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+        font-size: 12px;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid black;
+      }
+      body.dark-mode .sidebar{
+        border-bottom: 2px solid #aaa;
+        border-right:none;
+      }
+      .content-area {
+        width: 100%;
+      }
+
+      .article {
+        width: 100%;
+        padding: 5px 0;
+      }
+      .article img{
+        height:250px !important;
+      }
+      .dt {
+        margin-top: 238px !important;
+      }
+
+      .highlight-title, .more, .others {
+        padding: 10px 5px;
+      }
+
+      .sidebar ul, .others ul {
+        padding-left: 15px;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <div class="header">
@@ -35,16 +146,126 @@
         </div>
     </div>
 
-    <div class="bg-content1">
+    <div class="bg-content1" style="padding-top: 1px;">
         <div style="float:right;margin-top:5px">
-            <label class="switch">
+            <label class="switch" style="margin-top:5px;margin-right: -17px;">
                 <input type="checkbox" id="darkModeToggle">
                 <span class="slider round"></span>
             </label>
         </div>
-        <h2>Giới Thiệu Game</h2>
-        <p><strong>Chiến Binh Rồng Thiêng</strong> là một tựa game đối kháng hành động 2 người chơi, được xây dựng hoàn toàn bằng Python và thư viện Pygame. Đây là một dự án game độc lập với hệ thống kỹ năng và biến hình sâu sắc, mô phỏng lại những trận chiến nảy lửa giữa các chiến binh huyền thoại trong vũ trụ Dragon Ball. <br> Người chơi có thể lựa chọn 1 trong 5 nhân vật: Goku, Vegeta, Piccolo, Broly, hoặc Gohan, mỗi nhân vật đều sở hữu bộ kỹ năng riêng, từ khả năng phòng thủ, stun đối thủ, tăng sát thương, hồi máu đến những chiêu cuối mang tính "kết liễu". Game hỗ trợ cả chế độ PvP 2 người trên cùng máy và chế độ PvE với AI. <br>Hệ thống gameplay được thiết kế tỉ mỉ: mỗi nhân vật có thanh HP, thanh KI (năng lượng), kỹ năng thường (Skill 1, 2, 3, 4), chiêu cuối (Ultimate), và hai trạng thái biến hình đặc biệt – biến hình cấp T (nâng cao năng lực) và cấp O (hình thái tối thượng). Một số kỹ năng phụ thuộc vào tình trạng HP (như Gohan có thể hóa Max Beast nếu HP dưới 40%). Cơ chế dash, combo, phòng thủ, thời gian hồi chiêu và hiệu ứng đòn đánh đều được lập trình chi tiết, tạo nên một trải nghiệm đối kháng chiến thuật nhưng vẫn đậm chất hành động.</p>
+        <div style="text-align: center;margin-top:40px">
+          <h2>Thế giới Rồng Thiêng đang chuyển mình!</h2>
+          <p><i><b>Mỗi bản cập nhật là một cột mốc mới, nơi các chiến binh khai phá sức mạnh tiềm ẩn và bước vào những trận chiến không khoan nhượng. Cùng theo dõi để không bỏ lỡ những bí mật sắp được hé lộ!</b></i></p>
+        </div>
     </div>
+    <div class="main bg-content">
+      <div class="sidebar" >
+          <b>Danh mục</b>
+          <ul>
+              <li><a href="">Biến hình & Ultimate</a></li>
+              <li><a href="huongdanchoi.html">Chiến thuật & combo</a></li>
+              <li><a href="nhanvat.html">Phân tích nhân vật</a></li>
+              <li><a href="diendan.html">Cập nhật & meta</a></li>
+          </ul>
+          <b>Tin mới nhất</b>
+          <ul>
+              <li><a href="">>Gohan Beast chính thức thống trị đấu trường.</a></li>
+              <li><a href="">Piccolo Orange: hồi máu + clone = bất tử?</a></li>
+              <li><a href="">Broly SSJ4 gây nổ toàn bản đồ, 1 hit bay màu.</a></li>
+              <li><a href="">Goku UI né 90% đòn – phản công như thần.</a></li>
+          </ul>
+      </div>
+
+      <div class="content-area">
+          <div class="highlight-title" >
+              <img src="images/icongame1.png" style="vertical-align:bottom" />
+              <b style="vertical-align:middle">Bài viết nổi bật</b>
+          </div>
+
+          <div class="articles">
+              <div class="article">
+                  <div style="position:relative">
+                      <img src="images/tt1.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="images/tt2.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <br />
+                      <div class="dt"style="margin-top:185px">
+                          <b >[TIN NÓNG] Goku chính thức đạt tới Bản Năng Vô Cực!</b>
+                          <br />
+                          <i>5 giây bất khả xâm phạm – Goku UI bước vào trận chiến với khả năng né 90% đòn. Bạn có đủ bản lĩnh để đối đầu?...</i>
+                          <br />
+                          <a href="choingay.html">
+                            <button style="width:37%">Xem chi tiết</button>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="article">
+                  <div style="position:relative">
+                      <img src="images/tt3.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="images/tt4.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <br />
+                      <div class="dt" style="margin-top:185px">
+                          <b>[PHÂN TÍCH] Vegeta hóa Oozaru – đối thủ gục trong 3 đòn</b>
+                          <br />
+                          <i> Sức mạnh hoang dã bùng nổ! Vegeta hồi sinh giữa trận, cộng máu, cộng damage – cỗ máy hủy diệt chính thức tái xuất...</i>
+                          <br />
+                          <a href="choingay.html">
+                            <button style="width:37%">Xem chi tiết</button>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="article">
+                  <div style="position:relative">
+                      <img src="images/tt5.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="images/tt6.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <br />
+                      <div class="dt" style="margin-top:185px">
+                          <b>[CHIẾN THUẬT] Piccolo Orange: Phòng thủ tối thượng</b>
+                          <br />
+                          <i>Khả năng hồi máu, phản sát thương, tạo phân thân tấn công từ xa – Piccolo đang trở thành lựa chọn "meta" trong mọi trận đánh đôi với khả năng câu kéo cực mạnh!...</i>
+                          <br />
+                          <a href="choingay.html">
+                            <button style="width:37%">Xem chi tiết</button>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="article">
+                  <div style="position:relative">
+                      <img src="images/tt7.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="images/tt8.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <br />
+                      <div class="dt" style="margin-top:185px">
+                          <b>[META MỚI] Broly SSJ4 – Ác mộng cuối trận!</b>
+                          <br />
+                          <i>Bị đánh càng mạnh, phản đòn càng khét! Broly SSJ4 với skill Rage Pulse gây damage diện rộng theo lượng máu đã mất – tướng đấu đơn hoàn hảo cho mọi trận đấu!...</i>
+                          <br />
+                          <a href="choingay.html">
+                            <button style="width:37%">Xem chi tiết</button>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="more">
+              <img src="images/icongame1.png" style="vertical-align:bottom;" />
+              <b style="vertical-align: middle;">Các bài viết khác</b>
+          </div>
+
+          <div class="others">
+              <ul>
+                  <li><a href="">Làm sao để sống sót khi Vegeta hóa khỉ vàng.</a></li>
+                  <li><a href="">Bí quyết giữ KI đủ để dùng Ultimate đúng lúc.</a></li>
+                  <li><a href="">Những pha phản sát thương khó tin từ Piccolo.</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
     <audio id="bg-music" autoplay loop>
         <source src="sounds/op1.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.

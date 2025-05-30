@@ -110,6 +110,7 @@ body {
 }
 button {
   margin-top: 10px;
+  font-weight: bold;
   padding: 10px 20px;
   background: #202020;
   color: white;
@@ -195,6 +196,15 @@ footer {
   0%,33%{opacity:0;}
   35%,66%{opacity:0;}
   68%,100%{opacity:1;}
+}
+/* 2 anh */
+@keyframes aanh1{
+      0%,50%{opacity: 1;}
+      53%,100%{opacity: 0;}
+    }
+@keyframes aanh2{
+  0%,50%{opacity: 0;}
+  53%,100%{opacity: 1;}
 }
 /* Toggle switch */
 .switch {
