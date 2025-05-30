@@ -495,7 +495,7 @@ frameborder="1"
             <button onclick="pressKey('l')">Dash</button>
             <button onpointerdown="holdKey('s')" onpointerup="releaseKey('s')" onpointerleave="releaseKey('s')">Đỡ</button>
         </div>
-        <div class="left-controls-top">
+        <div class="left-controls-top" id="character-controls">
             <button onclick="pressKey('1')">Goku</button>
             <button onclick="pressKey('2')">Vegeta</button>
             <button onclick="pressKey('3')">Piccolo</button>
@@ -516,7 +516,7 @@ frameborder="1"
         </div>
 
         <!-- Trên cùng: chọn chế độ & nhân vật -->
-        <div class="top-controls">
+        <div class="top-controls" id="menu-controls">
             <button onclick="pressKey('Enter')">Enter</button>
             <button onclick="pressKey('c')">Chơi với máy</button>
             <button onclick="pressKey('r')">Chơi Lại</button>
@@ -670,10 +670,10 @@ frameborder="1"
 
     /* Nút bấm phong cách game */
     #mobile-controls button {
-        padding: 6px 10px;
-        font-size: 12px;
+        padding: 4px 7px;
+        font-size: 10px;
         border-radius: 8px;
-        min-width: 50px;
+        min-width: 30px;
         background: linear-gradient(to bottom, #ffffffee, #ddd);
         border: 1px solid #444;
         box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
@@ -690,6 +690,26 @@ frameborder="1"
     }
 
     </style>
+    <div style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
+        <button onclick="toggleMenu()">Menu</button>
+        <button onclick="toggleCharacter()">Nhân Vật</button>
+    </div>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById("menu-controls");
+        menu.style.display = (menu.style.display === "none") ? "flex" : "none";
+    }
 
+    function toggleCharacter() {
+        const char = document.getElementById("character-controls");
+        char.style.display = (char.style.display === "none") ? "flex" : "none";
+    }
+
+    // Ẩn sẵn khi load
+    window.addEventListener("load", () => {
+        document.getElementById("menu-controls").style.display = "none";
+        document.getElementById("character-controls").style.display = "none";
+    });
+    </script>
 </body>
 </html>
