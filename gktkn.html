@@ -482,7 +482,9 @@ frameborder="1"
     function frame_online(url) {
         window.frames["iframe"].location = url;
     }
-
+    window.addEventListener('beforeunload', function (e) {
+    e.stopImmediatePropagation();
+    }, true);
     </script>
     
 </body>

@@ -88,6 +88,15 @@
           <button id="login-btn" class="login-button hidden">Đăng nhập ngay</button>
         </div>
         <div id="game-container"></div>
+        <div class="download-buttons" style="text-align: center;">
+          <h3><i><b>Sức mạnh đang trỗi dậy! Chọn nền tảng, bước vào trận chiến tối thượng!</b></i></h3>
+          <p><i>Không còn đường lui... Nếu ngươi là chiến binh thực thụ, thì đây là lúc bùng nổ sức mạnh!</i></p>
+          <a href="gctcn.html"><button>JAVA</button></a>
+          <a href="gctcn.html"><button>ANDROID (APK)</button></a>
+          <a href="gctcn.html"><button>ANDROID (Google Play)</button></a>
+          <a href="gctkn.html"><button>PC</button></a>
+          <a href="choingay.html"><button>IPHONE</button></a>
+        </div> 
     </div>
     <audio id="bg-music" autoplay loop>
         <source src="sounds/op1.mp3" type="audio/mpeg">
@@ -129,7 +138,13 @@
             // setTimeout(() => {
             //     window.location.href = "dangnhap.html";
             // }, 5000); // chờ 3s để toast hiển thị xong
-        } else {
+            window.onload = function () {
+            const downloadLinks = document.querySelectorAll(".download-buttons a");
+            downloadLinks.forEach(link => {
+              if (!isLoggedIn) {
+                link.href = "dangnhap.html"; // nếu chưa đăng nhập thì ép link về đăng nhập
+              }});
+        }} else {
             container.innerHTML = `<iframe src="gktkn.html" style="width:100%; aspect-ratio: 2 / 1; border:none"></iframe>`;
         }
         

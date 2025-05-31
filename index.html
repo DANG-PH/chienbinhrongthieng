@@ -164,6 +164,15 @@
     //audio 
     const bgMusic = document.getElementById("bg-music");
     bgMusic.volume = 0.2; // âm lượng nhỏ (20%)
+    const isLoggedIn = sessionStorage.getItem("currentUser")
+    if (!isLoggedIn) {
+      window.onload = function () {
+      const downloadLinks = document.querySelectorAll(".download-buttons a");
+      downloadLinks.forEach(link => {
+        if (!isLoggedIn) {
+          link.href = "dangnhap.html"; // nếu chưa đăng nhập thì ép link về đăng nhập
+        }});
+    }}
   </script>
 
 
