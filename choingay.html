@@ -62,10 +62,10 @@
 <body>
   <div class="header">
     <div style="overflow: hidden;">
-      <video autoplay muted loop playsinline class="header-video" style="animation: vid1 10s infinite;">
+      <video autoplay muted loop playsinline preload="auto" poster="images/choingay1.webp"class="header-video" style="animation: vid1 10s infinite;">
         <source src="images/choingay1.mp4" type="video/mp4">
       </video>
-      <video autoplay muted loop playsinline class="header-video" style="animation: vid2 10s infinite;height:145%">
+      <video autoplay muted loop playsinline preload="auto"  poster="images/choingay2.webp" class="header-video" style="animation: vid2 10s infinite;height:145%">
         <source src="images/choingay2.mp4" type="video/mp4">
       </video>
     </div>
@@ -206,10 +206,10 @@
           showToast("🔄 Vui lòng chờ... Game đang được tải!");
           setTimeout(()=>{
             showToast("✅ Game đã sẵn sàng. Chiến thôi!")
-          },5000)
+          },7000)
           setTimeout(()=>{
             showToast("💡 Mẹo: Chiến binh có thể ấn toàn màn hình để có trải nghiệm tốt hơn!")
-          },12000)
+          },15000)
         }
         function showToast(message) {
           const toast = document.getElementById("toast");
