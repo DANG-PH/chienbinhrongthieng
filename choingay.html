@@ -46,6 +46,16 @@
         font-size: 11px;
         bottom:72.5%;
       }
+      a.t {
+        font-size:11px
+      }
+    }
+    a.t {
+      color:black;
+      text-decoration: none;
+    }
+    a.t:hover{
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -84,7 +94,7 @@
                 <span class="slider round"></span>
             </label>
         </div>
-        <div style="text-align: center;margin-top:45px">
+        <div style="text-align: center;margin-top:51px">
           <button id="login-btn" class="login-button hidden">Đăng nhập ngay</button>
         </div>
         <div id="game-container"></div>
@@ -125,12 +135,30 @@
         const bgMusic = document.getElementById("bg-music");
         bgMusic.volume = 0.2; // âm lượng nhỏ (20%)
         const loginBtn = document.getElementById("login-btn");
-        const loggedInUser = sessionStorage.getItem("currentUser");
+        const loggedInUser = JSON.parse(sessionStorage.getItem("currentUser"));
         const container = document.getElementById("game-container");
         const mainTitle = document.getElementById("main-title");
         if (!loggedInUser) {
+            document.querySelector(".download-buttons").style.display = "none";
             mainTitle.textContent = "“Chiến Trường Rồng Thiêng Đang Gọi!”";
             showToast("⚠️ Chiến Binh! Đăng nhập là bước đầu tiên để khai phóng sức mạnh và bước vào cuộc chiến định mệnh!");
+            const loginSection = loginBtn.parentElement;
+            const infoTitle = document.createElement("h2");
+            infoTitle.textContent = "Bước vào thế giới của những chiến binh huyền thoại!";
+            infoTitle.style.marginTop = "20px";
+            infoTitle.style.fontWeight = "bold";
+
+            const infoDesc = document.createElement("p");
+            infoDesc.textContent = "Chỉ cần một bước đăng nhập, bạn sẽ khai mở toàn bộ sức mạnh và khám phá cuộc chiến đỉnh cao!";
+            infoDesc.style.fontStyle = "italic";
+            
+            const thea = document.createElement("a");
+            thea.classList.add("t")
+            thea.textContent="Xem thêm trước khi chiến đấu"
+            thea.href = "huongdanchoi.html"
+            loginSection.appendChild(infoTitle);
+            loginSection.appendChild(infoDesc);
+            loginSection.appendChild(thea)
             loginBtn.classList.remove("hidden");
             loginBtn.addEventListener("click", function () {
               window.location.href = "dangnhap.html";
@@ -141,13 +169,48 @@
             window.onload = function () {
             const downloadLinks = document.querySelectorAll(".download-buttons a");
             downloadLinks.forEach(link => {
-              if (!isLoggedIn) {
+              if (!loggedInUser) {
                 link.href = "dangnhap.html"; // nếu chưa đăng nhập thì ép link về đăng nhập
               }});
         }} else {
-            container.innerHTML = `<iframe src="gktkn.html" style="width:100%; aspect-ratio: 2 / 1; border:none"></iframe>`;
+          // 1. Hiện tên người chơi + nút đăng xuất
+          const userBar = document.createElement("div");
+          userBar.style.display = "flex";
+          userBar.style.alignItems = "center"; 
+          userBar.style.justifyContent = "flex-end";
+          userBar.style.gap = "12px"; 
+          userBar.style.margin = "12px 0";
+          userBar.style.marginTop = "65px"
+          userBar.innerHTML = `
+            <p style="margin:0;font-weight:bold">Chiến binh, ${loggedInUser.username}!</p>
+            <div class="download-buttons">
+              <button onclick="logout()" style="margin:0px;padding:2px 6px"">Đăng xuất</button>
+            </div>
+          `;
+
+          
+          // CHÈN userBar vào bên trong container
+          container.appendChild(userBar);
+          
+          // 2. Thêm iframe game + nút fullscreen
+          const gameWrapper = document.createElement("div");
+          gameWrapper.innerHTML = `
+            <iframe id="game-frame" src="gktkn.html" style="width:100%; aspect-ratio: 2 / 1; border:none"></iframe>
+            <div class="download-buttons" style="margin-top:10px;text-align:right">
+              <button onclick="toggleFullScreen()" style="padding:7px 9px">Toàn màn hình</button>
+            </div>
+          `;
+          container.appendChild(gameWrapper);
+
+          // 3. Hiện toast thông báo đang tải
+          showToast("🔄 Vui lòng chờ... Game đang được tải!");
+          setTimeout(()=>{
+            showToast("✅ Game đã sẵn sàng. Chiến thôi!")
+          },5000)
+          setTimeout(()=>{
+            showToast("💡 Mẹo: Chiến binh có thể ấn toàn màn hình để có trải nghiệm tốt hơn!")
+          },12000)
         }
-        
         function showToast(message) {
           const toast = document.getElementById("toast");
           if (!toast) return;
@@ -159,6 +222,22 @@
               toast.classList.add("hidden");
           }, 5000);
       }
+      function toggleFullScreen() {
+        const iframe = document.getElementById("game-frame");
+        if (!document.fullscreenElement) {
+            iframe.requestFullscreen().catch(err => {
+                showToast("⚠️ Trình duyệt không hỗ trợ toàn màn hình!");
+            });
+        } else {
+            document.exitFullscreen();
+        }
+      }
+      function logout() {
+        sessionStorage.removeItem("currentUser");
+        showToast("✅ Đăng xuất thành công!");
+        setTimeout(() => location.reload(), 1000); // Tải lại trang để quay về chế độ chưa đăng nhập
+      }
+
     </script>
 </body>
 </html>
