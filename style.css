@@ -243,7 +243,7 @@ footer {
 }
 
 input:checked + .slider {
-  background-color: black;
+  background-color: #ffa500;
 }
 
 input:checked + .slider:before {
