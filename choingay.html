@@ -225,11 +225,7 @@
       function toggleFullScreen() {
         const iframe = document.getElementById("game-frame");
         if (!document.fullscreenElement) {
-            iframe.requestFullscreen().catch(err => {
-                showToast("⚠️ Trình duyệt không hỗ trợ toàn màn hình!");
-            });
-        } else {
-            document.exitFullscreen();
+            iframe.requestFullscreen()
         }
       }
       function logout() {
