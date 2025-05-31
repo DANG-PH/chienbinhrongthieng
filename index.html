@@ -180,7 +180,7 @@
       bgMusic.pause();
       toggleMusicBtn.textContent = "🔇";
     } else {
-      const savedTime = localStorage.getItem("bgMusicTime");
+      const savedTime = sessionStorage.getItem("bgMusicTime");
       if (savedTime) {
         bgMusic.currentTime = parseFloat(savedTime);
       }
@@ -200,7 +200,7 @@
       localStorage.setItem("musicPlaying", isMusicPlaying);
     });
     window.addEventListener("beforeunload", () => {
-      localStorage.setItem("bgMusicTime", bgMusic.currentTime);
+      sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
     });
   </script>
 </body>
