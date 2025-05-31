@@ -363,3 +363,19 @@ body.dark-mode button:hover {
     }
     
 }
+.music-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; 
+  z-index: 999;
+  background-color: #999;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 14px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.music-toggle-btn:hover {
+  background-color: #eee;
+}

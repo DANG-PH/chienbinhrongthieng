@@ -51,9 +51,7 @@
       <a href="gctkn.html"><button>PC</button></a>
       <a href="choingay.html"><button>IPHONE</button></a>
     </div>
-
   </div>
-
   <div class="bg-content1">
     <h2>Thông Tin Chung</h2>
     <p><strong>Chiến Binh Rồng Thiêng</strong> là trò chơi đối kháng trực tuyến với cốt truyện lấy cảm hứng từ bộ manga huyền thoại 7 Viên Ngọc Rồng. Người chơi sẽ hóa thân thành các chiến binh huyền thoại như Goku, Vegeta, Piccolo, Broly, Gohan,... để tham gia vào những trận chiến nghẹt thở. Hãy rèn luyện kỹ năng, tích lũy sức mạnh và phối hợp chiêu thức để trở thành chiến binh mạnh nhất vũ trụ!</p>
@@ -140,9 +138,10 @@
     </div>
   </div>
   <audio id="bg-music" autoplay loop>
-        <source src="sounds/op1.mp3" type="audio/mpeg">
+        <source src="sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
   </audio>
+  <button id="toggle-music" class="music-toggle-btn">🔇</button>
   <footer>
     <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
   </footer>
@@ -161,9 +160,7 @@
       document.body.classList.toggle("dark-mode", isDark);
       localStorage.setItem("darkMode", isDark);
     });
-    //audio 
-    const bgMusic = document.getElementById("bg-music");
-    bgMusic.volume = 0.2; // âm lượng nhỏ (20%)
+
     const isLoggedIn = sessionStorage.getItem("currentUser")
     if (!isLoggedIn) {
       window.onload = function () {
@@ -173,8 +170,38 @@
           link.href = "dangnhap.html"; // nếu chưa đăng nhập thì ép link về đăng nhập
         }});
     }}
+    const bgMusic = document.getElementById("bg-music");
+    bgMusic.volume=0.8
+    const toggleMusicBtn = document.getElementById("toggle-music");
+
+    let isMusicPlaying = localStorage.getItem("musicPlaying") !== "false"; // mặc định là true
+
+    if (!isMusicPlaying) {
+      bgMusic.pause();
+      toggleMusicBtn.textContent = "🔇";
+    } else {
+      const savedTime = localStorage.getItem("bgMusicTime");
+      if (savedTime) {
+        bgMusic.currentTime = parseFloat(savedTime);
+      }
+      bgMusic.play();
+      toggleMusicBtn.textContent = "🔊";
+    }
+
+    toggleMusicBtn.addEventListener("click", function () {
+      isMusicPlaying = !isMusicPlaying;
+      if (isMusicPlaying) {
+        bgMusic.play();
+        toggleMusicBtn.textContent = "🔊";
+      } else {
+        bgMusic.pause();
+        toggleMusicBtn.textContent = "🔇";
+      }
+      localStorage.setItem("musicPlaying", isMusicPlaying);
+    });
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("bgMusicTime", bgMusic.currentTime);
+    });
   </script>
-
-
 </body>
 </html>

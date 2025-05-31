@@ -109,9 +109,10 @@
         </div> 
     </div>
     <audio id="bg-music" autoplay loop>
-        <source src="sounds/op1.mp3" type="audio/mpeg">
+        <source src="sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
     </audio>
+    <button id="toggle-music" class="music-toggle-btn">🔇</button>
     <footer>
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
@@ -133,7 +134,37 @@
         });
         //audio 
         const bgMusic = document.getElementById("bg-music");
-        bgMusic.volume = 0.2; // âm lượng nhỏ (20%)
+        bgMusic.volume=0.8
+        const toggleMusicBtn = document.getElementById("toggle-music");
+
+        let isMusicPlaying = localStorage.getItem("musicPlaying") !== "false"; // mặc định là true
+
+        if (!isMusicPlaying) {
+          bgMusic.pause();
+          toggleMusicBtn.textContent = "🔇";
+        } else {
+          const savedTime = localStorage.getItem("bgMusicTime");
+          if (savedTime) {
+            bgMusic.currentTime = parseFloat(savedTime);
+          }
+          bgMusic.play();
+          toggleMusicBtn.textContent = "🔊";
+        }
+
+        toggleMusicBtn.addEventListener("click", function () {
+          isMusicPlaying = !isMusicPlaying;
+          if (isMusicPlaying) {
+            bgMusic.play();
+            toggleMusicBtn.textContent = "🔊";
+          } else {
+            bgMusic.pause();
+            toggleMusicBtn.textContent = "🔇";
+          }
+          localStorage.setItem("musicPlaying", isMusicPlaying);
+        });
+        window.addEventListener("beforeunload", () => {
+          localStorage.setItem("bgMusicTime", bgMusic.currentTime);
+        });
         const loginBtn = document.getElementById("login-btn");
         const loggedInUser = JSON.parse(sessionStorage.getItem("currentUser"));
         const container = document.getElementById("game-container");
