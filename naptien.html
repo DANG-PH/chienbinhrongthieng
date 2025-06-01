@@ -9,7 +9,7 @@
   <style>
     .goi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
@@ -111,7 +111,17 @@
     opacity: 0;
     pointer-events: none;
     }
-
+    @media (max-width: 600px) {
+      .goi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .goi-nap {
+        height:175px
+      }
+      .goi-nap img{
+        height:110px
+      }
+    }
   </style>
 </head>
 <body>
@@ -376,16 +386,13 @@
         capBac.textContent = getCapBac(tongZeniDaNap);
         }
         function showToast(message) {
-        const toast = document.getElementById("toast");
-        toast.textContent = message;
-        toast.className = "show";
-        toast.style.opacity = 1;
-        toast.style.transform = "translateX(-50%) translateY(0)";
-        setTimeout(() => {
-            toast.className = "hidden";
-            toast.style.opacity = 0;
-        }, 3000);
-        }
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.className = "show";
+            setTimeout(() => {
+                toast.className = "hidden";
+            }, 3000);
+        } 
     </script>
 </body>
 </html>
