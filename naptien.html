@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
   <style>
+    .vip {
+      margin: 0px !important;
+    }
+    .vip strong{
+      color:	#1976d2;
+    }
+    body.dark-mode .vip strong{
+      color:	#ffa500;
+    }
     .goi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -176,6 +185,10 @@
         <h2>Nạp Zeni</h2>
         <p>Xin chào chiến binh: <span id="ten-nguoi-choi"></span></p>
         <p>Số Zeni hiện tại: <span id="kc-hientai">0</span></p>
+        <div class="download-buttons" style="display:flex;justify-content: space-between;align-items: center;margin-top:-17px">
+           <p class="vip">Cấp bậc chiến binh: <strong id="cap-bac"><span></span></strong></p>
+          <button onclick="logout()" style="margin-bottom:12px;margin-top:0px;padding:5px 8px">Đăng xuất</button>
+        </div>
         <div class="goi-grid">
             <div class="goi-nap" data-value="10000">
                 <img src="images/50k.png" alt="10k">
@@ -222,13 +235,11 @@
         </div>
 
         <p id="tong-nap">Tổng tiền: 0 VNĐ | Tổng Zeni: 0</p>
-        <button onclick="napTien()">Nạp Tiền</button>
+        <button class="download-buttons" onclick="napTien()">Nạp Tiền</button>
         <details>
             <summary>QR donate</summary>
             <img id="qr-anh" src="images/qr.jpg" alt="QR Code">
         </details>
-        <h2>Cấp bậc chiến binh</h2>
-        <p><strong id="cap-bac"></strong></p>
 
         <h2>Lịch sử nạp Zeni</h2>
         <table border="1" style="width:100%;text-align:center">
@@ -381,11 +392,15 @@
 
         // Xác định cấp bậc
         function getCapBac(tong) {
-        if (tong < 100) return "🥉 Tân Binh";
-        if (tong < 500) return "🥈 Chiến Binh Đồng";
-        if (tong < 1000) return "🥇 Chiến Binh Bạc";
-        if (tong < 2000) return "⚔️ Chiến Binh Vàng";
-        if (tong < 5000) return "🔥 Chiến Binh Rồng";
+        if (tong < 1000) return "VIP 0";
+        if (tong < 5000) return "VIP 1";
+        if (tong < 10000) return "VIP 2";
+        if (tong < 20000) return "VIP 3";
+        if (tong < 50000) return "VIP 4";
+        if (tong < 100000) return "VIP 5";
+        if (tong < 200000) return "VIP 6";
+        if (tong < 300000) return "VIP 7";
+        if (tong < 500000) return "VIP 8";
         return "👑 Huyền Thoại Rồng Thiêng";
         }
 
@@ -402,6 +417,11 @@
                 toast.className = "hidden";
             }, 3000);
         } 
+        function logout() {
+        sessionStorage.removeItem("currentUser");
+        showToast("✅ Đăng xuất thành công!");
+        setTimeout(() => location.reload(), 1000); // Tải lại trang để quay về chế độ chưa đăng nhập
+      }
     </script>
 </body>
 </html>
