@@ -313,10 +313,6 @@
         });
         //nap
         const user = JSON.parse(sessionStorage.getItem("currentUser"));
-        if (!user) {
-            alert("Bạn cần đăng nhập để nạp tiền!");
-            window.location.href = "dangnhap.html";
-        }
         const users = JSON.parse(localStorage.getItem("users"));
         const userr = users.find(u => u.email === user.email);
         document.getElementById("ten-nguoi-choi").textContent = user.username;
@@ -339,6 +335,11 @@
         }
 
         function napTien() {
+        if (!user) {
+            alert("Bạn cần đăng nhập để nạp tiền!");
+            window.location.href = "dangnhap.html";
+            return
+        }
         if (tongTien === 0) {
             showToast("⚠️ Bạn chưa chọn gói nạp nào.");
             return;
