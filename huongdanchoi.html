@@ -6,6 +6,250 @@
   <title>Chiến Binh Rồng Thiêng</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
+  <style>
+    details {
+      padding: 10px 10px;
+      border-left: 5px solid #555;
+      border-radius: 5px;
+      margin: 10px 0;
+      cursor: pointer;
+      box-shadow: 0px 0px 38px rgba(0,0,0,0.2);
+    }
+    details:hover{
+      transform: translateX(-4px);
+      transition: .2s;
+    }
+    details summary{
+      font-size: 20px;
+      font-weight: bold;
+    }
+    body.dark-mode details{
+      background: #222;
+      border-left-color:#ffa500 ;
+    }
+
+    .huong-dan-choi .character {
+      /* border-left: 5px solid #8aa4c1; */
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      height:938px
+    }
+    .huong-dan-choi .character h3{
+      margin-top: -20px;
+    }
+    .nutbam {
+      margin-top: 475px;
+    }
+    .trai button:hover{
+      transform: translateX(-8px);
+      transition: transform 0.3s ;
+    }
+    .phai button:hover{
+      transform: translateX(8px);
+      transition: transform 0.3s ;
+    }
+
+    .huong-dan-choi table {
+      width: 100%;
+      margin-top: 1rem;
+      border-collapse: collapse;
+    }
+    .huong-dan-choi table th,
+    .huong-dan-choi table td {
+      border: 1px solid #999;
+      padding: 10px;
+    }
+
+    .huong-dan-choi .chedo details {
+      padding: 10px 15px;
+      border-left: 4px solid #555;
+      border-radius: 5px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .huong-dan-choi .flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+    .huong-dan-choi .p1:hover{
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 38px rgba(0,0,0,0.3);
+      transition: .4s;
+    }
+    .huong-dan-choi .p2:hover{
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 38px rgba(0,0,0,0.3);
+      transition: .4s;
+    }
+    body.dark-mode .p1:hover{
+      box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
+    }
+    body.dark-mode .p2:hover{
+      box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
+    }
+    .dieukhien{
+      border-left: 5px solid #555;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 12px 12px 38px rgba(0,0,0,0.2);
+    }
+    .howtoplay-box {
+      border-left: 5px solid #555;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .howtoplay-box:hover{
+      box-shadow: 0px 0px 38px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+      transition: .4s;
+    }
+    body.dark-mode .howtoplay-box:hover{
+      box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
+    }
+    body.dark-mode .howtoplay-box {
+      background: #1b1b1b;
+      border-left-color: #00bfff;
+    }
+    body.dark-mode .howtoplay-box h3 {
+      color: #ffa500;
+    }
+
+    .hud-box {
+      background: rgba(255,255,255,0.05);
+      border-left: 5px solid #555;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      margin-top: 1rem;
+    }
+    .hud-box:hover{
+      box-shadow: 0px 0px 38px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+      transition: .4s;
+    }
+    body.dark-mode .hud-box:hover{
+      box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
+    }
+    body.dark-mode .hud-box {
+      background: #1a1a1a;
+      border-left-color: #00bfff;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .tip-card {
+      background: rgba(255,255,255,0.1);
+      border-left: 5px solid #555;
+      padding: 1rem;
+      border-radius: 6px;
+      font-weight: 500;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    }
+    .tip-card:hover{
+      box-shadow: 0px 0px 38px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+      transition: .4s;
+    }
+    body.dark-mode .tip-card:hover{
+      box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
+    }
+    body.dark-mode .tip-card {
+      background: #222;
+      border-left-color: #00bfff;
+    }
+    .chedo details {
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    /* Dark mode*/
+    body.dark-mode .huong-dan-choi .character {
+      background: #222;
+    }
+    body.dark-mode .dieukhien {
+      background: #222;
+      border-left-color: #ffa500;
+    }
+    body.dark-mode .huong-dan-choi table {
+      background: #1a1a1a;
+      color: #ccc;
+    }
+
+    body.dark-mode .huong-dan-choi table th {
+      background: #333;
+      color: #fff;
+    }
+
+    body.dark-mode .huong-dan-choi .chedo details {
+      background: #2a2a2a;
+      border-left:4px solid #ffa500 ;
+    }
+
+    body.dark-mode .huong-dan-choi h2 {
+      color: #ffa500;
+      border-color: #ffa500;
+    }
+    @media (max-width: 768px){
+      .character p, ul li{
+        font-size: 10px;
+      }
+      .p1 {
+        width: 100% !important;
+        margin-bottom: -25px;
+      }
+      .p2 {
+        width: 100% !important;
+      }
+      .dieukhien ul li {
+        font-size: 12px;
+      }
+      .cachchoi ul{
+        margin-top:-10px
+      }
+      .cachchoi ul li{
+        font-size: 12px;
+      }
+      .hud ul li {
+        font-size: 12px;
+      }
+      .meochoi{
+        font-size: 12px;
+      }
+      .tips-grid{
+        grid-template-columns: repeat(2,1fr);
+      }
+      .huong-dan-choi table {
+        font-size: 11px;
+      }
+      .huong-dan-choi .chedo{
+        font-size: 12px;
+      }
+      .pb ul li{
+        font-size: 10px;
+      }
+      .huong-dan-choi .character{
+        height:670px;
+      }
+      .huong-dan-choi .character img{
+        height:220px !important;
+      }
+      button{
+        padding:4px 8px;
+        font-size:8px;
+      }
+      .nutbam {
+        margin-top: 240px;
+      }
+      details summary{
+        font-size: 13px !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="header">
@@ -35,16 +279,327 @@
         </div>
     </div>
 
-    <div class="bg-content1">
+    <div class="bg-content1"style="padding-top: 1px;">
         <div style="float:right;margin-top:5px">
-            <label class="switch">
+            <label class="switch" style="margin-top:20px;margin-right: -17px;">
                 <input type="checkbox" id="darkModeToggle">
                 <span class="slider round"></span>
             </label>
         </div>
-        <h2>Giới Thiệu Game</h2>
-        <p><strong>Chiến Binh Rồng Thiêng</strong> là một tựa game đối kháng hành động 2 người chơi, được xây dựng hoàn toàn bằng Python và thư viện Pygame. Đây là một dự án game độc lập với hệ thống kỹ năng và biến hình sâu sắc, mô phỏng lại những trận chiến nảy lửa giữa các chiến binh huyền thoại trong vũ trụ Dragon Ball. <br> Người chơi có thể lựa chọn 1 trong 5 nhân vật: Goku, Vegeta, Piccolo, Broly, hoặc Gohan, mỗi nhân vật đều sở hữu bộ kỹ năng riêng, từ khả năng phòng thủ, stun đối thủ, tăng sát thương, hồi máu đến những chiêu cuối mang tính "kết liễu". Game hỗ trợ cả chế độ PvP 2 người trên cùng máy và chế độ PvE với AI. <br>Hệ thống gameplay được thiết kế tỉ mỉ: mỗi nhân vật có thanh HP, thanh KI (năng lượng), kỹ năng thường (Skill 1, 2, 3, 4), chiêu cuối (Ultimate), và hai trạng thái biến hình đặc biệt – biến hình cấp T (nâng cao năng lực) và cấp O (hình thái tối thượng). Một số kỹ năng phụ thuộc vào tình trạng HP (như Gohan có thể hóa Max Beast nếu HP dưới 40%). Cơ chế dash, combo, phòng thủ, thời gian hồi chiêu và hiệu ứng đòn đánh đều được lập trình chi tiết, tạo nên một trải nghiệm đối kháng chiến thuật nhưng vẫn đậm chất hành động.</p>
+        <div style="text-align: center;margin-top:40px">
+          <h2>Huyền thoại không sinh ra – họ được rèn nên qua chiến đấu!</h2>
+          <p><i><b>Trước khi bước vào vinh quang, bạn phải học cách chiến đấu như một chiến binh thực thụ. Từ những đòn đánh đầu tiên, cách né tránh hiểm họa, đến những chiêu thức tối thượng – đây là nơi bạn tôi luyện bản thân để viết nên sử thi Rồng Thiêng bất diệt!</b></i></p>
+        </div>
     </div>
+    <div class="bg-content1 huong-dan-choi">
+      <h2>Giới Thiệu Nhân Vật</h2>
+      <details>
+        <summary>Thông tin chi tiết Goku</summary>
+        <div class="character">
+          <h3>Chiến Binh Huyền Thoại</h3>
+          <p><b>HP:</b> 360 | <b>Damage:</b> 10</p>
+          <ul>
+            <li>Skill đặc biệt (I): Goku tung chưởng đánh choáng – làm kẻ địch bất động trong 1 giây. Đây là kỹ năng mở giao tranh lý tưởng hoặc dùng để ngắt đòn biến hình/ultimate của đối phương.</li>
+            <li>T (Kaioken): Kích hoạt trạng thái Kaioken giúp Goku tăng 12 sát thương, nhưng phải đánh đổi bằng máu – mỗi đòn đánh mất 7 máu, và còn mất 3 máu mỗi giây khi duy trì. Cực mạnh nhưng nguy hiểm nếu dùng sai thời điểm.</li>
+            <li>O (Goku UI): Goku đạt cảnh giới vô cực – né toàn bộ sát thương trong 6 giây, loại bỏ hoàn toàn hiệu ứng mất máu từ Kaioken nhưng vẫn giữ được sát thương cao. Đây là dạng biến hình mạnh toàn diện cả công lẫn thủ.</li>
+            <li>Ưu điểm: Di chuyển linh hoạt, khả năng né tránh cao, kỹ năng gây choáng tốt. Khi biết căn thời gian dùng UI đúng lúc, Goku có thể hoàn toàn vô hiệu hóa combo của địch.</li>
+            <li>Nhược điểm: Dễ mất máu nếu không kiểm soát tốt Kaioken. Nếu dùng Kaioken sớm mà bị phản đòn, Goku sẽ tự rút cạn máu chính mình.</li>
+            <li>Chiến thuật gợi ý: Dùng I để stun → kết hợp với T (Kaioken) → nếu địch phản công thì bật O để né toàn bộ. Goku rất mạnh khi người chơi biết kiểm soát rủi ro máu.</li>
+            <li>Bị khắc chế bởi: Piccolo (phản đòn), Broly (càng bị đánh càng mạnh).</li>
+          </ul>
+          <p><i>Goku là hiện thân của tinh thần chiến đấu không ngừng – dám hy sinh, dám vượt giới hạn bản thân vì lý tưởng. Trong tay người chơi tinh tế, Goku không bao giờ chết – anh luôn trở lại mạnh mẽ hơn.</i></p>
+
+          <div style="position:relative;width: 100%;">
+            <img src="images/ggoku.png" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="images/ggoku1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="images/ggoku2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+          </div>
+          <div class="nutbam">
+            <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
+            <a href="choingay.html" style="float:right" class="phai"><button>Bắt đầu chơi 🔸</button></a>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>Thông tin chi tiết Vegeta</summary>
+        <div class="character">
+          <h3>Hoàng Tử Saiyan</h3>
+          <p><b>HP:</b> 300 | <b>Damage:</b> 15</p>
+          <ul>
+            <li>Skill đặc biệt (I): Vegeta tập trung sức mạnh, tăng sát thương đòn đánh trong 3 giây. Dễ dàng gây đột biến nếu dùng đúng lúc kết hợp combo .</li>
+            <li>T (Khỉ 1): Trong trạng thái Khỉ 1, đòn đánh sẽ hút máu và được miễn tử khi sắp hy sinh, giúp hắn hồi sinh từ tuyệt vọng nếu dùng đúng thời điểm.</li>
+            <li>O (Khỉ 7): Vegeta hóa giải mọi giới hạn, tăng 100 HP và thêm 10 sát thương trong 5 giây. Dạng này rất thích hợp khi bạn đang dồn ép đối thủ, hoặc cần lật kèo với burst dame cực mạnh.</li>
+            <li>Ưu điểm: Sát thương rất cao, kỹ năng đơn giản dễ kết hợp, khả năng hồi máu khi biến hình giúp Vegeta mạnh mẽ dần về cuối trận. Rất nguy hiểm nếu để hắn tích đủ KI và không bị ngắt combo.</li>
+            <li>Nhược điểm: Máu thấp dễ bị khống chế. Nếu không tận dụng được thời gian bất tử hoặc bị choáng ngay sau biến hình, Vegeta sẽ mất toàn bộ lợi thế.</li>
+            <li>Chiến thuật gợi ý: Dùng I → T để buff + bất tử → sau đó bật O khi đối phương đã sơ hở. Đây là combo lý tưởng để gây áp lực cực mạnh trong giao tranh tầm trung.</li>
+            <li>Bị khắc chế bởi: Piccolo (vì phản đòn và hồi máu), Gohan Beast (vì phản dame mạnh khi Vegeta burst sát thương).</li>
+          </ul>
+          <p style="margin-top: 10px;"><i>Vegeta là hiện thân của lòng kiêu hãnh và sự khát khao vượt qua mọi giới hạn. Trong tay người chơi tinh tế, Vegeta có thể trở thành cơn ác mộng với bất kỳ đối thủ nào dám coi thường sức mạnh hoàng tộc Saiyan.</i></p>
+
+          <div style="position:relative;width: 100%;">
+            <img src="images/gvegeta.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="images/gvegeta1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="images/gvegeta2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+          </div>
+          <div class="nutbam">
+            <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
+            <a href="choingay.html" style="float:right" class="phai"><button>Bắt đầu chơi 🔸</button></a>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>Thông tin chi tiết Piccolo</summary>
+        <div class="character">
+          <h3>Ma Vương</h3>
+          <p><b>HP:</b> 440 | <b>Damage:</b> 8</p>
+          <ul>
+            <li>Skill đặc biệt (I): Piccolo hấp thụ năng lượng hồi ngay 120 HP. Đây là chiêu thức hồi phục duy nhất trong trò chơi, giúp kéo dài trận đấu và lật kèo nếu biết giữ khoảng cách.</li>
+            <li>T (Final Piccolo): Biến hình thành trạng thái Final – nhận một lớp khiên phản đòn trong 4 giây. Trong 2 giây đầu, Piccolo còn miễn nhiễm hoàn toàn sát thương, khiến đối thủ phải dè chừng tấn công.</li>
+            <li>O (Orange Piccolo): Piccolo triệu hồi 2 phân thân độc lập, cùng chiến đấu và bắn đạn hỗ trợ trong 5 giây. Trong thời gian này, bản thân Piccolo còn hồi máu dần theo chu kỳ, cực kỳ khó bị hạ gục.</li>
+            <li>Ưu điểm: Máu trâu nhất game, khả năng hồi phục và phản dame. Dễ kéo dài trận đấu và tạo áp lực bền vững, đặc biệt khó chịu khi dùng O đúng lúc.</li>
+            <li>Nhược điểm: Sát thương cơ bản thấp. Nếu không biết canh thời điểm dùng I hoặc bị ép liên tục, Piccolo khó tạo đột biến.</li>
+            <li>Chiến thuật gợi ý: Phòng thủ đầu trận, tích KI → dùng I để hồi máu khi thấp → bật T để phản dame nếu bị dồn sát thương → O để kết hợp hồi + phân thân ép góc.</li>
+            <li>Bị khắc chế bởi: Gohan (phản dame Beast), Broly (gây sát thương lan, phá phân thân).</li>
+          </ul>
+          <p><i>Là một chiến binh vừa thông minh vừa lạnh lùng, Piccolo không bao giờ hấp tấp. Sức mạnh của ông đến từ sự tính toán – và khi bạn mắc sai lầm, ông sẽ phản lại toàn bộ.</i></p>
+
+          <div style="position:relative;width: 100%;">
+            <img src="images/gpiccolo.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="images/gpiccolo1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="images/gpiccolo2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+          </div>
+          <div class="nutbam">
+            <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
+            <a href="choingay.html" style="float:right" class="phai"><button>Bắt đầu chơi 🔸</button></a>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>Thông tin chi tiết Broly</summary>
+        <div class="character">
+          <h3>Siêu saiyan huyền thoại</h3>
+          <p><b>HP:</b> 400 | <b>Damage:</b> 12</p>
+          <ul>
+            <li>Skill đặc biệt (I): Kích hoạt trạng thái Berserker – Broly tăng tốc đánh đáng kể và khiến địch bị giảm KI mỗi khi bị tấn công. Dùng để khép góc và làm chậm khả năng phản công của địch.</li>
+            <li>T (LSSJ): Biến hình Legendary Super Saiyan – tăng sát thương theo thời gian, càng bị đánh càng mạnh. Đồng thời giảm sát thương nhận vào 25%, giúp Broly sống lâu trong giao tranh.</li>
+            <li>O (SSJ4): Broly phát nổ năng lượng AOE dựa trên lượng máu đã mất, gây sát thương lớn diện rộng, đồng thời hồi máu và tăng damage thêm nữa. Đây là chiêu “lật kèo” cực mạnh.</li>
+            <li>Ưu điểm: Càng bị đánh càng mạnh – thích hợp đánh lâu dài. Kết hợp O đúng lúc có thể gây nổ lớn khiến địch bay máu gần hết. Rất khó bị out-damage về cuối trận.</li>
+            <li>Nhược điểm: Giai đoạn đầu game yếu – dễ bị khống chế hoặc bị ép trước khi kịp biến hình. Di chuyển chậm hơn các nhân vật khác.</li>
+            <li>Chiến thuật gợi ý: Dùng I để làm giảm tốc địch → bật T sau khi nhận sát thương vài lần → cuối trận dùng O để gây sát thương diện rộng + hồi máu lật ngược thế cờ.</li>
+            <li>Bị khắc chế bởi: Goku (né toàn bộ sát thương với UI), Gohan (phản dame theo %).</li>
+          </ul>
+          <p><i>Broly là quái vật không thể kiểm soát – nếu để hắn sống quá lâu, mọi đòn đánh của bạn sẽ trở nên vô nghĩa. Người chơi Broly giỏi là người biết "chịu đòn" để trở nên không thể ngăn cản.</i></p>
+
+          <div style="position:relative;width: 100%;">
+            <img src="images/gbroly.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="images/gbroly1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="images/gbroly2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+          </div>
+          <div class="nutbam">
+            <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
+            <a href="choingay.html" style="float:right" class="phai"><button>Bắt đầu chơi 🔸</button></a>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>Thông tin chi tiết Gohan</summary>
+        <div class="character">
+          <h3>Great Saiyaman</h3>
+          <p><b>HP:</b> 380 | <b>Damage:</b> 10</p>
+          <ul>
+            <li>Skill đặc biệt (I): Tùy trạng thái, Gohan có thể tạo khiên phản đòn hoặc buff tốc độ hồi KI. Đây là chiêu cực kỳ linh hoạt để chuẩn bị cho biến hình hoặc phản công.</li>
+            <li>T (SSJ1): Gohan hóa Super Saiyan cấp 1 – tăng 8 sát thương và giảm cooldown kỹ năng 50%. Phù hợp với lối đánh combo nhanh, ép đối thủ không kịp phòng thủ.</li>
+            <li>O (Beast / Max Beast): Dạng biến hình sẽ thay đổi tùy % máu. Nếu máu ≥ 40%, Gohan thành Beast: gây dame lớn và phản đòn nhẹ. Nếu máu < 40%, Max Beast kích hoạt – gây sát thương cực mạnh và phản đòn gấp đôi.</li>
+            <li>Ưu điểm: Biến hóa cực tốt, mạnh dần theo nhịp trận đấu. Nếu biết giữ máu ở đúng ngưỡng, Gohan có thể tung ra cú phản đòn khép lại trận đấu ngay lập tức.</li>
+            <li>Nhược điểm: Cần tính toán nhiều – nếu biến hình sai thời điểm hoặc để địch dứt điểm sớm, Gohan sẽ mất cơ hội tung Max Beast. Yếu ở đầu trận.</li>
+            <li>Chiến thuật gợi ý: Đánh giữ khoảng cách → dùng T để vào SSJ1 → giảm cooldown tích skill → khi còn < 40% HP bật O để phản dame bất ngờ và kết liễu.</li>
+            <li>Bị khắc chế bởi: Vegeta (burst sát thương nhanh), Goku (có khả năng né hoàn toàn).</li>
+          </ul>
+          <p><i>Gohan là minh chứng cho sức mạnh tiềm ẩn – càng bị dồn ép, cậu càng bộc phát. Nếu bạn là người chơi giỏi kiểm soát tình huống và thời điểm, Gohan chính là át chủ bài trong tay bạn.</i></p>
+
+          <div style="position:relative;width: 100%;">
+            <img src="images/ggohan.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="images/ggohan1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="images/ggohan2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+          </div>
+          <div class="nutbam">
+            <a href="choingay.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
+            <a href="huongdanchoi.html#goku" style="float:right" class="phai"><button>Bắt đầu chơi 🔸</button></a>
+          </div>
+        </div>
+      </details>
+      <h2>🎮 Điều Khiển Cơ Bản</h2>
+      <div class="flex">
+        <div class="p1 dieukhien" style="width: 48%;">
+          <h3>Player 1</h3>
+          <ul>
+            <li><b>A / D:</b> Di chuyển sang trái/phải</li>
+            <li><b>W:</b> Nhảy lên – dùng để né đòn beam hoặc bay lên tấn công</li>
+            <li><b>S:</b> Phòng thủ – giảm 50% sát thương nhận vào, kháng hiệu ứng choáng</li>
+            <li><b>J:</b> Đánh thường – sát thương cơ bản, không tốn KI</li>
+            <li><b>K:</b> Nhảy (phím phụ) – có thể dùng khi giữ combo</li>
+            <li><b>L:</b> Dash nhanh – dùng để né beam hoặc áp sát kẻ địch</li>
+            <li><b>U / I / Y / W:</b> Kỹ năng đặc biệt (tùy nhân vật, có thể stun, buff, hồi máu...)</li>
+            <li><b>T:</b> Biến hình cấp 1 – thường dùng để mở khóa khả năng đặc biệt hoặc trạng thái mạnh hơn</li>
+            <li><b>O:</b> Biến hình cấp 2 (ultimate form) – cần T trước, tiêu tốn KI, rất mạnh</li>
+            <li><b>H:</b> Ultimate Beam – chiêu cực mạnh tốn 60 KI, gây sát thương lớn theo đường thẳng</li>
+          </ul>
+        </div>
+
+        <div class="p2 dieukhien" style="width: 47%;">
+          <h3>Player 2</h3>
+          <ul>
+            <li><b>← / →:</b> Di chuyển trái/phải</li>
+            <li><b>↑:</b> Nhảy – dùng né đòn hoặc kết hợp combo</li>
+            <li><b>↓:</b> Phòng thủ – giảm sát thương nhận, chặn beam nếu đúng thời điểm</li>
+            <li><b>1:</b> Đánh thường</li>
+            <li><b>2:</b> Nhảy phụ</li>
+            <li><b>0:</b> Dash – lao nhanh theo hướng đang nhìn</li>
+            <li><b>4 / 5 / ↑ / 6:</b> Skill đặc biệt – khác nhau theo nhân vật</li>
+            <li><b>9:</b> Biến hình cấp 1 – thường tăng sức mạnh/giảm cooldown</li>
+            <li><b>7:</b> Biến hình cấp 2 – dạng tối thượng (phải đã dùng 9 trước)</li>
+            <li><b>8:</b> Ultimate Beam – dùng để kết liễu hoặc ép đối thủ lùi lại</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cachchoi">
+        <h2>🕹️ Cách Chơi Chi Tiết</h2>
+        <div class="howtoplay-box">
+          <h3>1️⃣ Bắt đầu</h3>
+          <p>Bạn và đối thủ (người hoặc AI) sẽ chọn một trong 5 nhân vật chính – mỗi người mang phong cách chiến đấu riêng: Goku cơ động – Vegeta dồn dame – Piccolo trâu bò – Broly dồn nén – Gohan thiên biến vạn hóa.</p>
+
+          <h3>2️⃣ Mục tiêu trận đấu</h3>
+          <p>Mỗi trận là một màn đấu tay đôi khốc liệt. Nhiệm vụ của bạn là:</p>
+          <ul>
+            <li>Giảm <b>HP đối phương</b> về 0 trước.</li>
+            <li>Sử dụng khéo <b>Kỹ năng, né đòn, phòng thủ, biến hình</b> và cả Ultimate Beam để kết liễu.</li>
+          </ul>
+
+          <h3>3️⃣ Nhịp độ trận đấu</h3>
+          <p>Trận đấu diễn ra theo dạng đối kháng liên tục – bạn không có thời gian “nghỉ ngơi”. Mỗi giây bạn không hành động là cơ hội cho đối thủ:</p>
+          <ul>
+            <li><b>Đầu trận:</b> Là thời điểm farm KI, né beam đầu và dò kỹ năng địch.</li>
+            <li><b>Giữa trận:</b> Thường là lúc cả hai đều biến hình cấp 1 – đòn đánh, phản dame, tốc độ trở nên dồn dập.</li>
+            <li><b>Cuối trận:</b> Nếu một trong hai đủ KI, chiêu Ultimate sẽ trở thành “kết liễu”. Lúc này bạn cần cực kỳ tỉnh táo để phản hoặc tránh.</li>
+          </ul>
+
+          <h3>4️⃣ Cách sử dụng kỹ năng hợp lý</h3>
+          <p>Không phải cứ có KI là dùng skill. Mỗi nhân vật có cách dùng riêng:</p>
+          <ul>
+            <li><b>Piccolo:</b> Dùng I đúng lúc để hồi máu → kéo dài trận đấu.</li>
+            <li><b>Goku:</b> Dùng T (Kaioken) sớm để áp đảo – nhưng nếu không khéo sẽ tự “đốt máu”.</li>
+            <li><b>Gohan:</b> Cố gắng giữ mạng dưới 40% → O (Beast Mode) trở thành đòn kết liễu toàn diện.</li>
+          </ul>
+
+          <h3>5️⃣ Giao tranh với AI</h3>
+          <p>AI trong game không “ngờ nghệch” như bạn nghĩ. Chúng có thể:</p>
+          <ul>
+            <li>Né đòn tầm xa nếu bạn spam beam không đúng thời điểm</li>
+            <li>Phòng thủ khi bạn vừa biến hình → né phản đòn hoặc chờ bạn hết hiệu ứng</li>
+            <li>Sử dụng combo + dash để khép góc bạn</li>
+          </ul>
+          <p>Vì vậy hãy luôn thay đổi nhịp, dụ AI dùng chiêu hụt và phản công.</p>
+
+          <h3>6️⃣ Khi nào nên biến hình / dùng ultimate?</h3>
+          <ul>
+            <li>Dùng <b>T</b> sớm nếu bạn chơi nhân vật có lợi biến hình (Goku, Vegeta)</li>
+            <li>Dùng <b>O</b> khi bạn sắp thua (cần cứu vãn), hoặc đang lấn áp → snowball trận đấu</li>
+            <li>Dùng <b>H</b> (Ultimate Beam) khi: địch đang ở gần – hết KI – vừa phòng thủ hụt</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hud">
+        <h2>🖥️ Giao Diện Trận Đấu (HUD)</h2>
+        <div class="hud-box">
+          <ul>
+            <li><b>🔴 Thanh HP:</b> Hiển thị máu còn lại. Khi giảm về 0, nhân vật thua trận. Một số dạng biến hình (Gohan Max Beast, Broly SSJ4) có thể tăng giới hạn HP tạm thời.</li>
+            <li><b>🔵 Thanh KI:</b> Thanh năng lượng. Dùng để tung kỹ năng, biến hình, ultimate. Tăng lên khi đánh trúng, né đòn hoặc chờ hồi tự nhiên.</li>
+            <li><b>✨ Viền nhân vật:</b> Mỗi trạng thái chiến đấu sẽ hiện viền khác nhau:<br>
+              🔴 Đỏ: Đang ở Kaioken hoặc SSJ4 hoặc đang bị choáng<br>
+              🟢 Xanh lá: Đang có khiên phản đòn (Piccolo, Gohan)<br>
+              🟣 Tím: Buff đặc biệt đang hoạt động (Vegeta, Gohan)<br>
+              🔵 Xanh dương: Đang phòng thủ
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="meochoi">
+        <h2>💡 Mẹo Chơi Hay</h2>
+        <div class="tips-grid">
+          <div class="tip-card">✨ Dùng <b>Gohan Beast</b> khi máu < 40% để phản dame cực mạnh và chống choáng!</div>
+          <div class="tip-card">🚀 Khi đối thủ dùng Beam, hãy <b>Dash hoặc nhảy lên</b> thay vì đứng thủ — đỡ được toàn bộ sát thương.</div>
+          <div class="tip-card">🛡️ Nhấn <b>S hoặc ↓</b> để phòng thủ khi nghi ngờ đối phương dùng chiêu mạnh — giảm 50% sát thương!</div>
+          <div class="tip-card">🔥 Kết hợp biến hình + Ultimate để <b>ép đối phương vào góc và dồn chết</b>!</div>
+          <div class="tip-card">🎯 AI trong game thông minh, nếu spam chiêu quá nhiều bạn sẽ bị phản đòn — hãy quan sát, fake động tác và lừa né!</div>
+          <div class="tip-card">🔥 Cố gắng dash hoặc nhảy để né và giữ mức KI cho hợp lí để giành chiến thắng!</div>
+        </div>
+      </div>
+      <div>
+        <h2>🧩 Giải Thích Skill / Biến Hình</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Phím</th>
+              <th>Hiệu ứng</th>
+              <th>Nhân vật</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>T</b></td>
+              <td>Biến hình cấp 1 – mở khóa dạng mạnh hơn, tăng sức mạnh hoặc khả năng đặc biệt (miễn khống, giảm cooldown...)</td>
+              <td>Tất cả</td>
+            </tr>
+            <tr>
+              <td><b>O</b></td>
+              <td>Biến hình cấp 2 (tối thượng) – cần đã dùng T trước. Dạng này thường buff mạnh hoặc mở skill cực mạnh (AOE, hồi sinh...)</td>
+              <td>Tất cả</td>
+            </tr>
+            <tr>
+              <td><b>H</b></td>
+              <td>Ultimate Beam – tốn 60 KI, tạo beam gây sát thương lớn theo đường thẳng. Nếu trúng sẽ gây damage cực cao hoặc hiệu ứng phụ (stun, slow...)</td>
+              <td>Tất cả</td>
+            </tr>
+            <tr>
+              <td><b>I</b></td>
+              <td>Kỹ năng đặc biệt cấp 2 – thường là buff (Vegeta), heal (Piccolo), hoặc phản dame (Gohan Beast)</td>
+              <td>Tùy nhân vật</td>
+            </tr>
+            <tr>
+              <td><b>U / W / Y</b></td>
+              <td>Kỹ năng phụ – stun, bắn đạn, gây debuff hoặc tạo hiệu ứng riêng cho từng nhân vật</td>
+              <td>Tùy nhân vật</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div>
+        <h2>🎯 Chế Độ Chơi</h2>
+        <div class="chedo">
+          <details>
+            <summary><b>👥 PvP – 2 người chơi</b></summary>
+            <p style="margin-top:7px">Hai người điều khiển trên cùng thiết bị – mỗi người chọn nhân vật, chiến đấu bằng kỹ năng, biến hình và phản đòn thông minh.</p>
+          </details>
+          <details>
+            <summary><b>🤖 PvE – Đấu AI</b></summary>
+            <p style="margin-top:7px">Đấu với AI có khả năng né beam, phản đòn, sử dụng chiêu chuẩn xác. Càng về sau AI càng khó hơn.</p>
+          </details>
+        </div>
+      </div>
+      <h2>📜 Phiên Bản & Cập Nhật</h2>
+      <div class="pb" style="border-left:5px solid #ffa500;border-radius: 5px;padding:5px 0px">
+        <ul>
+          <li><b>Phiên bản:</b> v4.0</li>
+          <li>Thêm nhân vật Gohan + Beast form</li>
+          <li>Cải thiện AI: biết phòng thủ, dash và combo</li>
+        </ul>
+      </div>
+    </div>
+
     <audio id="bg-music" autoplay loop>
         <source src="sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.

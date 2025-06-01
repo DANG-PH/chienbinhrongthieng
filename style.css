@@ -254,7 +254,12 @@ body.dark-mode {
   background: #121212;
   color: #eee;
 }
-
+body.dark-mode .bg-content h2{
+  color:#ffa500;
+}
+body.dark-mode .bg-content1 h2{
+  color:#ffa500;
+}
 body.dark-mode .bg-content,
 body.dark-mode .bg-content1 {
   background: #1e1e1e;
