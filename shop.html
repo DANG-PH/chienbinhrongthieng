@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chiến Binh Rồng Thiêng</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/icongame1.png" type="image/png" />
+</head>
+<body>
+  <div class="header">
+    <div style="overflow: hidden;">
+      <video autoplay muted loop playsinline preload="auto" poster="images/huongdanchoi2.webp" class="header-video" style="animation: vid1 10s infinite;height:120%;filter: brightness(0.9)">
+        <source src="images/huongdanchoi2.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline preload="auto" poster="images/nhanvat1.webp" class="header-video" style="animation: vid2 10s infinite;filter: brightness(0.9)">
+        <source src="images/nhanvat1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+        <div class="header-content" >
+            <h1></h1>
+            <div>
+                <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="nhanvat.html">Nhân Vật</a></li>
+                <li><a href="diendan.html">Diễn đàn</a></li>
+                <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="huongdanchoi.html">Hướng dẫn chơi</a></li>
+                <li><a href="choingay.html">Chơi ngay</a></li>
+                <li><a href="naptien.html">Nạp game</a></li>
+                <li><a href="shop.html" id="selected">Shop rồng thiêng</a></li>
+                <li><a href="chatbot.html">Chat bot hỗ trợ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-content1">
+        <div style="float:right;margin-top:5px">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <h2 style="text-align: center;">Cập nhật sau</h2>
+        <p></p>
+    </div>
+    <audio id="bg-music" autoplay loop>
+        <source src="sounds/phepmau.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <button id="toggle-music" class="music-toggle-btn">🔇</button>
+    <footer>
+        <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
+    </footer>
+    <script>
+        const toggle = document.getElementById("darkModeToggle");
+
+        // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
+        if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+        }
+
+        // Khi người dùng bật/tắt dark mode
+        toggle.addEventListener("change", function () {
+        const isDark = toggle.checked;
+        document.body.classList.toggle("dark-mode", isDark);
+        localStorage.setItem("darkMode", isDark);
+        });
+        //audio 
+        const bgMusic = document.getElementById("bg-music");
+        bgMusic.volume=0.8
+        const toggleMusicBtn = document.getElementById("toggle-music");
+
+        let isMusicPlaying = localStorage.getItem("musicPlaying") !== "false"; // mặc định là true
+
+        if (!isMusicPlaying) {
+          bgMusic.pause();
+          toggleMusicBtn.textContent = "🔇";
+        } else {
+          const savedTime = sessionStorage.getItem("bgMusicTime");
+          if (savedTime) {
+            bgMusic.currentTime = parseFloat(savedTime);
+          }
+          bgMusic.play();
+          toggleMusicBtn.textContent = "🔊";
+        }
+
+        toggleMusicBtn.addEventListener("click", function () {
+          isMusicPlaying = !isMusicPlaying;
+          if (isMusicPlaying) {
+            bgMusic.play();
+            toggleMusicBtn.textContent = "🔊";
+          } else {
+            bgMusic.pause();
+            toggleMusicBtn.textContent = "🔇";
+          }
+          localStorage.setItem("musicPlaying", isMusicPlaying);
+        });
+        window.addEventListener("beforeunload", () => {
+          sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
+        });
+    </script>
+</body>
+</html>

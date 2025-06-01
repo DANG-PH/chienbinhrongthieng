@@ -60,18 +60,20 @@ body {
 .header-content ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
 }
 
 .header-content ul li {
   margin: 0 15px;
+  margin-bottom: 30px;
 }
 .header-content a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  font-size:14px
+  font-size:18px
 }
 
 .header-content a:hover {
@@ -326,14 +328,14 @@ body.dark-mode button:hover {
 
     .header-content ul li {
         margin-bottom: 20px;
-        font-size: 14px;
+        font-size: 0px;
     }
 
     .header-content {
         padding-top: 40px;
     }
     .header-content a{
-      font-size:12px
+      font-size:10px
     }
     h2 {
       font-size:15px;
