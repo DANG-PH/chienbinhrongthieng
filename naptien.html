@@ -186,8 +186,8 @@
         <p>Xin chào chiến binh: <span id="ten-nguoi-choi"></span></p>
         <p>Số Zeni hiện tại: <span id="kc-hientai">0</span></p>
         <div class="download-buttons" style="display:flex;justify-content: space-between;align-items: center;margin-top:-17px">
-           <p class="vip">Cấp bậc chiến binh: <strong id="cap-bac"><span></span></strong></p>
-          <button onclick="logout()" style="margin-bottom:12px;margin-top:0px;padding:5px 8px">Đăng xuất</button>
+          <p class="vip">Cấp bậc chiến binh: <strong id="cap-bac"><span></span></strong></p>
+          <button id="nut-dang-nhap" style="margin-bottom:12px;margin-top:0px;padding:5px 8px">Đăng nhập</button>
         </div>
         <div class="goi-grid">
             <div class="goi-nap" data-value="10000">
@@ -313,14 +313,44 @@
         });
         //nap
         const user = JSON.parse(sessionStorage.getItem("currentUser"));
-        const users = JSON.parse(localStorage.getItem("users"));
-        const userr = users.find(u => u.email === user.email);
-        document.getElementById("ten-nguoi-choi").textContent = user.username;
-        document.getElementById("kc-hientai").textContent = userr.kimcuong || 0;
-
         let tongTien = 0;
         let tongKC = 0;
+        const nutDangNhap = document.getElementById("nut-dang-nhap");
+        if (!user) {
+          document.getElementById("ten-nguoi-choi").textContent = "Chưa đăng nhập";
+          document.getElementById("kc-hientai").textContent = "0";
+          nutDangNhap.textContent = "Đăng nhập";
+          nutDangNhap.onclick = () => {
+            window.location.href = "dangnhap.html";
+          };
+        } else {
+            users = JSON.parse(localStorage.getItem("users")) || [];
+            userr = users.find(u => u.email === user.email);
+            document.getElementById("ten-nguoi-choi").textContent = user.username;
+            document.getElementById("kc-hientai").textContent = userr.kimcuong || 0;
+            nutDangNhap.textContent = "Đăng xuất";
+            nutDangNhap.onclick = logout;
+            const lichSuNap = userr.history || [];
+            let tongZeniDaNap = 0;
 
+            // Hiển thị lịch sử
+            const tbody = document.getElementById("lich-su-nap");
+            if (tbody) {
+            tbody.innerHTML = lichSuNap.map(log => {
+                tongZeniDaNap += log.zeni;
+                return `<tr>
+                <td>${log.time}</td>
+                <td>${log.zeni}</td>
+                <td>${log.vnd.toLocaleString()}</td>
+                </tr>`;
+            }).join('');
+            }
+            // Gắn cấp bậc vào giao diện
+            const capBac = document.getElementById("cap-bac");
+            if (capBac) {
+            capBac.textContent = getCapBac(tongZeniDaNap);
+            }
+        }
         function themGoi(soTien) {
         tongTien += soTien;
         switch (soTien){
@@ -333,7 +363,7 @@
         }
         document.getElementById("tong-nap").textContent = `Tổng tiền: ${tongTien.toLocaleString()} VNĐ | Tổng Zeni: ${tongKC}`;
         }
-
+      
         function napTien() {
         if (!user) {
             alert("Bạn cần đăng nhập để nạp tiền!");
@@ -361,7 +391,10 @@
                 tongKC = 0;
                 document.getElementById("tong-nap").textContent = `Tổng tiền: 0 VNĐ | Tổng Zeni: 0`;
                 // Cập nhật bảng lịch sử ngay sau khi nạp
+                let tongZeniDaNap = 0;
+                const tbody = document.getElementById("lich-su-nap");
                 tbody.innerHTML = userr.history.map(log => {
+                    tongZeniDaNap += log.zeni;
                     return `<tr>
                     <td>${log.time}</td>
                     <td>${log.zeni}</td>
@@ -369,28 +402,14 @@
                     </tr>`;
                 }).join('');
 
-                // Cập nhật lại cấp bậc theo tổng Zeni đã nạp
-                capBac.textContent = getCapBac(userr.history.reduce((sum, log) => sum + log.zeni, 0));
-
+                // Gắn cấp bậc vào giao diện
+                const capBac = document.getElementById("cap-bac");
+                if (capBac) {
+                capBac.textContent = getCapBac(tongZeniDaNap);
+                }
             }
         }, 2000);
         }
-        const lichSuNap = userr.history || [];
-        let tongZeniDaNap = 0;
-
-        // Hiển thị lịch sử
-        const tbody = document.getElementById("lich-su-nap");
-        if (tbody) {
-        tbody.innerHTML = lichSuNap.map(log => {
-            tongZeniDaNap += log.zeni;
-            return `<tr>
-            <td>${log.time}</td>
-            <td>${log.zeni}</td>
-            <td>${log.vnd.toLocaleString()}</td>
-            </tr>`;
-        }).join('');
-        }
-
         // Xác định cấp bậc
         function getCapBac(tong) {
         if (tong < 1000) return "VIP 0";
@@ -402,13 +421,7 @@
         if (tong < 200000) return "VIP 6";
         if (tong < 300000) return "VIP 7";
         if (tong < 500000) return "VIP 8";
-        return "👑 Huyền Thoại Rồng Thiêng";
-        }
-
-        // Gắn cấp bậc vào giao diện
-        const capBac = document.getElementById("cap-bac");
-        if (capBac) {
-        capBac.textContent = getCapBac(tongZeniDaNap);
+        if (tong >= 500000) return "👑 Huyền Thoại Rồng Thiêng";
         }
         function showToast(message) {
             const toast = document.getElementById("toast");
