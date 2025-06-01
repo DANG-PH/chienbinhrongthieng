@@ -71,6 +71,7 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  font-size:14px
 }
 
 .header-content a:hover {
@@ -330,6 +331,9 @@ body.dark-mode button:hover {
 
     .header-content {
         padding-top: 40px;
+    }
+    .header-content a{
+      font-size:12px
     }
     h2 {
       font-size:15px;

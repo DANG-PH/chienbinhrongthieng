@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chiến Binh Rồng Thiêng</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/icongame1.png" type="image/png" />
+  <style>
+    .goi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .goi-nap {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .goi-nap:hover{
+        transform: translateY(-5px);
+        box-shadow: 0px 0px 38px rgba(0,0,0,0.3);
+        transition: .4s;
+    }
+    body.dark-mode .goi-nap:hover{
+        box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
+    }
+    .goi-nap img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .goi-noidung {
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding:10px
+    }
+    .goi-noidung p{
+      margin:0
+    }
+
+    .nut-tang {
+      margin-top: 0px;
+      border: none;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      width: 30px;
+      border-radius: 100%;
+      font-size:11px;
+      padding:0;
+    }
+
+    #tong-nap {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    #qr-anh {
+      width: 200px;
+      margin: auto;
+      display: block;
+    }
+    details summary{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    details {
+        box-shadow: 0px 0px 50px rgba(0,0,0,0.2);
+        padding:10px;
+        border-left:4px solid #555;
+        margin-top:15px;
+    }
+    body.dark-mode details{
+        border-left-color:#ffa500;
+    }
+    #toast {
+    position: fixed;
+    opacity: 0;
+    bottom: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #9e9e9e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    color: black;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    body.dark-mode #toast {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+    color: #fff;
+    }
+
+    #toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    }
+
+    #toast.hidden {
+    opacity: 0;
+    pointer-events: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div style="overflow: hidden;">
+      <video autoplay muted loop playsinline preload="auto" poster="images/gioithieu.webp" class="header-video" style="animation: vid1 10s infinite;">
+        <source src="images/gioithieu.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline preload="auto" poster="images/gioithieu2.webp" class="header-video" style="animation: vid2 10s infinite;height:120%">
+        <source src="images/gioithieu2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+        <div class="header-content" >
+            <h1>Kho Báu Zeni Đang Chờ!</h1>
+            <div>
+                <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="nhanvat.html">Nhân Vật</a></li>
+                <li><a href="diendan.html">Diễn đàn</a></li>
+                <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="huongdanchoi.html">Hướng dẫn chơi</a></li>
+                <li><a href="choingay.html">Chơi ngay</a></li>
+                <li><a href="naptien.html" id="selected">Nạp game</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-content1">
+        <div style="float:right;margin-top:5px">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <h2>Chào mừng chiến binh đến với cổng nạp Zeni Rồng Thiêng!</h2>
+        <p><i><b>Gia tăng sức mạnh, mở khóa kỹ năng tối thượng và sẵn sàng cho những trận chiến long trời lở đất! Mỗi Zeni bạn nạp chính là bước tiến gần hơn đến vinh quang bất diệt!</b></i></p>
+    </div>
+    <div class="bg-content1">
+        <h2>Nạp Zeni</h2>
+        <p>Xin chào chiến binh: <span id="ten-nguoi-choi"></span></p>
+        <p>Số Zeni hiện tại: <span id="kc-hientai">0</span></p>
+        <div class="goi-grid">
+            <div class="goi-nap" data-value="10000">
+                <img src="images/50k.png" alt="10k">
+                <div class="goi-noidung">
+                <p>50.000 VNĐ → 250 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(50000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="20000">
+                <img src="images/100k.png" alt="20k">
+                <div class="goi-noidung">
+                <p>100.000 VNĐ → 500 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(100000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="50000">
+                <img src="images/200k.png" alt="50k">
+                <div class="goi-noidung">
+                <p>200.000 VNĐ → 1050 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(200000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="100000">
+                <img src="images/300k.png" alt="100k">
+                <div class="goi-noidung">
+                <p>500.000 VNĐ → 2825 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(500000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="200000">
+                <img src="images/400k.png" alt="200k">
+                <div class="goi-noidung">
+                <p>888.888 VNĐ → 5825 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(888888)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="500000">
+                <img src="images/400k.png" alt="500k">
+                <div class="goi-noidung">
+                <p>1.000.000 VNĐ → 5825 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(1000000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <p id="tong-nap">Tổng tiền: 0 VNĐ | Tổng Zeni: 0</p>
+        <button onclick="napTien()">Nạp Tiền</button>
+        <details>
+            <summary>QR donate</summary>
+            <img id="qr-anh" src="images/qr.jpg" alt="QR Code">
+        </details>
+        <h2>Cấp bậc chiến binh</h2>
+        <p><strong id="cap-bac"></strong></p>
+
+        <h2>Lịch sử nạp Zeni</h2>
+        <table border="1" style="width:100%;text-align:center">
+        <thead>
+            <tr>
+            <th>Thời gian</th>
+            <th>Số Zeni</th>
+            <th>Số tiền (VNĐ)</th>
+            </tr>
+        </thead>
+        <tbody id="lich-su-nap"></tbody>
+        </table>
+    </div>
+
+    <div id="toast"></div>
+    <audio id="bg-music" autoplay loop>
+        <source src="sounds/phepmau.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <button id="toggle-music" class="music-toggle-btn">🔇</button>
+    <footer>
+        <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
+    </footer>
+    <script>
+        const toggle = document.getElementById("darkModeToggle");
+
+        // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
+        if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+        }
+
+        // Khi người dùng bật/tắt dark mode
+        toggle.addEventListener("change", function () {
+        const isDark = toggle.checked;
+        document.body.classList.toggle("dark-mode", isDark);
+        localStorage.setItem("darkMode", isDark);
+        });
+        //audio 
+        const bgMusic = document.getElementById("bg-music");
+        bgMusic.volume=0.8
+        const toggleMusicBtn = document.getElementById("toggle-music");
+
+        let isMusicPlaying = localStorage.getItem("musicPlaying") !== "false"; // mặc định là true
+
+        if (!isMusicPlaying) {
+          bgMusic.pause();
+          toggleMusicBtn.textContent = "🔇";
+        } else {
+          const savedTime = sessionStorage.getItem("bgMusicTime");
+          if (savedTime) {
+            bgMusic.currentTime = parseFloat(savedTime);
+          }
+          bgMusic.play();
+          toggleMusicBtn.textContent = "🔊";
+        }
+
+        toggleMusicBtn.addEventListener("click", function () {
+          isMusicPlaying = !isMusicPlaying;
+          if (isMusicPlaying) {
+            bgMusic.play();
+            toggleMusicBtn.textContent = "🔊";
+          } else {
+            bgMusic.pause();
+            toggleMusicBtn.textContent = "🔇";
+          }
+          localStorage.setItem("musicPlaying", isMusicPlaying);
+        });
+        window.addEventListener("beforeunload", () => {
+          sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
+        });
+        //nap
+        const user = JSON.parse(sessionStorage.getItem("currentUser"));
+        if (!user) {
+            alert("Bạn cần đăng nhập để nạp tiền!");
+            window.location.href = "dangnhap.html";
+        }
+        const users = JSON.parse(localStorage.getItem("users"));
+        const userr = users.find(u => u.email === user.email);
+        document.getElementById("ten-nguoi-choi").textContent = user.username;
+        document.getElementById("kc-hientai").textContent = userr.kimcuong || 0;
+
+        let tongTien = 0;
+        let tongKC = 0;
+
+        function themGoi(soTien) {
+        tongTien += soTien;
+        switch (soTien){
+            case 50000:tongKC+=250; break
+            case 100000:tongKC+=500; break
+            case 200000:tongKc+=1050; break
+            case 500000:tongKC+=2825; break
+            case 888888:tongKC+=5825; break
+            case 1000000:tongKC+=5825; break
+        }
+        document.getElementById("tong-nap").textContent = `Tổng tiền: ${tongTien.toLocaleString()} VNĐ | Tổng Zeni: ${tongKC}`;
+        }
+
+        function napTien() {
+        if (tongTien === 0) {
+            showToast("⚠️ Bạn chưa chọn gói nạp nào.");
+            return;
+        }
+        setTimeout(() => {
+            if (userr) {
+                userr.kimcuong = (userr.kimcuong||0)  + tongKC;
+                if (!userr.history) userr.history = [];
+                userr.history.push({
+                time: new Date().toLocaleString(),
+                zeni: tongKC,
+                vnd: tongTien
+                });
+                localStorage.setItem("users", JSON.stringify(users));
+                user.kimcuong = userr.kimcuong;
+                document.getElementById("kc-hientai").textContent = userr.kimcuong;
+                showToast(`✅ Nạp thành công ${tongKC} Zeni!`);
+                tongTien = 0;
+                tongKC = 0;
+                document.getElementById("tong-nap").textContent = `Tổng tiền: 0 VNĐ | Tổng Zeni: 0`;
+                // Cập nhật bảng lịch sử ngay sau khi nạp
+                tbody.innerHTML = userr.history.map(log => {
+                    return `<tr>
+                    <td>${log.time}</td>
+                    <td>${log.zeni}</td>
+                    <td>${log.vnd.toLocaleString()}</td>
+                    </tr>`;
+                }).join('');
+
+                // Cập nhật lại cấp bậc theo tổng Zeni đã nạp
+                capBac.textContent = getCapBac(userr.history.reduce((sum, log) => sum + log.zeni, 0));
+
+            }
+        }, 2000);
+        }
+        const lichSuNap = userr.history || [];
+        let tongZeniDaNap = 0;
+
+        // Hiển thị lịch sử
+        const tbody = document.getElementById("lich-su-nap");
+        if (tbody) {
+        tbody.innerHTML = lichSuNap.map(log => {
+            tongZeniDaNap += log.zeni;
+            return `<tr>
+            <td>${log.time}</td>
+            <td>${log.zeni}</td>
+            <td>${log.vnd.toLocaleString()}</td>
+            </tr>`;
+        }).join('');
+        }
+
+        // Xác định cấp bậc
+        function getCapBac(tong) {
+        if (tong < 100) return "🥉 Tân Binh";
+        if (tong < 500) return "🥈 Chiến Binh Đồng";
+        if (tong < 1000) return "🥇 Chiến Binh Bạc";
+        if (tong < 2000) return "⚔️ Chiến Binh Vàng";
+        if (tong < 5000) return "🔥 Chiến Binh Rồng";
+        return "👑 Huyền Thoại Rồng Thiêng";
+        }
+
+        // Gắn cấp bậc vào giao diện
+        const capBac = document.getElementById("cap-bac");
+        if (capBac) {
+        capBac.textContent = getCapBac(tongZeniDaNap);
+        }
+        function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.className = "show";
+        toast.style.opacity = 1;
+        toast.style.transform = "translateX(-50%) translateY(0)";
+        setTimeout(() => {
+            toast.className = "hidden";
+            toast.style.opacity = 0;
+        }, 3000);
+        }
+    </script>
+</body>
+</html>
