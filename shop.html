@@ -143,8 +143,11 @@
     <div class="bg-content1">
       <h2>Xin chào chiến binh: <span id="ten-user"></span></h2>
       <p>Số Zeni hiện tại: <span id="zeni-hientai">0</span></p>
-      <p class="vip">Cấp bậc chiến binh: <strong id="cap-bac">VIP 0</strong></p>
-      <h2>Shop Rồng Thiêng</h2>
+      <div class="download-buttons" style="display:flex;justify-content: space-between;align-items: center;margin-top: -12px;">
+          <p style="margin: 0;"class="vip">Cấp bậc chiến binh: <strong id="cap-bac"><span>VIP 0</span></strong></p>
+          <button id="nut-dang-nhap" style="padding:5px 8px;margin-top: 0px;"></button>
+      </div>
+      <h2 style="margin-top: 25px;">Shop Rồng Thiêng</h2>
       <div class="shop-grid">
         <div class="item-card">
           <img src="images/diendan2.webp" alt="halo1">
@@ -364,6 +367,7 @@
         });
         // Lấy dữ liệu người dùng hiện tại
         const user = JSON.parse(sessionStorage.getItem("currentUser"));
+        const nutDangNhap = document.getElementById("nut-dang-nhap");
         let users = JSON.parse(localStorage.getItem("users")) || [];
         const userr = users.find(u => u.email === user?.email);
 
@@ -373,6 +377,10 @@
         if (!user) {
           tenUser.textContent = "Chưa đăng nhập";
           zeniHienTai.textContent = "0";
+          nutDangNhap.textContent = "Đăng nhập";
+          nutDangNhap.onclick = () => {
+            window.location.href = "dangnhap.html"; // chuyển tới trang đăng nhập
+          };
         } else {
           tenUser.textContent = userr.username;
           zeniHienTai.textContent = userr.kimcuong || 0;
@@ -382,6 +390,8 @@
           });
           document.getElementById("cap-bac").textContent = getCapBac(tongZeniDaNap);
           capNhatLichSu();
+          nutDangNhap.textContent = "Đăng xuất";
+          nutDangNhap.onclick = logout;
         }
 
         // Toast thông báo
@@ -534,6 +544,12 @@
           showToast("🎁 Mua gói VIP thành công!");
           capNhatLichSu();
         }
+        function logout() {
+          sessionStorage.removeItem("currentUser");
+          showToast("✅ Đăng xuất thành công!");
+          setTimeout(() => location.reload(), 1000); // Tải lại trang sau khi đăng xuất
+        }
+
 
     </script>
 </body>
