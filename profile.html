@@ -41,6 +41,18 @@
     opacity: 0;
     pointer-events: none;
     }
+    @media (max-width: 768px) {
+        table{
+            font-size:11px;
+        }
+        button {
+            font-size:10px;
+            padding:6px 12px
+        }
+        .vbar {
+            height:12px !important;
+        }
+    }
 
 
   </style>
@@ -96,7 +108,7 @@
         <p>Số Zeni hiện có: <strong id="kc-hientai">0</strong></p>
         <p class="vip">Cấp bậc chiến binh: <strong id="cap-bac"><span>VIP 0</span></strong></p>
         <div style="margin-top:10px;">
-            <div style="background:#ccc; width:100%; height:20px; border-radius:10px; overflow:hidden;">
+            <div class="vbar"style="background:#ccc; width:100%; height:20px; border-radius:10px; overflow:hidden;">
                 <div id="vip-bar" style="height:100%; width:0%; background:#f90;"></div>
             </div>
             <p id="vip-next" style="margin-top:5px;font-style: italic;"></p>
@@ -131,7 +143,7 @@
     </table>
     </div>
     <audio id="bg-music" autoplay loop>
-        <source src="sounds/phepmau.mp3" type="audio/mpeg">
+        <source src="sounds/op1.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
     </audio>
     <button id="toggle-music" class="music-toggle-btn">🔇</button>
