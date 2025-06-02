@@ -494,6 +494,10 @@
         }
 
         function nhanQuaVip(ma, vipYeuCau) {
+          if (!user) {
+            showToast("⚠️ Bạn cần đăng nhập!");
+            return;
+          }
           const tong = tinhTongZeniNap();
           const level = getVipLevel(tong);
           if (level < vipYeuCau) {
@@ -516,6 +520,10 @@
         }
 
         function muaVipGift(ma, vipYeuCau, gia) {
+          if (!user) {
+            showToast("⚠️ Bạn cần đăng nhập!");
+            return;
+          }
           const tong = tinhTongZeniNap();
           const level = getVipLevel(tong);
           if (level < vipYeuCau) {
