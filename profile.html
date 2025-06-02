@@ -284,14 +284,14 @@
             let danhHieu = [];
             danhHieu.push(vipBadges[capHienTai]);
             const danhHieuDiv = document.getElementById("danh-hieu");
-            danhHieuDiv.innerHTML = danhHieu.map(b => `<span class="badge">${b}</span>`).join("");
+            danhHieuDiv.innerHTML = `<span class="badge">${vipBadges[capHienTai]}</span>`;
              // Chọn avatar theo cấp VIP
             const avatar = document.getElementById("avatar-nguoi-choi");
 
             if (capHienTai >= 0 && capHienTai <= 8) {
             avatar.src = `images/avt${capHienTai+1}.webp`;
             } else {
-            avatar.src = "images/avt10.webp"; // Huyền thoại
+            avatar.src = "images/vip10.1.avif"; // Huyền thoại
             }
 
             capBacSpan.textContent = capHienTai >= vipMoc.length - 1 ? "👑 Huyền Thoại Rồng Thiêng" : `VIP ${capHienTai}`;
