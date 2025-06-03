@@ -86,10 +86,37 @@
     textarea::placeholder{
       color:black
     }
+    .thanhtimkiem{
+      display:flex;
+      justify-content: flex-end;
+      
+    }
+    .thanhtimkiem input{
+      width: 25%;
+      height:20px;
+      outline:none;
+      background-color: #ffffff;
+      box-shadow:0 0px 2px rgba(0,0,0,0.4);
+      border-color: black;
+    }
+    body.dark-mode .thanhtimkiem input{
+      background-color: #e6e6e6;
+      color: #000000 !important;
+      border: 2px solid #aaa; 
+      box-shadow: 0 0 4px rgba(255,255,255,0.1);
+      
+    }
     @media (max-width: 600px){
       button {
         padding:10px !important;
         font-size:10px;
+      }
+      .thanhtimkiem input{
+        width: 40%;
+        height:17px;
+      }
+      .thanhtimkiem input::placeholder{
+        font-size: 10px;
       }
     }
   </style>
@@ -177,7 +204,9 @@
     </div>
     <div class="bg-content1">
       <h2>🗣️ Chủ đề thảo luận mới nhất</h2>
-
+      <div class="thanhtimkiem">
+        <input type="text" id="searchInput" placeholder="Tìm bài thảo luận..." >
+      </div>
       <!-- Danh sách bài thảo luận -->
       <div>
 
@@ -404,6 +433,18 @@
           displayDiscussions();
         }
       });
+      document.getElementById("searchInput").addEventListener("input", function () {
+      const keyword = this.value.toLowerCase();
+      const allDiscussions = document.querySelectorAll(".thaoluan");
+      allDiscussions.forEach((div) => {
+        const text = div.innerText.toLowerCase();
+        if (text.includes(keyword)) {
+          div.style.display = "block";
+        } else {
+          div.style.display = "none";
+        }
+      });
+    });
     </script>
 </body>
 </html>

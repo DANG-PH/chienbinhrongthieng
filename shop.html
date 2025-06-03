@@ -15,7 +15,7 @@
     }
     .shop-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3,1fr);
       gap: 20px;
       padding-top: 10px;
     }
@@ -75,6 +75,26 @@
       opacity: 0;
       pointer-events: none;
     }
+    .thanhtimkiem{
+      display:flex;
+      justify-content: flex-start;
+      
+    }
+    .thanhtimkiem input{
+      width: 25%;
+      height:20px;
+      outline:none;
+      background-color: #ffffff;
+      box-shadow:0 0px 2px rgba(0,0,0,0.4);
+      border-color: black;
+    }
+    body.dark-mode .thanhtimkiem input{
+      background-color: #e6e6e6;
+      color: #000000 !important;
+      border: 2px solid #aaa; 
+      box-shadow: 0 0 4px rgba(255,255,255,0.1);
+      
+    }
     @media (max-width: 768px){
       .shop-grid {
         grid-template-columns: repeat(2,1fr);
@@ -93,6 +113,13 @@
       }
       table {
         font-size:10px
+      }
+      .thanhtimkiem input{
+        width: 40%;
+        height:17px;
+      }
+      .thanhtimkiem input::placeholder{
+        font-size: 10px;
       }
     }
 
@@ -149,6 +176,9 @@
           <button id="nut-dang-nhap" style="padding:5px 8px;margin-top: 0px;"></button>
       </div>
       <h2 style="margin-top: 25px;">Shop Rồng Thiêng</h2>
+      <div class="thanhtimkiem">
+          <input type="text" id="searchInput" placeholder="Tìm vật phẩm..." >
+      </div>
       <div class="shop-grid">
         <div class="item-card">
           <img src="images/diendan2.webp" alt="halo1">
@@ -558,6 +588,18 @@
           showToast("✅ Đăng xuất thành công!");
           setTimeout(() => location.reload(), 1000); // Tải lại trang sau khi đăng xuất
         }
+        document.getElementById("searchInput").addEventListener("input", function () {
+        const keyword = this.value.toLowerCase();
+        const allDiscussions = document.querySelectorAll(".item-card");
+        allDiscussions.forEach((div) => {
+          const text = div.innerText.toLowerCase();
+          if (text.includes(keyword)) {
+            div.style.display = "block";
+          } else {
+            div.style.display = "none";
+          }
+        });
+      });
 
 
     </script>

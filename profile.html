@@ -70,6 +70,60 @@
     margin: 3px;
     box-shadow: 0 2px 15px rgba(255,165,0,0.5);
     }
+    #notification-popup {
+      background-color: #fff;  
+      color: #000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+    }
+    body.dark-mode #notification-popup {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #eee;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+    #notification-popup a{
+      color:#2979ff
+    }
+    body.dark-mode #notification-popup a{
+      color:#ffa500
+    }
+    #form-nhap-code {
+      display: none;
+      position:fixed;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      background:#ffffff;
+      padding:24px 20px;
+      border-radius:15px;
+      z-index:1001;
+      max-width:400px;
+      width:90%;
+      box-shadow:0 8px 20px rgba(0,0,0,0.4);
+      font-family:'Segoe UI',sans-serif;
+    }
+
+    #code-input{
+      width:100%;
+      padding:10px 12px;
+      margin-top:8px;
+      border:2px solid #ccc;
+      border-radius:8px;font-size:14px;
+    }
+    body.dark-mode #form-nhap-code {
+      background-color: #2e2e2e;  /* xám tối vừa phải */
+    }
+    body.dark-mode #code-input {
+      background-color: #3a3a3a;
+      color: #fff;
+      border: 2px solid #777; 
+      box-shadow: 0 0 4px rgba(255,255,255,0.1);
+      outline-color: #888;
+    }
+    body.dark-mode #code-input::placeholder {
+      color: #bbb;
+    }
+
+  
     @media (max-width: 768px) {
         table{
             font-size:11px;
@@ -146,7 +200,11 @@
             </div>
             <p id="vip-next" style="margin-top:5px;font-style: italic;">Hãy nạp Zeni để lên VIP , thay đổi avatar và sở hữu nhiều đặc quyền khác nhé chiến binh !</p>
         </div>
-        <button id="nut-dang-nhap" style="margin-top: 10px;">Đăng nhập</button>
+        <!-- Nút mở form -->
+        <div style="display:flex;justify-content: space-between;padding: 0;margin: 0px;">
+          <button id="nut-dang-nhap" style="margin-top: 10px;">Đăng nhập</button>
+          <button class="download-buttons"onclick="hienNhapCode()">🔑 Nhập mã đổi thưởng</button>
+        </div>
     </div>
     <div class="bg-content1">
     <h2>Lịch sử nạp Zeni gần đây</h2>
@@ -175,6 +233,16 @@
         <tbody id="lich-su-item"></tbody>
     </table>
     </div>
+    <!-- Overlay nền mờ -->
+    <div id="overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+
+    <!-- Popup nhập code -->
+    <div id="form-nhap-code" >
+      <button onclick="anNhapCode()" style="position:absolute;top:10px;right:5px;background:none;border:none;font-size:10px;cursor:pointer;box-shadow:none">❌</button>
+      <h3 style="margin:0 0 15px 0;text-align:center;font-size:20px;">🎁 Nhập mã Code đổi thưởng</h3>
+      <input id="code-input" type="text" placeholder="Nhập mã code..."  />
+      <button onclick="doiCode()" style="margin-top:15px;width:100%;padding:10px;border:none;border-radius:8px;font-size:16px;cursor:pointer;">Đổi mã ngay</button>
+    </div>
     <audio id="bg-music" autoplay loop>
         <source src="sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
@@ -184,6 +252,21 @@
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
     <div id="toast"></div>
+    <!-- Nút chuông thông báo -->
+    <div id="notification-bell" style="position:fixed;top:20px;right:20px;z-index:1100;cursor:pointer;">
+      🔔
+    </div>
+
+    <!-- Popup thông báo -->
+    <div id="notification-popup"style="display:none;position:fixed;top:70px;right:20px;width:280px;padding:15px;border-radius:10px;z-index:1101;">
+      <h3 style="margin-top:0;margin-bottom:10px;font-size:16px;">🔔 Thông báo</h3>
+      <ul style="padding-left:18px;margin:0;font-size:14px;">
+        <li>🎖 Bạn đã đạt cấp VIP mới? Kiểm tra ngay!</li>
+        <li>🛒 Đừng bỏ lỡ khuyến mãi tại <a href="shop.html">Shop Rồng Thiêng</a>.</li>
+        <li>📣 Hãy cập nhật hồ sơ của bạn trong phần <a href="profile.html">Profile</a>.</li>
+      </ul>
+    </div>
+
     <script>
         const toggle = document.getElementById("darkModeToggle");
 
@@ -366,6 +449,63 @@
             toast.className = "hidden";
         }, 3000);
         }
+        function hienNhapCode() {
+          document.getElementById("form-nhap-code").style.display = "block";
+          document.getElementById("overlay").style.display = "block";
+        }
+
+        function anNhapCode() {
+          document.getElementById("form-nhap-code").style.display = "none";
+          document.getElementById("overlay").style.display = "none";
+        }
+
+        function doiCode() {
+          const codeInput = document.getElementById("code-input");
+          const code = codeInput.value.trim().toUpperCase(); // chuẩn hóa mã
+          const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+          if (!currentUser) {
+            showToast("⚠️ Bạn cần đăng nhập để sử dụng mã code.");
+            return;
+          }
+          if (code === "") {
+            showToast("⚠️ Vui lòng nhập mã code.");
+            return;
+          }
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const user = users.find(u => u.email === currentUser.email);
+
+          if (!currentUser || !user.items) {
+            showToast("❌ Không tìm thấy người dùng!");
+            return;
+          }
+
+          const matchedItem = user.items.find(i => i.code === code);
+
+          if (!matchedItem) {
+            showToast("❌ Mã code không đúng hoặc không thuộc tài khoản bạn.");
+            return;
+          }
+
+          if (matchedItem.used) {
+            showToast("⚠️ Mã này đã được sử dụng rồi!");
+            return;
+          }
+
+          // ✅ Đổi mã thành công
+          matchedItem.used = true;
+          localStorage.setItem("users", JSON.stringify(users));
+          showToast(`✅ Bạn vừa nhận quà từ mã ${code}!`);
+          codeInput.value = "";
+          anNhapCode();
+
+          // 👉 Có thể tùy chọn cộng thêm Zeni tùy loại item
+        }
+        // Toggle popup chuông
+        document.getElementById("notification-bell").addEventListener("click", () => {
+          const popup = document.getElementById("notification-popup");
+          popup.style.display = popup.style.display === "none" ? "block" : "none";
+        });
+
 
     </script>
 </body>
