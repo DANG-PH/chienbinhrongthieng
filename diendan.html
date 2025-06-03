@@ -405,7 +405,8 @@
         const list = document.getElementById("discussionList");
         list.innerHTML = "";
         const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-        const email = currentUser.email;
+        if (!currentUser || !currentUser.email) return;
+        const email = currentUser.email; //dong 408
         const discussions = JSON.parse(localStorage.getItem(`discussions_${email}`)) || [];
         discussions.forEach((text) => {
           const div = document.createElement("div");
