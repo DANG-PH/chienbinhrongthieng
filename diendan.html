@@ -402,41 +402,55 @@
         });
         // Hiển thị các thảo luận đã lưu
         function displayDiscussions() {
-          const list = document.getElementById("discussionList");
-          list.innerHTML = "";
-          const discussions = JSON.parse(localStorage.getItem("discussions")) || [];
-          discussions.forEach((text) => {
-            const div = document.createElement("div");
-            div.className = "thaoluan";
-            div.innerHTML = `
-              <h4>📝 [Thảo luận từ bạn]</h4>
-              <p>Đăng bởi: <strong>Khách</strong> | <span>0 phản hồi</span></p>
-              <p>${text}</p>
-            `;
-            list.appendChild(div);
-          });
-        }
-
-        // Khi người dùng gửi thảo luận
-        document.getElementById("postDiscussion").addEventListener("click", function () {
-          const input = document.getElementById("discussionInput");
-          const text = input.value.trim();
-          if (text) {
-            const discussions = JSON.parse(localStorage.getItem("discussions")) || [];
-            discussions.push(text);
-            localStorage.setItem("discussions", JSON.stringify(discussions));
-            input.value = "";
-            displayDiscussions();
-          } else {
-            alert("Bạn chưa nhập nội dung thảo luận!");
-          }
+        const list = document.getElementById("discussionList");
+        list.innerHTML = "";
+        const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+        const email = currentUser.email;
+        const discussions = JSON.parse(localStorage.getItem(`discussions_${email}`)) || [];
+        discussions.forEach((text) => {
+          const div = document.createElement("div");
+          div.className = "thaoluan";
+          div.innerHTML = `
+            <h4>📝 [Thảo luận từ bạn]</h4>
+            <p>Đăng bởi: <strong>${currentUser.username}</strong> | <span>0 phản hồi</span></p>
+            <p>${text}</p>
+          `;
+          list.appendChild(div);
         });
+      }
 
+        document.getElementById("postDiscussion").addEventListener("click", function () {
+        const input = document.getElementById("discussionInput");
+        const text = input.value.trim();
+
+        const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+        if (!currentUser) {
+          alert("Bạn cần đăng nhập để gửi thảo luận.");
+          window.location.href = 'dangnhap.html';
+          return;
+        }
+        
+        if (text) {
+          const email = currentUser.email;
+          const discussions = JSON.parse(localStorage.getItem(`discussions_${email}`)) || [];
+          discussions.push(text);
+          localStorage.setItem(`discussions_${email}`, JSON.stringify(discussions));
+          input.value = "";
+          displayDiscussions();
+        } else {
+          alert("Bạn chưa nhập nội dung thảo luận!");
+        }
+      });
+      
         // Khi tải trang
         displayDiscussions();
         document.getElementById("clearAllBtn").addEventListener("click", () => {
-        if (confirm("Bạn có chắc muốn xóa toàn bộ bình luận đã đăng?")) {
-          localStorage.removeItem("discussions");
+        const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+        if (!currentUser) return;
+
+        if (confirm("Bạn có chắc muốn xóa toàn bộ bình luận của mình?")) {
+          const email = currentUser.email;
+          localStorage.removeItem(`discussions_${email}`);
           displayDiscussions();
         }
       });
