@@ -15,6 +15,30 @@
       transform: translateX(8px);
       transition: transform 0.3s ;
     }
+    .thanhtimkiem{
+      display:flex;
+      justify-content: flex-end;
+      
+    }
+    .thanhtimkiem input{
+      width: 20% !important;
+      height:15px;
+      outline:none;
+      border:none;
+      background: linear-gradient(to bottom, #f5f5f5, #d8d8d8);
+    }
+    .thanhtimkiem input::placeholder{
+      color:#222;
+      font-size:12px !important;
+    }
+    body.dark-mode .thanhtimkiem input{
+      background:#1E1E1E ;
+      caret-color: #eee;
+      color:#eee
+    }
+    body.dark-mode .thanhtimkiem input::placeholder{
+      color:#eee;
+    }
     @media (max-width: 650px){
       button{
         padding:8px;
@@ -30,7 +54,14 @@
       .anhdong img{
         height:220px !important;
       }
+      .thanhtimkiem input{
+        width: 40% !important;
+        height:14px;
       }
+      .thanhtimkiem input::placeholder{
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -65,7 +96,7 @@
         </div>
     </div>
 
-    <div class="bg-content1">
+    <div class="bg-content1" style="position: relative;z-index: 0;">
         <div style="float:right;margin-top:5px">
             <label class="switch">
                 <input type="checkbox" id="darkModeToggle">
@@ -75,6 +106,9 @@
         <h2>Huyền Thoại Chiến Binh !</h2>
         <h3>5 Gương Mặt – 5 Phong Cách – Bạn Thuộc Về Ai?</h3>
         <p><i>Mỗi chiến binh là một lối chơi riêng biệt, mang trong mình tinh thần và sức mạnh đặc trưng của thế giới Dragon Ball.  <b>Bạn sẽ chọn ai để bước vào cuộc chiến Rồng Thiêng của riêng mình?</b></i></p>
+        <div class="thanhtimkiem" style="position:absolute;bottom:2px;right:0;width: 50%;">
+          <input type="text" id="searchInput" placeholder="Tìm nhân vật" >
+        </div>
     </div>
     <div class="bg-content1 anhdong" style="height:750px" >
       <h3>1. Goku</h3>
@@ -202,6 +236,19 @@
         window.addEventListener("beforeunload", () => {
           sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
         });
+        document.getElementById("searchInput").addEventListener("input", function () {
+        const keyword = this.value.toLowerCase();
+        const allDiscussions = document.querySelectorAll(".bg-content1.anhdong");
+        allDiscussions.forEach((div) => {
+          const h3 = div.querySelector("h3");
+          const text =h3.innerText.toLowerCase();
+          if (text.includes(keyword)) {
+            div.style.display = "block";
+          } else {
+            div.style.display = "none";
+          }
+        });
+      });
     </script>
 </body>
 </html>

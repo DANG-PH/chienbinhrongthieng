@@ -78,22 +78,28 @@
     .thanhtimkiem{
       display:flex;
       justify-content: flex-start;
-      
+      margin-top: -10px;
     }
     .thanhtimkiem input{
-      width: 25%;
+      width: 50%;
       height:20px;
       outline:none;
-      background-color: #ffffff;
-      box-shadow:0 0px 2px rgba(0,0,0,0.4);
+      border:none;
+      background-color: #f5f5f5;
       border-color: black;
+      font-size:17px;
+    }
+    .thanhtimkiem input::placeholder{
+      color:#222;
+      font-size:14px !important;
     }
     body.dark-mode .thanhtimkiem input{
-      background-color: #e6e6e6;
-      color: #000000 !important;
-      border: 2px solid #aaa; 
-      box-shadow: 0 0 4px rgba(255,255,255,0.1);
-      
+      background:#1E1E1E ;
+      caret-color: #eee;
+      color:#eee;
+    }
+    body.dark-mode .thanhtimkiem input::placeholder{
+      color:#eee;
     }
     @media (max-width: 768px){
       .shop-grid {
@@ -115,11 +121,12 @@
         font-size:10px
       }
       .thanhtimkiem input{
-        width: 40%;
-        height:17px;
+        width: 100%;
+        height:14px;
+        font-size:10px !important;
       }
       .thanhtimkiem input::placeholder{
-        font-size: 10px;
+        font-size: 10px !important;
       }
     }
 
@@ -586,7 +593,7 @@
         function logout() {
           sessionStorage.removeItem("currentUser");
           showToast("✅ Đăng xuất thành công!");
-          setTimeout(() => location.reload(), 1000); // Tải lại trang sau khi đăng xuất
+          setTimeout(() => location.reload(), 1000); 
         }
         document.getElementById("searchInput").addEventListener("input", function () {
         const keyword = this.value.toLowerCase();
