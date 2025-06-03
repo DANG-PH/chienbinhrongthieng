@@ -474,7 +474,7 @@
           const users = JSON.parse(localStorage.getItem("users")) || [];
           const user = users.find(u => u.email === currentUser.email);
 
-          if (!currentUser || !user.items) {
+          if (!user.items) {
             showToast("❌ Không tìm thấy người dùng!");
             return;
           }
