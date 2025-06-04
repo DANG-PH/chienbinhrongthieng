@@ -34,6 +34,7 @@
           <li><a href="shop.html">Shop rồng thiêng</a></li>
           <li><a href="chatbot.html">Chat bot hỗ trợ</a></li>
           <li><a href="profile.html">Profile</a></li>
+          <li><a href="vinhdanh.html">Vinh danh chiến binh</a></li>
         </ul>
       </div>
     </div>
@@ -206,6 +207,19 @@
     window.addEventListener("beforeunload", () => {
       sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
     });
+    if (!sessionStorage.getItem("pendingThanhTich")) {
+      sessionStorage.setItem("pendingThanhTich", JSON.stringify([
+        "rongvang",
+        "hunter10",
+        "login5",
+        "vipmax",
+        "hunter17",
+        "login15",
+        "ronglua",
+        "collector",
+        "trungthanh"
+      ]));
+    }
   </script>
 </body>
 </html>

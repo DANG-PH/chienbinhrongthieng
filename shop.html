@@ -160,6 +160,7 @@
                 <li><a href="shop.html" id="selected">Shop rồng thiêng</a></li>
                 <li><a href="chatbot.html">Chat bot hỗ trợ</a></li>
                 <li><a href="profile.html">Profile</a></li>
+                <li><a href="vinhdanh.html">Vinh danh chiến binh</a></li>
                 </ul>
             </div>
         </div>
@@ -423,9 +424,13 @@
           tenUser.textContent = userr.username;
           zeniHienTai.textContent = userr.kimcuong || 0;
           let tongZeniDaNap = 0;
-          userr.history.forEach(log => {
-            tongZeniDaNap += log.zeni ;
-          });
+          try {
+            userr.history.forEach(log => {
+              tongZeniDaNap += log.zeni;
+            });
+          } catch (err) {
+            tongZeniDaNap = 0;
+          }
           document.getElementById("cap-bac").textContent = getCapBac(tongZeniDaNap);
           capNhatLichSu();
           nutDangNhap.textContent = "Đăng xuất";
