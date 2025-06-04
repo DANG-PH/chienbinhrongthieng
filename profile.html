@@ -51,15 +51,85 @@
     .vip-frame-1 { border-color: #ffeb3b; box-shadow: 0 0 6px #ffeb3b}
     .vip-frame-2 { border-color: #ffc107; box-shadow: 0 0 8px #ffc107 }
     .vip-frame-3 { border-color: gold; box-shadow: 0 0 10px gold }
-    .vip-frame-4 { border-color: #ff1744;box-shadow: 0 0 8px #ff1744 }
-    .vip-frame-5 { border-color: #2979ff; box-shadow: 0 0 8px #2979ff }
-    .vip-frame-6 { border-color: #ec407a;box-shadow: 0 0 8px #ec407a }
-    .vip-frame-7 { border-color: #b2ebf2; box-shadow: 0 0 10px #b2ebf2 }
-    .vip-frame-8 { border-color: #00e5ff; box-shadow: 0 0 10px #00e5ff}
+    .vip-frame-4 { border-color: #ff1744;box-shadow: 0 0 12px #ff1744 }
+    .vip-frame-5 { border-color: #2979ff; box-shadow: 0 0 12px #2979ff ;animation: glow-vip5 2.5s infinite;}
+    .vip-frame-6 { border-color: #ec407a;box-shadow: 0 0 12px #ec407a ;animation: glow-vip6 2.5s infinite;}
+    .vip-frame-7 { border-color: #b2ebf2; box-shadow: 0 0 12px #b2ebf2 ;animation: glow-vip7 2.5s infinite;}
+    .vip-frame-8 { border-color: #00e5ff; box-shadow: 0 0 12px #00e5ff ;animation: glow-vip8 2.5s infinite;}
     .legendary-frame {
-    border-color: #ffffff;
-    box-shadow: 0 0 15px #ffffff
+      border-color: 		#aaa;
+      box-shadow: 0 0 25px 	rgba(0, 0, 0, 1);
+      animation: glow-light 2s infinite,glow-pulse 2s infinite
+
     }
+    body.dark-mode .legendary-frame {
+      border-color: #ffffff;
+      box-shadow: 0 0 25px #ffffff;
+      animation: glow-dark 2s infinite,glow-pulse1 2s infinite;
+      
+    }
+    @keyframes glow-vip5 {
+      0% { box-shadow: 0 0 7px #2979ff; }
+      50% { box-shadow: 0 0 21px #2979ff; }
+      100% { box-shadow: 0 0 7px #2979ff; }
+    }
+    @keyframes glow-vip6 {
+      0% { box-shadow: 0 0 9px #ec407a; }
+      50% { box-shadow: 0 0 24px #ec407a; }
+      100% { box-shadow: 0 0 9px #ec407a; }
+    }
+    @keyframes glow-vip7 {
+      0% { box-shadow: 0 0 10px #b2ebf2; }
+      50% { box-shadow: 0 0 28px #b2ebf2; }
+      100% { box-shadow: 0 0 10px #b2ebf2; }
+    }
+    @keyframes glow-vip8 {
+      0% { box-shadow: 0 0 10px #00e5ff; }
+      50% { box-shadow: 0 0 32px #00e5ff; }
+      100% { box-shadow: 0 0 10px #00e5ff; }
+    }
+    @keyframes glow-light {
+      0%   { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+      50%  { box-shadow: 0 0 35px rgba(0, 0, 0, 1); }
+      100% { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+    }
+    @keyframes glow-dark {
+      0%   { box-shadow: 0 0 10px #ffffff; }
+      50%  { box-shadow: 0 0 35px #ffffff; }
+      100% { box-shadow: 0 0 10px #ffffff; }
+    }
+
+  @keyframes glow-pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 35px rgba(0, 0, 0, 1);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    }
+    
+  }
+  @keyframes glow-pulse1 {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 15px #ffffff;
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 35px #ffffff;
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 15px #ffffff;
+    }
+  }
+
+    /*  */
     .badge {
     display: inline-block;
     background: linear-gradient(to right, #ffcc00, #ff9900);
@@ -138,6 +208,9 @@
         #avatar-nguoi-choi{
             width:100px !important;
             height: 100px !important;
+        }
+        .badge{
+          font-size: 10px;
         }
     }
 
@@ -392,6 +465,7 @@
                 vipNext.textContent = `🔒 Bạn cần thêm ${(mucTiepTheo - tongZeniDaNap).toLocaleString()} Zeni để lên VIP ${capHienTai + 1}`;
             } else {
                 document.getElementById("vip-bar").style.width = "100%";
+                document.getElementById("vip-bar").style.background = "line-gradient(to right,#b2ebf2,#00e5ff)";
                 vipNext.textContent = "🎉 Bạn đã trở thành chiến binh trong truyền thuyết!";
             }
 

@@ -57,6 +57,127 @@
     a.t:hover{
       text-decoration: underline;
     }
+    .avatar-frame {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    }
+    .vip {
+      color:#1976d2
+    }
+    body.dark-mode .vip {
+      color:#ffa500;
+    }
+
+    .vip-frame-0 { border-color: gray; }
+    .vip-frame-1 { border-color: #ffeb3b; box-shadow: 0 0 6px #ffeb3b}
+    .vip-frame-2 { border-color: #ffc107; box-shadow: 0 0 8px #ffc107 }
+    .vip-frame-3 { border-color: gold; box-shadow: 0 0 10px gold }
+    .vip-frame-4 { border-color: #ff1744;box-shadow: 0 0 12px #ff1744 }
+    .vip-frame-5 { border-color: #2979ff; box-shadow: 0 0 12px #2979ff ;animation: glow-vip5 2.5s infinite;}
+    .vip-frame-6 { border-color: #ec407a;box-shadow: 0 0 12px #ec407a ;animation: glow-vip6 2.5s infinite;}
+    .vip-frame-7 { border-color: #b2ebf2; box-shadow: 0 0 12px #b2ebf2 ;animation: glow-vip7 2.5s infinite;}
+    .vip-frame-8 { border-color: #00e5ff; box-shadow: 0 0 12px #00e5ff ;animation: glow-vip8 2.5s infinite;}
+    .legendary-frame {
+      border-color: 		#aaa;
+      box-shadow: 0 0 25px 	rgba(0, 0, 0, 1);
+      animation: glow-light 2s infinite,glow-pulse 2s infinite
+
+    }
+    body.dark-mode .legendary-frame {
+      border-color: #ffffff;
+      box-shadow: 0 0 25px #ffffff;
+      animation: glow-dark 2s infinite,glow-pulse1 2s infinite;
+      
+    }
+    @keyframes glow-vip5 {
+      0% { box-shadow: 0 0 7px #2979ff; }
+      50% { box-shadow: 0 0 21px #2979ff; }
+      100% { box-shadow: 0 0 7px #2979ff; }
+    }
+    @keyframes glow-vip6 {
+      0% { box-shadow: 0 0 9px #ec407a; }
+      50% { box-shadow: 0 0 24px #ec407a; }
+      100% { box-shadow: 0 0 9px #ec407a; }
+    }
+    @keyframes glow-vip7 {
+      0% { box-shadow: 0 0 10px #b2ebf2; }
+      50% { box-shadow: 0 0 28px #b2ebf2; }
+      100% { box-shadow: 0 0 10px #b2ebf2; }
+    }
+    @keyframes glow-vip8 {
+      0% { box-shadow: 0 0 10px #00e5ff; }
+      50% { box-shadow: 0 0 32px #00e5ff; }
+      100% { box-shadow: 0 0 10px #00e5ff; }
+    }
+    @keyframes glow-light {
+      0%   { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+      50%  { box-shadow: 0 0 35px rgba(0, 0, 0, 1); }
+      100% { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+    }
+    @keyframes glow-dark {
+      0%   { box-shadow: 0 0 10px #ffffff; }
+      50%  { box-shadow: 0 0 35px #ffffff; }
+      100% { box-shadow: 0 0 10px #ffffff; }
+    }
+
+    @keyframes glow-pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 1);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      }
+      
+    }
+    @keyframes glow-pulse1 {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ffffff;
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 35px #ffffff;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ffffff;
+      }
+    }
+    .badge {
+    display: inline-block;
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 3px;
+    box-shadow: 0 2px 15px rgba(255,165,0,0.5);
+    }
+    @media (max-width: 768px){
+      .nut button{
+        font-size:9px !important;
+      }
+      .info img{
+        width: 50px !important;
+        height: 50px !important;
+      }
+      .info span{
+        font-size:9px;
+      }
+      .userz {
+        font-size:11px !important;
+      }
+      .badge {
+        font-size:8px  !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -102,7 +223,7 @@
           <button id="login-btn" class="login-button hidden">Đăng nhập ngay</button>
         </div>
         <div id="game-container"></div>
-        <div class="download-buttons" style="text-align: center;">
+        <div class="download-buttons nut" style="text-align: center;">
           <h3><i><b>Sức mạnh đang trỗi dậy! Chọn nền tảng, bước vào trận chiến tối thượng!</b></i></h3>
           <p><i>Không còn đường lui... Nếu ngươi là chiến binh thực thụ, thì đây là lúc bùng nổ sức mạnh!</i></p>
           <a href="gctcn.html"><button>JAVA</button></a>
@@ -211,27 +332,59 @@
           // 1. Hiện tên người chơi + nút đăng xuất
           const userBar = document.createElement("div");
           userBar.style.display = "flex";
-          userBar.style.alignItems = "center"; 
-          userBar.style.justifyContent = "flex-end";
-          userBar.style.gap = "12px"; 
-          userBar.style.margin = "12px 0";
-          userBar.style.marginTop = "65px"
+          userBar.style.alignItems = "center";
+          userBar.style.justifyContent = "space-between";
+          
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const userData = users.find(u => u.email === loggedInUser.email);
+          let tongZeni = 0;
+          try {
+            for (let i = 0; i < userData.history.length; i++) {
+              tongZeni += userData.history[i].zeni;  // ✅ đúng
+            }
+          } catch (e) {
+            tongZeni = 0; // fallback nếu history bị lỗi
+          }
+
+          const vipMoc = [0, 1000, 5000, 10000, 20000, 50000, 100000, 200000, 300000, 500000];
+          let vip = 0;
+          for (let i = 0; i < vipMoc.length; i++) {
+            if (tongZeni < vipMoc[i]) {
+              vip = i - 1;
+              break;
+            }
+            if (i === vipMoc.length - 1) vip = i;
+          }
+
+          const avatarSrc = vip <= 8 ? `images/avt${vip + 1}.webp` : "images/vip10.1.avif";
+          const frameClass = vip <= 8 ? `vip-frame-${vip}` : "legendary-frame";
+          const danhHieu = [
+            "Base Form", "SSJ 1 ⚡", "SSJ 2 ⚡", "SSJ 3 ⚡", "SSJ GOD 🔥",
+            "SSJ BLUE 🔥", "SSJ ROSE 🔥", "UI -Sign- 🔷", "True UI 🔷", "MUI 💠"
+          ];
+
           userBar.innerHTML = `
-            <p style="margin:0;font-weight:bold">Chiến binh, ${loggedInUser.username}!</p>
-            <div class="download-buttons">
-              <button onclick="logout()" style="margin:0px;padding:5px 8px"">Đăng xuất</button>
+            <div class="info"style="display: flex; align-items: center; gap: 12px;">
+              <img src="${avatarSrc}" class="avatar-frame ${frameClass}" style="width: 65px; height: 65px;">
+              <div>
+                <p style="margin: 0; font-weight: bold;">chiến binh <span class="vip userz" >${loggedInUser.username}</span></p>
+                <p style="margin: 0; font-size: 13px;"><span class="vip" style="font-weight: bold">VIP ${vip}</span> <span class="badge">${danhHieu[vip]}</span></p>
+              </div>
+            </div>
+            <div class="nut">
+              <button onclick="logout()" style="padding: 6px 12px;">Đăng xuất</button>
             </div>
           `;
 
-          
           // CHÈN userBar vào bên trong container
           container.appendChild(userBar);
           
           // 2. Thêm iframe game + nút fullscreen
           const gameWrapper = document.createElement("div");
+          gameWrapper.style.marginTop="10px"
           gameWrapper.innerHTML = `
             <iframe id="game-frame" src="gktkn.html" style="width:100%; aspect-ratio: 2 / 1; border:none"></iframe>
-            <div class="download-buttons" style="margin-top:10px;text-align:right">
+            <div class="download-buttons nut" style="margin-top:10px;text-align:right">
               <button onclick="toggleFullScreen()" style="padding:7px 9px">Toàn màn hình</button>
             </div>
           `;
@@ -245,6 +398,7 @@
           setTimeout(()=>{
             showToast("💡 Mẹo: Chiến binh có thể ấn toàn màn hình để có trải nghiệm tốt hơn!")
           },15000)
+          
         }
         function showToast(message) {
           const toast = document.getElementById("toast");
