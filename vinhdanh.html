@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
   <style>
-        #toast {
+    #toast {
     position: fixed;
     opacity:0;
     bottom:66%;
@@ -35,15 +35,40 @@
     opacity: 0;
     pointer-events: none;
     }
+    #danh-sach-huy-hieu{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:15px;
+      width:75%;
+      margin:auto
+    }
     .huy-hieu-card {
-    width: 200px;
+    width: 100%;
+    height:110px;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
     font-weight: bold;
     box-shadow: 0 0 8px rgba(255,255,255,0.8);
     }
-    
+    .huy-hieu-card:hover{
+      transform: translateY(-5px);
+      filter: brightness(1.1);
+      transition: .4s;
+    }
+    .dragon-god {
+      background: linear-gradient(to right, #00e5ff, #7c4dff);
+      box-shadow: 0 0 16px #00e5ff;
+      color: white;
+      font-weight: bold;
+      animation: pulseDragon 2s infinite;
+    }
+    @keyframes pulseDragon {
+      0% { transform: scale(1); box-shadow: 0 0 12px #00e5ff; }
+      50% { transform: scale(1.03); box-shadow: 0 0 28px #7c4dff; }
+      100% { transform: scale(1); box-shadow: 0 0 12px #00e5ff; }
+    }
+
     .gold {
     background: linear-gradient(to right, gold, orange);
     }
@@ -56,31 +81,116 @@
     .locked {
     background: #333;
     opacity: 0.3;
-    filter: grayscale(100%);
+    }
+    body:not(.dark-mode) .huy-hieu-card {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);  
+    }
+    body:not(.dark-mode) .huy-hieu-card.gold {
+      background: linear-gradient(to right, #ffea00, #ffc107);
+    }
+    body:not(.dark-mode) .huy-hieu-card.silver {
+      background: linear-gradient(to right, #d3d3d3, #a9a9a9);
+    }
+    body:not(.dark-mode) .huy-hieu-card.bronze {
+      background: linear-gradient(to right, #e8a87c, #bc6c25);
+    }
+    body:not(.dark-mode) .huy-hieu-card.locked {
+      background: #ddd;
+      color: #444;
+      opacity: 0.7;
+    }
+    #top-users{
+      width:100%;
+      border-collapse:collapse;
+      text-align:center;
+    }
+    #top-users thead{
+      background-color:#2a2d32;
+      box-shadow: 0 0px 2px rgba(0,0,0,1)
     }
     #top-users td, #top-users th {
-    border: 1px solid #ccc;
+    border:1px solid white;
     padding: 10px;
     }
-    #top-users tr:nth-child(even) {
+    #top-users tr:nth-child(2n) {
     background-color: rgba(255,255,255,0.05);
     }
     #top-users tr:hover {
     background-color: rgba(255,255,255,0.1);
     }
+    body:not(.dark-mode) #top-users thead{
+      background-color: #ffe082;
+    }
+    body:not(.dark-mode) #top-users td, 
+    body:not(.dark-mode) #top-users th {
+      border: 1px solid #999;
+    }
+
+    body:not(.dark-mode) #top-users tr:nth-child(2n) {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    body:not(.dark-mode) #top-users tr:hover {
+      background-color: rgba(0, 0, 0, 0.07);
+    }
+    .top-1 {
+      color: gold;
+      font-weight: bold;
+      text-shadow: 0px 0px 1px gold;
+    }
+    .top-2 {
+      color: #d0d0ff;
+      font-weight: bold;
+      text-shadow: 0px 0px 1px #d0d0ff;
+    }
+    .top-3 {
+      color: #cd7f32; 
+      font-weight: bold;
+      text-shadow: 0px 0px 0.5px #cd7f32
+    }
+    body:not(.dark-mode) .top-1 {
+      color: #f57f17;
+      font-weight: bold;
+      text-shadow: 0px 0px 1px #f57f17;
+    }
+    body:not(.dark-mode) .top-2 {
+      color: #3f51b5;
+      font-weight: bold;
+      text-shadow: 0px 0px 1px #3f51b5;
+    }
+    body:not(.dark-mode) .top-3 {
+      color: #a0522d;
+      font-weight: bold;
+      text-shadow: 0px 0px 0.5px #a0522d;
+    }
+
+    #ds-thanh-tich-an{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      width: 75%;
+      margin: auto;
+      gap:15px
+    }
     .thanh-tich-card {
-    width: 220px;
+    width: 100%;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
     font-style: italic;
-    color: #ccc;
-    background: #222;
     opacity: 0.4;
-    filter: grayscale(100%);
-    box-shadow: 0 0 8px rgba(255,255,255,0.05);
+    box-shadow: 0 0 8px rgba(255,255,255,0.8);
     }
-        .avatar-frame {
+    .thanh-tich-card:hover{
+      transform: translateY(-5px);
+      transition: .4s;
+    }
+    body:not(.dark-mode) .thanh-tich-card {
+      background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+      color: #333;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);  
+      opacity: 0.6;
+    }
+    .avatar-frame {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid transparent;
@@ -96,15 +206,15 @@
     .vip-frame-7 { border-color: #b2ebf2; box-shadow: 0 0 12px #b2ebf2 ;animation: glow-vip7 2.5s infinite;}
     .vip-frame-8 { border-color: #00e5ff; box-shadow: 0 0 12px #00e5ff ;animation: glow-vip8 2.5s infinite;}
     .legendary-frame {
-      border-color: 		#aaa;
-      box-shadow: 0 0 25px 	rgba(0, 0, 0, 1);
-      animation: glow-light 2s infinite,glow-pulse 2.5s infinite
+      border-color: 		#B0F1FF;
+      box-shadow: 0 0 25px 	#B0F1FF;
+      animation: glow-pulse 2.5s infinite
 
     }
     body.dark-mode .legendary-frame {
       border-color: #ffffff;
       box-shadow: 0 0 25px #ffffff;
-      animation: glow-dark 2s infinite,glow-pulse1 2.5s infinite;
+      animation: glow-pulse1 2.5s infinite;
       
     }
     @keyframes glow-vip5 {
@@ -127,47 +237,59 @@
       50% { box-shadow: 0 0 32px #00e5ff; }
       100% { box-shadow: 0 0 10px #00e5ff; }
     }
-    @keyframes glow-light {
-      0%   { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
-      50%  { box-shadow: 0 0 35px rgba(0, 0, 0, 1); }
-      100% { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+    @keyframes glow-pulse {
+      0% {
+        transform: scale(1);
+        box-shadow:0 0 15px #00e5ff
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow:0 0 45px #00e5ff
+      }
+      100% {
+        transform: scale(1);
+        box-shadow:0 0 15px #00e5ff
+      }
     }
-    @keyframes glow-dark {
-      0%   { box-shadow: 0 0 10px #ffffff; }
-      50%  { box-shadow: 0 0 35px #ffffff; }
-      100% { box-shadow: 0 0 10px #ffffff; }
+    @keyframes glow-pulse1 {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ffffff;
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 45px #ffffff;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #ffffff;
+      }
     }
+    @media (max-width: 768px){
+      #danh-sach-huy-hieu{
+        font-size:10px;
+        grid-template-columns: repeat(2,1fr);
+      }
+      .huy-hieu-card {
+        height:80px
+      }
+      #top-users {
+        font-size: 8px;
+      }
 
-  @keyframes glow-pulse {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
-    }
-    50% {
-      transform: scale(1.03);
-      box-shadow: 0 0 35px rgba(0, 0, 0, 1);
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
-    }
-    
-  }
-  @keyframes glow-pulse1 {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 0 15px #ffffff;
-    }
-    50% {
-      transform: scale(1.03);
-      box-shadow: 0 0 35px #ffffff;
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 15px #ffffff;
-    }
-  }
+      #top-users img {
+        width: 25px !important;
+        height: 25px !important;
+      }
 
+      #top-users td {
+        padding: 4px;
+      }
+      #ds-thanh-tich-an{
+        grid-template-columns: repeat(2,1fr);
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -210,33 +332,32 @@
                 <span class="slider round"></span>
             </label>
         </div>
-        <h2></h2>
-        <p></p>
+        <h2>Truyền Thuyết Được Viết Bằng Sức Mạnh Và Ý Chí !</h2>
+        <p><i><b>Không cần sinh ra vĩ đại — chỉ cần dám chiến đấu! Từng đòn tung ra, từng chiến thắng đạt được... là từng dòng truyền thuyết được viết nên bởi chính bạn!</b></i></p>
+
     </div>
     <div id="huy-hieu" class="bg-content1">
-        <h2 style="text-align:center;color:orange;">🎖️ HUY HIỆU</h2>
-        <div id="danh-sach-huy-hieu" style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:20px;"></div>
+        <h2 style="text-align:center">🎖️ HUY HIỆU</h2>
+        <div id="danh-sach-huy-hieu"></div>
     </div>
-    <div id="bang-xep-hang" class="bg-content1">
-        <h2 style="text-align:center;color:gold;">🏆 BẢNG XẾP HẠNG CHIẾN BINH</h2>
-        <div style="overflow-x:auto;">
-            <table id="top-users" style="width:90%;margin:auto;border-collapse:collapse;color:white;text-align:center;">
-                <thead style="background:rgba(255,215,0,0.2);">
-                    <tr>
-                    <th>Hạng</th>
-                    <th>Chiến Binh</th>
-                    <th>Tổng Zeni</th>
-                    <th>VIP</th>
-                    <th>Danh Hiệu</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+    <div class="bg-content1">
+        <h2 style="text-align:center">🏆 BẢNG XẾP HẠNG CHIẾN BINH</h2>
+        <table id="top-users">
+            <thead>
+                <tr>
+                <th>Hạng</th>
+                <th>Chiến Binh</th>
+                <th>Tổng Zeni</th>
+                <th>VIP</th>
+                <th>Danh Hiệu</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
     <div id="thanh-tich-sap-mo" class="bg-content1">
-        <h2 style="text-align:center;color:lightgray;">🔓 THÀNH TÍCH SẮP ĐẠT</h2>
-        <div id="ds-thanh-tich-an" style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:20px;"></div>
+        <h2 style="text-align:center">🔓 THÀNH TÍCH SẮP ĐẠT</h2>
+        <div id="ds-thanh-tich-an" ></div>
     </div>
 
     <audio id="bg-music" autoplay loop>
@@ -303,7 +424,7 @@
     const currentSession = JSON.parse(sessionStorage.getItem("currentUser"));
     const container = document.getElementById("danh-sach-huy-hieu");
     if (!currentSession) {
-        container.innerHTML = "<p style='color:white;'>⚠️ Bạn cần đăng nhập để xem huy hiệu của mình.</p>";
+        container.innerHTML = '<p style="text-align:center;grid-column: 1 / -1;">⚠️ Bạn cần đăng nhập để xem huy hiệu của mình.</p>';
     } else {
         const user = users.find(u => u.email === currentSession.email);
         const tongZeni = user.history?.reduce((sum, h) => sum + h.zeni, 0) || 0;
@@ -339,8 +460,8 @@
         }
 
         // Đăng nhập chăm chỉ
-        if (soNgay >= 5) {
-        html += `<div class="huy-hieu-card bronze">📅 Chiến Binh Chăm Chỉ<br/>Đăng nhập 5 ngày</div>`;
+        if (soNgay >= 2) {
+        html += `<div class="huy-hieu-card bronze">📅 Chiến Binh Chăm Chỉ<br/>Đăng nhập 2 ngày</div>`;
         if (!user.thanhTich.includes("login5")) {
             user.kimcuong += 200000;
             user.thanhTich.push("login5");
@@ -348,12 +469,12 @@
             showToast("✅ Nhận 200.000 Zeni từ huy hiệu Chăm Chỉ!");
         }
         } else {
-        html += `<div class="huy-hieu-card locked">📅 Chiến Binh Chăm Chỉ<br/>Còn ${5 - soNgay} ngày nữa</div>`;
+        html += `<div class="huy-hieu-card locked">📅 Chiến Binh Chăm Chỉ<br/>Còn ${2 - soNgay} ngày nữa</div>`;
         }
 
         // Thần Rồng Gọi Tên
         if (tongZeni >= 500000) {
-        html += `<div class="huy-hieu-card gold">🐉 Thần Rồng Gọi Tên<br/>VIP cấp cao nhất</div>`;
+        html += `<div class="huy-hieu-card dragon-god">🐉 Thần Rồng Gọi Tên<br/>VIP cấp cao nhất</div>`;
         if (!user.thanhTich.includes("vipmax")) {
             user.kimcuong += 500000;
             user.thanhTich.push("vipmax");
@@ -378,8 +499,8 @@
         }
 
         // Chăm Online
-        if (soNgay >= 15) {
-        html += `<div class="huy-hieu-card bronze">⏱️ Chăm Online<br/>Đăng nhập 15 ngày</div>`;
+        if (soNgay >= 5) {
+        html += `<div class="huy-hieu-card bronze">⏱️ Chăm Online<br/>Đăng nhập 5 ngày</div>`;
         if (!user.thanhTich.includes("login15")) {
             user.kimcuong += 300000;
             user.thanhTich.push("login15");
@@ -387,7 +508,7 @@
             showToast("✅ Nhận 300.000 Zeni từ huy hiệu Chăm Online!");
         }
         } else {
-        html += `<div class="huy-hieu-card locked">⏱️ Chăm Online<br/>Cần thêm ${15 - soNgay} ngày nữa</div>`;
+        html += `<div class="huy-hieu-card locked">⏱️ Chăm Online<br/>Cần thêm ${5 - soNgay} ngày nữa</div>`;
         }
         container.innerHTML=html
 
@@ -453,13 +574,21 @@
         let frameClass = vip >= 0 && vip <= 8
             ? `vip-frame-${vip}`
             : "legendary-frame";
-
+        let topClass = i === 0 ? "top-1" : i === 1 ? "top-2" : i === 2 ? "top-3" : "";
         html += `
-            <tr>
-            <td>#${i + 1}</td>
-            <td style="display:flex;align-items:center;gap:10px;justify-content:center;">
-                <img src="${avatarURL}" class="avatar-frame ${frameClass}" style="width:40px;height:40px;">
-                <span>${u.username}</span>
+            <tr class="${topClass}">
+            <td>Top ${i + 1}</td>
+            <td>
+              <table style="margin:auto">
+                <tr>
+                  <td style="padding: 0;border:none">
+                    <img src="${avatarURL}" class="avatar-frame ${frameClass}" style="width:40px;height:40px;vertical-align:middle;">
+                  </td>
+                  <td style="padding-left: 8px; white-space: nowrap; vertical-align: middle;border:none">
+                    ${u.username}
+                  </td>
+                </tr>
+              </table>
             </td>
             <td>${u.zeni.toLocaleString()}</td>
             <td>VIP ${vip}</td>
@@ -478,7 +607,7 @@
         const container = document.getElementById("ds-thanh-tich-an");
 
         if (!currentSession) {
-        container.innerHTML = "<p style='color:white;'>⚠️ Vui lòng đăng nhập để xem mục tiêu cá nhân.</p>";
+        container.innerHTML = '<p style="text-align:center;grid-column: 1 / -1;">⚠️ Vui lòng đăng nhập để xem mục tiêu cá nhân.</p>';
         return;
         }
 
@@ -493,7 +622,7 @@
         if (tongZeni < 200000) {
         html += `<div class="thanh-tich-card">
             🔥 Cần nạp thêm ${(200000 - tongZeni).toLocaleString()} Zeni<br/>
-            để đạt cấp <b style="color:orange">Rồng Lửa</b>
+            để đạt cấp <b>Rồng Lửa</b>
         </div>`;
         } else {
             if (!user.thanhTich.includes("ronglua")) {
@@ -508,7 +637,7 @@
         if (items < 12) {
         html += `<div class="thanh-tich-card">
             🛍️ Mua thêm ${12 - items} vật phẩm<br/>
-            để mở khóa <b style="color:cyan">Sưu Tầm Siêu Cấp</b>
+            để mở khóa <b>Sưu Tầm Siêu Cấp</b>
         </div>`;
         } else{
             if (!user.thanhTich.includes("collector")) {
@@ -523,7 +652,7 @@
         if (soNgay < 10) {
         html += `<div class="thanh-tich-card">
             📅 Đăng nhập thêm ${10 - soNgay} ngày<br/>
-            để trở thành <b style="color:yellow">Chiến Binh Trung Thành</b>
+            để trở thành <b>Chiến Binh Trung Thành</b>
         </div>`;
         } else {
             if (!user.thanhTich.includes("trungthanh")) {
@@ -535,7 +664,7 @@
  
         // Nếu đã đạt hết
         if (html === "") {
-        html = `<p style="color:lightgreen;font-style:italic;">🎉 Bạn đã hoàn thành tất cả thành tích hiện tại!</p>`;
+        html = `<p style="font-style:italic;">🎉 Bạn đã hoàn thành tất cả thành tích hiện tại!</p>`;
         }
 
         container.innerHTML = html;
@@ -566,7 +695,7 @@
         {
         username: "Saidepchiu",
         email: "vip3@demo.cbrt",
-        history: [{ zeni: 158025 }],
+        history: [{ zeni: 158250 }],
         },
         {
         username: "LD Thànhh",
@@ -576,13 +705,28 @@
         {
         username: "Huy Quang",
         email: "vip5@demo.cbrt",
-        history: [{ zeni: 327025 }],
+        history: [{ zeni: 327500 }],
         },
         {
         username: "LQC-Nopee",
         email: "vip6@demo.cbrt",
-        history: [{ zeni: 488225 }],
-        }
+        history: [{ zeni: 488250 }],
+        },
+        {
+        username: "NguyễnVHiệp",
+        email: "vip7@demo.cbrt",
+        history: [{ zeni: 32250 }],
+        },
+        {
+        username: "chillboy",
+        email: "vip8@demo.cbrt",
+        history: [{ zeni: 124250 }],
+        },
+        {
+        username: "admin",
+        email: "vip9@demo.cbrt",
+        history: [{ zeni: 1250 }],
+        },
     ];
 
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];

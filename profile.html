@@ -57,15 +57,15 @@
     .vip-frame-7 { border-color: #b2ebf2; box-shadow: 0 0 12px #b2ebf2 ;animation: glow-vip7 2.5s infinite;}
     .vip-frame-8 { border-color: #00e5ff; box-shadow: 0 0 12px #00e5ff ;animation: glow-vip8 2.5s infinite;}
     .legendary-frame {
-      border-color: 		#aaa;
-      box-shadow: 0 0 25px 	rgba(0, 0, 0, 1);
-      animation: glow-light 2s infinite,glow-pulse 2s infinite
+      border-color: #B0F1FF;
+      box-shadow: 0 0 25px #B0F1FF	;
+      animation: glow-pulse 2s infinite;
 
     }
     body.dark-mode .legendary-frame {
       border-color: #ffffff;
       box-shadow: 0 0 25px #ffffff;
-      animation: glow-dark 2s infinite,glow-pulse1 2s infinite;
+      animation: glow-pulse1 2s infinite;
       
     }
     @keyframes glow-vip5 {
@@ -88,32 +88,20 @@
       50% { box-shadow: 0 0 32px #00e5ff; }
       100% { box-shadow: 0 0 10px #00e5ff; }
     }
-    @keyframes glow-light {
-      0%   { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
-      50%  { box-shadow: 0 0 35px rgba(0, 0, 0, 1); }
-      100% { box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+    @keyframes glow-pulse {
+      0% {
+        transform: scale(1);
+        box-shadow:0 0 15px #00e5ff
+      }
+      50% {
+        transform: scale(1.03);
+        box-shadow:0 0 45px #00e5ff
+      }
+      100% {
+        transform: scale(1);
+        box-shadow:0 0 15px #00e5ff
+      }
     }
-    @keyframes glow-dark {
-      0%   { box-shadow: 0 0 10px #ffffff; }
-      50%  { box-shadow: 0 0 35px #ffffff; }
-      100% { box-shadow: 0 0 10px #ffffff; }
-    }
-
-  @keyframes glow-pulse {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
-    }
-    50% {
-      transform: scale(1.03);
-      box-shadow: 0 0 35px rgba(0, 0, 0, 1);
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
-    }
-    
-  }
   @keyframes glow-pulse1 {
     0% {
       transform: scale(1);
@@ -121,7 +109,7 @@
     }
     50% {
       transform: scale(1.03);
-      box-shadow: 0 0 35px #ffffff;
+      box-shadow: 0 0 45px #ffffff;
     }
     100% {
       transform: scale(1);
