@@ -265,6 +265,10 @@
         box-shadow: 0 0 15px #ffffff;
       }
     }
+    .huy-hieu-card button {
+      padding: 8px 12px;
+    }
+
     @media (max-width: 768px){
       #danh-sach-huy-hieu{
         font-size:10px;
@@ -434,85 +438,165 @@
         let html = "";
 
         // Rồng Vàng
-        if (tongZeni >= 100000) {
-        html += `<div class="huy-hieu-card gold">💎 Rồng Vàng<br/>Nạp trên 100.000 Zeni</div>`;
-        if (!user.thanhTich.includes("rongvang")) {
-            user.kimcuong += 20000;
-            user.thanhTich.push("rongvang");
-            localStorage.setItem("users", JSON.stringify(users));
-            showToast("✅ Nhận 20.000 Zeni từ huy hiệu Rồng Vàng!");
-        }
+        if (tongZeni >= 100000 && !user.thanhTich.includes("rongvang")) {
+          html += `
+            <div class="huy-hieu-card locked" id="card-rongvang">
+              💎 Rồng Vàng<br/>
+              Nạp trên 100.000 Zeni<br/>
+              <button onclick="nhanThuong('rongvang', 20000, 'gold')">Nhận thưởng</button>
+            </div>`;
+        } else if (user.thanhTich.includes("rongvang")) {
+          html += `
+            <div class="huy-hieu-card gold">
+              💎 Rồng Vàng<br/>Nạp trên 100.000 Zeni<br/>✅ Đã nhận thưởng
+            </div>`;
         } else {
-        html += `<div class="huy-hieu-card locked">💎 Rồng Vàng<br/>Cần thêm ${(100000 - tongZeni).toLocaleString()} Zeni</div>`;
+          html += `
+            <div class="huy-hieu-card locked">
+              💎 Rồng Vàng<br/>Cần thêm ${(100000 - tongZeni).toLocaleString()} Zeni
+            </div>`;
         }
 
+
         // Thợ săn vật phẩm
-        if (items >= 10) {
-        html += `<div class="huy-hieu-card silver">🛍️ Thợ Săn Vật Phẩm<br/>Đã mua 10 vật phẩm</div>`;
-        if (!user.thanhTich.includes("hunter10")) {
-            user.kimcuong += 300000;
-            user.thanhTich.push("hunter10");
-            localStorage.setItem("users", JSON.stringify(users));
-            showToast("✅ Nhận 300.000 Zeni từ Thợ Săn Vật Phẩm!");
-        }
+        if (items >= 10 && !user.thanhTich.includes("hunter10")) {
+        html += `
+          <div class="huy-hieu-card locked" id="card-hunter10">
+            🛍️ Thợ Săn Vật Phẩm<br/>
+            Đã mua 10 vật phẩm<br/>
+            <button onclick="nhanThuong('hunter10', 300000, 'silver')">
+              Nhận thưởng
+            </button>
+          </div>`;
+        } else if (user.thanhTich.includes("hunter10")) {
+          html += `
+            <div class="huy-hieu-card silver">
+              🛍️ Thợ Săn Vật Phẩm<br/>Đã mua 10 vật phẩm<br/>✅ Đã nhận thưởng
+            </div>`;
         } else {
-        html += `<div class="huy-hieu-card locked">🛍️ Thợ Săn Vật Phẩm<br/>Còn ${(10 - items)} món nữa</div>`;
+          html += `
+            <div class="huy-hieu-card locked">
+              🛍️ Thợ Săn Vật Phẩm<br/>Còn ${10 - items} món nữa
+            </div>`;
         }
 
         // Đăng nhập chăm chỉ
-        if (soNgay >= 2) {
-        html += `<div class="huy-hieu-card bronze">📅 Chiến Binh Chăm Chỉ<br/>Đăng nhập 2 ngày</div>`;
-        if (!user.thanhTich.includes("login5")) {
-            user.kimcuong += 200000;
-            user.thanhTich.push("login5");
-            localStorage.setItem("users", JSON.stringify(users));
-            showToast("✅ Nhận 200.000 Zeni từ huy hiệu Chăm Chỉ!");
-        }
+        if (soNgay >= 2 && !user.thanhTich.includes("login5")) {
+          html += `
+            <div class="huy-hieu-card locked" id="card-login5">
+              📅 Chiến Binh Chăm Chỉ<br/>
+              Đăng nhập 2 ngày<br/>
+              <button onclick="nhanThuong('login5', 200000, 'bronze')">
+                Nhận thưởng
+              </button>
+            </div>`;
+        } else if (user.thanhTich.includes("login5")) {
+          html += `
+            <div class="huy-hieu-card bronze">
+              📅 Chiến Binh Chăm Chỉ<br/>Đăng nhập 2 ngày<br/>✅ Đã nhận thưởng
+            </div>`;
         } else {
-        html += `<div class="huy-hieu-card locked">📅 Chiến Binh Chăm Chỉ<br/>Còn ${2 - soNgay} ngày nữa</div>`;
+          html += `
+            <div class="huy-hieu-card locked">
+              📅 Chiến Binh Chăm Chỉ<br/>Còn ${2 - soNgay} ngày nữa
+            </div>`;
         }
 
         // Thần Rồng Gọi Tên
-        if (tongZeni >= 500000) {
-        html += `<div class="huy-hieu-card dragon-god">🐉 Thần Rồng Gọi Tên<br/>VIP cấp cao nhất</div>`;
-        if (!user.thanhTich.includes("vipmax")) {
-            user.kimcuong += 500000;
-            user.thanhTich.push("vipmax");
-            localStorage.setItem("users", JSON.stringify(users));
-            showToast("✅ Nhận 500.000 Zeni từ Thần Rồng Gọi Tên!");
-        }
+        if (tongZeni >= 500000 && !user.thanhTich.includes("vipmax")) {
+          html += `
+            <div class="huy-hieu-card locked" id="card-vipmax">
+              🐉 Thần Rồng Gọi Tên<br/>
+              VIP cấp cao nhất<br/>
+              <button onclick="nhanThuong('vipmax', 500000, 'dragon-god')">
+                Nhận thưởng VIP
+              </button>
+            </div>`;
+        } else if (user.thanhTich.includes("vipmax")) {
+          html += `
+            <div class="huy-hieu-card dragon-god">
+              🐉 Thần Rồng Gọi Tên<br/>VIP cấp cao nhất<br/>✅ Đã nhận thưởng
+            </div>`;
         } else {
-        html += `<div class="huy-hieu-card locked">🐉 Thần Rồng Gọi Tên<br/>Cần thêm ${(500000 - tongZeni).toLocaleString()} Zeni</div>`;
+          html += `
+            <div class="huy-hieu-card locked">
+              🐉 Thần Rồng Gọi Tên<br/>Cần thêm ${(500000 - tongZeni).toLocaleString()} Zeni
+            </div>`;
         }
 
         // Mở Rương Nhiều Nhất
-        if (items >= 17) {
-        html += `<div class="huy-hieu-card silver">🎁 Mở Rương Nhiều Nhất<br/>Đã mua 17 vật phẩm</div>`;
-        if (!user.thanhTich.includes("hunter17")) {
-            user.kimcuong += 170000;
-            user.thanhTich.push("hunter17");
-            localStorage.setItem("users", JSON.stringify(users));
-            showToast("✅ Nhận 170.000 Zeni từ Mở Rương Nhiều Nhất!");
-        }
+        if (items >= 17 && !user.thanhTich.includes("hunter17")) {
+          html += `
+            <div class="huy-hieu-card locked" id="card-hunter17">
+              🎁 Mở Rương Nhiều Nhất<br/>
+              Đã mua 17 vật phẩm<br/>
+              <button onclick="nhanThuong('hunter17', 170000, 'silver')">
+                Nhận thưởng VIP
+              </button>
+            </div>`;
+        } else if (user.thanhTich.includes("hunter17")) {
+          html += `
+            <div class="huy-hieu-card silver">
+              🎁 Mở Rương Nhiều Nhất<br/>Đã mua 17 vật phẩm<br/>✅ Đã nhận thưởng
+            </div>`;
         } else {
-        html += `<div class="huy-hieu-card locked">🎁 Mở Rương Nhiều Nhất<br/>Cần thêm ${17 - items} món nữa</div>`;
+          html += `
+            <div class="huy-hieu-card locked">
+              🎁 Mở Rương Nhiều Nhất<br/>Cần thêm ${17 - items} món nữa
+            </div>`;
         }
-
         // Chăm Online
-        if (soNgay >= 5) {
-        html += `<div class="huy-hieu-card bronze">⏱️ Chăm Online<br/>Đăng nhập 5 ngày</div>`;
-        if (!user.thanhTich.includes("login15")) {
-            user.kimcuong += 300000;
-            user.thanhTich.push("login15");
-            localStorage.setItem("users", JSON.stringify(users));
-            showToast("✅ Nhận 300.000 Zeni từ huy hiệu Chăm Online!");
-        }
+        if (soNgay >= 5 && !user.thanhTich.includes("login15")) {
+          html += `
+            <div class="huy-hieu-card locked" id="card-login15">
+              ⏱️ Chăm Online<br/>
+              Đăng nhập 5 ngày<br/>
+              <button onclick="nhanThuong('login15', 300000, 'bronze')">
+                Nhận thưởng VIP
+              </button>
+            </div>`;
+        } else if (user.thanhTich.includes("login15")) {
+          html += `
+            <div class="huy-hieu-card bronze">
+              ⏱️ Chăm Online<br/>Đăng nhập 5 ngày<br/>✅ Đã nhận thưởng
+            </div>`;
         } else {
-        html += `<div class="huy-hieu-card locked">⏱️ Chăm Online<br/>Cần thêm ${5 - soNgay} ngày nữa</div>`;
+          html += `
+            <div class="huy-hieu-card locked">
+              ⏱️ Chăm Online<br/>Cần thêm ${5 - soNgay} ngày nữa
+            </div>`;
         }
         container.innerHTML=html
 
     }
+    function getHuyHieuHTML(ma) {
+    switch(ma) {
+      case "rongvang":
+        return "💎 Rồng Vàng<br/>Nạp trên 100.000 Zeni";
+      case "hunter10":
+        return "🛍️ Thợ Săn Vật Phẩm<br/>Đã mua 10 vật phẩm";
+      case "login5":
+        return "📅 Chiến Binh Chăm Chỉ<br/>Đăng nhập 5 ngày";
+      case "vipmax":
+        return "🐉 Thần Rồng Gọi Tên<br/>VIP cấp cao nhất";
+      case "hunter17":
+        return "🎁 Mở Rương Nhiều Nhất<br/>Đã mua 17 vật phẩm";
+      case "login15":
+        return "⏱️ Chăm Online<br/>Đăng nhập 15 ngày";
+    }
+  }
+    function nhanThuong(ma, soTien, cap) {
+    const user = users.find(u => u.email === currentSession.email);
+    user.thanhTich = user.thanhTich || [];
+    user.kimcuong += soTien;
+    user.thanhTich.push(ma);
+    localStorage.setItem("users", JSON.stringify(users));
+    showToast(`🎉 Nhận ${soTien.toLocaleString()} Zeni từ thành tích!`);
+    const card = document.getElementById("card-" + ma);
+    card.classList.remove("locked");
+    card.classList.add(cap); 
+    card.innerHTML = getHuyHieuHTML(ma) + "<br/>✅ Đã nhận thưởng";
+  }
     function showToast(message) {
     const toast = document.getElementById("toast");
     if (!toast) return;
