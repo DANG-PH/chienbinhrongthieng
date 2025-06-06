@@ -293,6 +293,11 @@
         grid-template-columns: repeat(2,1fr);
         font-size: 10px;
       }
+      button{
+        padding:4px 9px !important;
+        font-size:8px !important;
+        margin-top:2px !important;
+      }
     }
   </style>
 </head>
@@ -376,6 +381,23 @@
     </footer>
     <div id="toast" class="hidden"></div>
     <script>
+      function dangnhap(){
+        const user = JSON.parse(sessionStorage.getItem("currentUser"));
+        if (!user) return;
+
+        const email = user.email;
+        const key = `onlineTimeData_${email}`;
+        const today = new Date().toISOString().split("T")[0];
+
+        let data = JSON.parse(localStorage.getItem(key)) || {};
+        if (!data[today]) {
+          data[today] = { start: Date.now() };
+          localStorage.setItem(key, JSON.stringify(data));
+        }
+      }
+      dangnhap();
+    </script>
+    <script>
         const toggle = document.getElementById("darkModeToggle");
 
         // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
@@ -435,7 +457,7 @@
         const user = users.find(u => u.email === currentSession.email);
         const tongZeni = user.history?.reduce((sum, h) => sum + h.zeni, 0) || 0;
         const items = user.items?.length || 0;
-        const soNgay = user.ngayDangNhap || 1; // nếu bạn có lưu
+        const soNgay = demSoNgayOnline(user.email);
         user.thanhTich = user.thanhTich || [];
         let html = "";
 
@@ -450,7 +472,7 @@
         } else if (user.thanhTich.includes("rongvang")) {
           html += `
             <div class="huy-hieu-card gold">
-              💎 Rồng Vàng<br/>Nạp trên 100.000 Zeni<br/>✅ Đã nhận thưởng
+              💎 Rồng Vàng<br/>Nạp trên 100.000 Zeni<br/>✅ Hoàn thành
             </div>`;
         } else {
           html += `
@@ -473,7 +495,7 @@
         } else if (user.thanhTich.includes("hunter10")) {
           html += `
             <div class="huy-hieu-card silver">
-              🛍️ Thợ Săn Vật Phẩm<br/>Đã mua 10 vật phẩm<br/>✅ Đã nhận thưởng
+              🛍️ Thợ Săn Vật Phẩm<br/>Đã mua 10 vật phẩm<br/>✅ Hoàn thành
             </div>`;
         } else {
           html += `
@@ -495,7 +517,7 @@
         } else if (user.thanhTich.includes("login5")) {
           html += `
             <div class="huy-hieu-card bronze">
-              📅 Chiến Binh Chăm Chỉ<br/>Đăng nhập 2 ngày<br/>✅ Đã nhận thưởng
+              📅 Chiến Binh Chăm Chỉ<br/>Đăng nhập 2 ngày<br/>✅ Hoàn thành
             </div>`;
         } else {
           html += `
@@ -517,7 +539,7 @@
         } else if (user.thanhTich.includes("vipmax")) {
           html += `
             <div class="huy-hieu-card dragon-god">
-              🐉 Thần Rồng Gọi Tên<br/>VIP cấp cao nhất<br/>✅ Đã nhận thưởng
+              🐉 Thần Rồng Gọi Tên<br/>VIP cấp cao nhất<br/>👑 TOP NẠP 👑
             </div>`;
         } else {
           html += `
@@ -539,7 +561,7 @@
         } else if (user.thanhTich.includes("hunter17")) {
           html += `
             <div class="huy-hieu-card silver">
-              🎁 Mở Rương Nhiều Nhất<br/>Đã mua 17 vật phẩm<br/>✅ Đã nhận thưởng
+              🎁 Mở Rương Nhiều Nhất<br/>Đã mua 17 vật phẩm<br/>✅ Hoàn thành
             </div>`;
         } else {
           html += `
@@ -560,7 +582,7 @@
         } else if (user.thanhTich.includes("login15")) {
           html += `
             <div class="huy-hieu-card bronze">
-              ⏱️ Chăm Online<br/>Đăng nhập 5 ngày<br/>✅ Đã nhận thưởng
+              ⏱️ Chăm Online<br/>Đăng nhập 5 ngày<br/>✅ Hoàn thành
             </div>`;
         } else {
           html += `
@@ -570,6 +592,11 @@
         }
         container.innerHTML=html
 
+    }
+    function demSoNgayOnline(email) {
+      const key = `onlineTimeData_${email}`;
+      const data = JSON.parse(localStorage.getItem(key)) || {};
+      return Object.keys(data).length;
     }
     function getHuyHieuHTML(ma) {
     switch(ma) {
@@ -597,7 +624,7 @@
     const card = document.getElementById("card-" + ma);
     card.classList.remove("locked");
     card.classList.add(cap); 
-    card.innerHTML = getHuyHieuHTML(ma) + "<br/>✅ Đã nhận thưởng";
+    card.innerHTML = getHuyHieuHTML(ma) + "<br/>✅ Hoàn thành";
   }
     function showToast(message) {
     const toast = document.getElementById("toast");
