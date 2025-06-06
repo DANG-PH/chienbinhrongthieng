@@ -271,6 +271,19 @@
         </div>
     </div>
     <div class="bg-content1">
+      <h2>📅 Nhiệm vụ và điểm danh hàng ngày</h2>
+      <div style="margin-top:20px">
+        <h3>🎁 Nhận Zeni theo thời gian online</h3>
+        <ul id="diem-danh-moc">
+          <li><button onclick="nhanThuongMoc(10)">10 phút - Nhận 2000 Zeni</button></li>
+          <li><button onclick="nhanThuongMoc(20)">20 phút - Nhận 5000 Zeni</button></li>
+          <li><button onclick="nhanThuongMoc(180)">180 phút - Nhận 15000 Zeni</button></li>
+        </ul>
+        <p><i>⏳ Đã online: <span id="online-time">0</span> phút hôm nay</i></p>
+      </div>
+    </div>
+
+    <div class="bg-content1">
     <h2>Lịch sử nạp Zeni gần đây</h2>
     <table border="1" style="width:100%;text-align:center">
         <thead>
@@ -573,5 +586,79 @@
 
 
     </script>
-</body>
+    <script>
+      const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+      const ngayHomNay = new Date().toISOString().split("T")[0];
+
+      if (currentUser) {
+        const email = currentUser.email;
+        const onlineKey = `onlineTimeData_${email}`;
+        const nhanKey = `dd_nhan_${email}`;
+
+        // Lấy dữ liệu thời gian online của người dùng hôm nay
+        let data = JSON.parse(localStorage.getItem(onlineKey)) || {};
+        if (!data[ngayHomNay]) {
+          data[ngayHomNay] = { start: Date.now() };
+          localStorage.setItem(onlineKey, JSON.stringify(data));
+        }
+
+        let startTime = data[ngayHomNay].start;
+
+        // Hiển thị phút ngay khi vào
+        function capNhatPhutOnline() {
+          const minutes = Math.floor((Date.now() - startTime) / 60000);
+          document.getElementById("online-time").textContent = minutes;
+          return minutes;
+        }
+        capNhatPhutOnline();
+
+        // Cập nhật mỗi 10s
+        setInterval(capNhatPhutOnline, 10);
+
+        // Mốc thưởng
+        const mocThuong = {
+          10: 340,
+          20: 690,
+          40: 1400,
+          70:1400,
+          100:3550,
+          140:3550,
+          180: 7250
+        };
+
+        // Nhận thưởng
+        function nhanThuongMoc(phut) {
+          const minutesOnline = capNhatPhutOnline();
+          if (minutesOnline < phut) {
+            return showToast(`❌ Cần online ít nhất ${phut} phút để nhận mốc này!`);
+          }
+
+          const daNhan = JSON.parse(localStorage.getItem(nhanKey)) || {};
+          const daHomNay = daNhan[ngayHomNay] || [];
+          if (daHomNay.includes(phut)) {
+            return showToast("❌ Bạn đã nhận mốc này hôm nay!");
+          }
+
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const me = users.find(u => u.email === email);
+          me.kimcuong = (me.kimcuong || 0) + mocThuong[phut];
+          localStorage.setItem("users", JSON.stringify(users));
+          document.getElementById("kc-hientai").textContent = me.kimcuong;
+
+          daHomNay.push(phut);
+          daNhan[ngayHomNay] = daHomNay;
+          localStorage.setItem(nhanKey, JSON.stringify(daNhan));
+
+          showToast(`✅ Bạn đã nhận ${mocThuong[phut].toLocaleString()} Zeni!`);
+        }
+
+        // Gắn lên global
+        window.nhanThuongMoc = nhanThuongMoc;
+
+      } else {
+        document.getElementById("online-time").textContent = "Chưa đăng nhập";
+      }
+      </script>
+
+      </body>
 </html>

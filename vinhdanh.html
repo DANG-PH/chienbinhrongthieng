@@ -593,7 +593,7 @@
     user.kimcuong += soTien;
     user.thanhTich.push(ma);
     localStorage.setItem("users", JSON.stringify(users));
-    showToast(`🎉 Nhận ${soTien.toLocaleString()} Zeni từ thành tích!`);
+    showToast(`✅ Nhận ${soTien.toLocaleString()} Zeni từ thành tích!`);
     const card = document.getElementById("card-" + ma);
     card.classList.remove("locked");
     card.classList.add(cap); 
@@ -750,7 +750,7 @@
  
         // Nếu đã đạt hết
         if (html === "") {
-        html = `<p style="font-style:italic;">🎉 Bạn đã hoàn thành tất cả thành tích hiện tại!</p>`;
+        html = `<p style="font-style:italic;">✅ Bạn đã hoàn thành tất cả thành tích hiện tại!</p>`;
         }
 
         container.innerHTML = html;
