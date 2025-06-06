@@ -7,6 +7,83 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
   <style>
+    #popup-online{
+      position:fixed;
+      display:none;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      padding:20px;
+      border-radius:12px;
+      z-index:1001;
+      max-width:845px;
+      padding-right:0px;
+      background-color: #333;
+      box-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+    body:not(.dark-mode) #popup-online{
+      background-color: 	#f8f6f1;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+    .online-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      width: 860px;
+      gap: 15px;
+      margin-top: 15px;
+      }
+    .online-item {
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      background: rgba(30,30,30,0.75);
+      box-shadow: 0 0 8px rgba(255,255,255,0.2);
+    }
+    .online-item:hover{
+      transform:translateY(-5px);
+      box-shadow: 0px 0px 20px rgba(255,165,0,0.5);
+      transition:.25s
+    }
+    body:not(.dark-mode) .online-item{
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      background: #fffaf0
+    }
+    body:not(.dark-mode) .online-item:hover{
+      box-shadow: 0 0 20px rgba(100,100,255,0.8);
+      transition:.25s
+    }
+    .online-item img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    }
+
+    .online-item button {
+      margin-top: 12px;
+      padding: 6px 12px;
+      font-weight: bold;
+      
+    }
+
+    .online-item p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .online-item.large {
+      grid-column: 4 / -1;
+      grid-row: 1 / 3;
+      width:280px;
+    }
+    .online-item.large img{
+      height:200px
+    }
+    .online-item.large button{
+      padding:10px 110px;
+      margin-top:30px
+    }
+
     .vip strong{
       color:#1976d2
     }
@@ -269,17 +346,30 @@
           <button id="nut-dang-nhap" style="margin-top: 10px;">Đăng nhập</button>
           <button class="download-buttons"onclick="hienNhapCode()">🔑 Nhập mã đổi thưởng</button>
         </div>
+        <button onclick="hienPopupOnline()">🎁 Nhận quà online</button>
     </div>
-    <div class="bg-content1">
-      <h2>📅 Nhiệm vụ và điểm danh hàng ngày</h2>
-      <div style="margin-top:20px">
-        <h3>🎁 Nhận Zeni theo thời gian online</h3>
-        <ul id="diem-danh-moc">
-          <li><button onclick="nhanThuongMoc(10)">10 phút - Nhận 2000 Zeni</button></li>
-          <li><button onclick="nhanThuongMoc(20)">20 phút - Nhận 5000 Zeni</button></li>
-          <li><button onclick="nhanThuongMoc(180)">180 phút - Nhận 15000 Zeni</button></li>
-        </ul>
-        <p><i>⏳ Đã online: <span id="online-time">0</span> phút hôm nay</i></p>
+    <!-- Overlay nền mờ -->
+    <div id="overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+
+    <!-- Popup phần quà online -->
+    <div id="popup-online">
+      <button onclick="anPopupOnline()" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:18px;box-shadow:none">❌</button>
+      <h3 style="text-align:center;margin-top:0;">🎁 Quà online hằng ngày</h3>
+      <div class="online-grid">
+        <div class="online-item"><img src="images/ol1.png"><button onclick="nhanThuongMoc(10)">Nhận</button><p>10 phút</p></div>
+        <div class="online-item"><img src="images/ol2.png"><button onclick="nhanThuongMoc(20)">Nhận</button><p>20 phút</p></div>
+        <div class="online-item"><img src="images/ol3.png"><button onclick="nhanThuongMoc(40)">Nhận</button><p>40 phút</p></div>
+        <div class="online-item"><img src="images/ol3.png"><button onclick="nhanThuongMoc(70)">Nhận</button><p>70 phút</p></div>
+        <div class="online-item"><img src="images/ol4.png"><button onclick="nhanThuongMoc(100)">Nhận</button><p>100 phút</p></div>
+        <div class="online-item"><img src="images/ol4.png"><button onclick="nhanThuongMoc(140)">Nhận</button><p>140 phút</p></div>
+
+        <div class="online-item large">
+          <img src="images/ol5.png">
+          <button onclick="nhanThuongMoc(180)">Nhận</button>
+          <p>180 phút</p>
+          <p>🎉 Phần thưởng tối đa trong ngày! <br> Nhận ngay 7250 Zeni khi online 180 phút!</p>
+          <p id="online-time"><i></i></p>
+        </div>
       </div>
     </div>
 
@@ -587,6 +677,14 @@
 
     </script>
     <script>
+      function hienPopupOnline() {
+        document.getElementById("overlay-online").style.display = "block";
+        document.getElementById("popup-online").style.display = "block";
+      }
+      function anPopupOnline() {
+        document.getElementById("overlay-online").style.display = "none";
+        document.getElementById("popup-online").style.display = "none";
+      }
       const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
       const ngayHomNay = new Date().toISOString().split("T")[0];
 
@@ -607,7 +705,7 @@
         // Hiển thị phút ngay khi vào
         function capNhatPhutOnline() {
           const minutes = Math.floor((Date.now() - startTime) / 60000);
-          document.getElementById("online-time").textContent = minutes;
+          document.getElementById("online-time").textContent = `⏳ Đã online: ${minutes} phút hôm nay`;
           return minutes;
         }
         capNhatPhutOnline();
@@ -659,6 +757,5 @@
         document.getElementById("online-time").textContent = "Chưa đăng nhập";
       }
       </script>
-
       </body>
 </html>
