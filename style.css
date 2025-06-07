@@ -382,8 +382,8 @@ body.dark-mode button:hover {
   background-color: #999;
   border: none;
   border-radius: 50%;
-  padding: 10px 14px;
-  font-size: 20px;
+  padding: 10px 14px !important;
+  font-size: 20px !important;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
