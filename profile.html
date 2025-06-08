@@ -9,7 +9,7 @@
   <style>
     #nv-popup-online{
       position:fixed;
-      display:none;
+
       top:50%;
       left:50%;
       transform:translate(-50%,-50%);
@@ -405,23 +405,49 @@
           font-size:9px !important;
         }
 
-  .online-item.large img {
-    height: 160px;
-    object-fit: cover;
-  }
+        .online-item.large img {
+          height: 160px;
+          object-fit: cover;
+        }
 
-  .online-item.large button {
-    width: 100%;
-    padding: 12px 0;
-    margin-top: 12px;
-  }
+        .online-item.large button {
+          width: 100%;
+          padding: 12px 0;
+          margin-top: 12px;
+        }
 
-  .online-item.large p {
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-    }
+        .online-item.large p {
+          font-size: 13px;
+          line-height: 1.4;
+        }
+        #nv-popup-online{
+          width: 400px !important;
+          padding:10px;
+        }
+        .nv-online-grid {
+          width: 380px;
+          height:380px;
+          gap: 12px;
+        }
+        .nv-online-item{
+          height:105px
+        }
+        .nv-online-item img{
+          width: 25%;
+          height:85px
+        }
+        .nv-online-item button{
+          font-size: 9px;
+          padding:7px 12px
+        }
+        .nvbar {
+          height:12px !important;
+        }
+        #mediaht{
+          width: 20% !important;
+          margin-right: 20px;
+        }
+      }
 
 
   </style>
@@ -594,7 +620,7 @@
         </div>
       </div>
       <div style="margin-top: 20px;display:flex;align-items: center;">
-        <div style="width:16%;text-align: center;">
+        <div id="mediaht" style="width:16%;text-align: center;">
           <p>Hoàn thành</p>
           <p id="nv-so-hoan-thanh">0%</p>
         </div>
