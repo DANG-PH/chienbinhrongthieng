@@ -361,8 +361,11 @@
             if (tbody) {
             tbody.innerHTML = lichSuNap.map(log => {
                 tongZeniDaNap += log.zeni;
+                const thoiGian = new Date(log.time).toLocaleString("vi-VN", {
+                  timeZone: "Asia/Ho_Chi_Minh"
+                });
                 return `<tr>
-                <td>${log.time}</td>
+                <td>${thoiGian}</td>
                 <td>${log.zeni}</td>
                 <td>${log.vnd.toLocaleString()}</td>
                 </tr>`;
@@ -402,7 +405,7 @@
                 userr.kimcuong = (userr.kimcuong||0)  + tongKC;
                 if (!userr.history) userr.history = [];
                 userr.history.push({
-                time: new Date().toLocaleString(),
+                time: new Date().toISOString(),
                 zeni: tongKC,
                 vnd: tongTien
                 });
@@ -418,8 +421,11 @@
                 const tbody = document.getElementById("lich-su-nap");
                 tbody.innerHTML = userr.history.map(log => {
                     tongZeniDaNap += log.zeni;
+                    const thoiGian = new Date(log.time).toLocaleString("vi-VN", {
+                      timeZone: "Asia/Ho_Chi_Minh"
+                    });
                     return `<tr>
-                    <td>${log.time}</td>
+                    <td>${thoiGian}</td>
                     <td>${log.zeni}</td>
                     <td>${log.vnd.toLocaleString()}</td>
                     </tr>`;

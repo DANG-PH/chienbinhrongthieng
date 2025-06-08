@@ -7,6 +7,94 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
   <style>
+    #nv-popup-online{
+      position:fixed;
+      display:none;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      padding:20px;
+      border-radius:12px;
+      z-index:1001;
+      max-width:845px;
+      background-color: #333;
+      box-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+    body:not(.dark-mode) #nv-popup-online{
+      background-color: 	#f8f6f1;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+    .nv-online-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      width: 760px;
+      gap: 15px;
+      margin-top: 15px;
+      height:450px;
+      overflow-y: auto;
+      scrollbar-width: none;
+      }
+    .nv-online-item {
+      display: flex;
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(30,30,30,0.75);
+      box-shadow: 0 0 8px rgba(255,255,255,0.2);
+      align-items: center;
+    }
+    .nv-online-item p{
+      margin-left: 15px  ;
+      margin-top: -8px;
+      margin-bottom: 5px;
+    }
+    .nv-online-item h3{
+      color:#ffa500;
+      margin-top:4px;
+      margin-left:15px
+    }
+    .nv-nhan-thuong{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .nv-nhan-thuong button{
+      margin:0;
+      font-size: 12px;
+      padding:10px 16px
+    }
+    .nv-nhan-thuong p{
+      margin:0;
+      margin-left:15px
+    }
+    body:not(.dark-mode) .nv-online-item h3{
+      color:black
+    }
+    .nv-online-item:hover{
+      transform:translateY(-2px);
+      box-shadow: 0px 0px 20px rgba(255,165,0,0.5);
+      transition:.25s
+    }
+    body:not(.dark-mode) .nv-online-item{
+      background: #fffaf0;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0px 8px rgba(0, 0, 0, 0.08); 
+    }
+    body:not(.dark-mode) .nv-online-item:hover{
+      box-shadow: 0 0 20px rgba(100,100,255,0.8);
+      transition:.25s
+    }
+    .nv-online-item img {
+    width: 20%;
+    height: 100px;
+    border-radius: 8px;
+    }
+    .box-chua-nv{
+      width: 80%;
+    }
+    body:not(.dark-mode) #nv-bar{
+      background:#1976d2 !important;
+    }
     #popup-online{
       position:fixed;
       display:none;
@@ -402,7 +490,10 @@
           <button id="nut-dang-nhap" style="margin-top: 10px;">Đăng nhập</button>
           <button class="download-buttons"onclick="hienNhapCode()">🔑 Nhập mã đổi thưởng</button>
         </div>
-        <button onclick="hienPopupOnline()">🎁 Nhận quà online</button>
+        <div style="display:flex;justify-content: space-between;padding: 0;margin: 0px;">
+          <button onclick="hienPopupOnline()">🎁 Nhận quà online</button>
+          <button onclick="hienNhiemvuHangNgay()">🎁 Nhiệm vụ hằng ngày</button>
+        </div>
     </div>
     <!-- Overlay nền mờ -->
     <div id="overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
@@ -428,7 +519,90 @@
         </div>
       </div>
     </div>
+    <!-- Overlay nền mờ -->
+    <div id="nv-overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
 
+    <div id="nv-popup-online">
+      <button onclick="anNhiemvuHangNgay()" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:18px;box-shadow:none">❌</button>
+      <h3 style="text-align:center;margin-top:0;">🎁 Nhiệm Vụ Hằng Ngày</h3>
+      <div class="nv-online-grid">
+        <div class="nv-online-item">
+          <img src="images/nhanvat1.webp">
+          <div class="box-chua-nv">
+            <h3>Thấu hiểu nhân vật</h3>
+            <p>Khám phá hồ sơ nhân vật – nơi ẩn chứa bí mật sức mạnh và tiềm năng vô hạn!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>2000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="images/diendan1.webp">
+          <div class="box-chua-nv">
+            <h3>Thảo luận chiến binh</h3>
+            <p>Tương tác diễn đàn chiến binh, chia sẻ chiến thuật và truyền cảm hứng bất tận!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>3000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="images/tintuc2.webp">
+          <div class="box-chua-nv">
+            <h3>Nắm rõ chiến thuật</h3>
+            <p>Vào trang tin tức và cập nhật meta mới nhất!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>2000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="images/choingay1.webp">
+          <div class="box-chua-nv">
+            <h3>Bắt đầu cuộc chiến !</h3>
+            <p>Chiến đấu không chần chừ – hãy lao vào trận chiến và khẳng định bản lĩnh!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>5000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="images/vid1.webp">
+          <div class="box-chua-nv">
+            <h3>Động lực là sức mạnh</h3>
+            <p>Chiến binh huyền thoại không chỉ chiến đấu giỏi, mà còn để lại dấu ấn rực rỡ trong lịch sử! - Vào trang Vinh Danh</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>2000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="images/goku2.jpg">
+          <div class="box-chua-nv">
+            <h3>Khí chất của thần</h3>
+            <p>Nạp tiền lần đầu trong ngày, tăng cường sức mạnh, nâng cấp đột phá, mở khoá kỹ năng bá đạo!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>10000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 20px;display:flex;align-items: center;">
+        <div style="width:16%;text-align: center;">
+          <p>Hoàn thành</p>
+          <p id="nv-so-hoan-thanh">0%</p>
+        </div>
+        <div class="nvbar"style="background:#ccc; width:84%; height:20px; border-radius:10px; overflow:hidden">
+          <div id="nv-bar" style="height:100%; width:0%; background:#f90;"></div>
+        </div>
+      </div>
+    </div>
     <div class="bg-content1">
     <h2>Lịch sử nạp Zeni gần đây</h2>
     <table border="1" style="width:100%;text-align:center">
@@ -618,15 +792,20 @@
                 document.getElementById("vip-bar").style.background = "line-gradient(to right,#b2ebf2,#00e5ff)";
                 vipNext.textContent = "🎉 Bạn đã trở thành chiến binh trong truyền thuyết!";
             }
-
+            
             // Lịch sử nạp
-            document.getElementById("lich-su-nap").innerHTML = userr.history.map(log => `
+            document.getElementById("lich-su-nap").innerHTML = userr.history.map(log => {
+              const thoiGian = new Date(log.time).toLocaleString("vi-VN", {
+                timeZone: "Asia/Ho_Chi_Minh"
+              });
+              return `
             <tr>
-                <td>${log.time}</td>
+                <td>${thoiGian}</td>
                 <td>${log.zeni}</td>
                 <td>${log.vnd.toLocaleString()}</td>
-            </tr>
-            `).join('');
+            </tr>`;
+            }).join('');
+
         
             // Danh sách item đã mua
             const tbody = document.getElementById("lich-su-item");
@@ -816,5 +995,72 @@
         }
       }
       </script>
+      <script>
+        function hienNhiemvuHangNgay(){
+          document.getElementById("nv-popup-online").style.display = "block";
+          document.getElementById("nv-overlay-online").style.display = "block";
+        }
+
+        function anNhiemvuHangNgay(){
+          document.getElementById("nv-popup-online").style.display = "none";
+          document.getElementById("nv-overlay-online").style.display = "none";
+        }
+
+        document.querySelectorAll(".nv-nhan-thuong button").forEach((btn, index) => {
+          btn.onclick = () => nhanThuongNV(index);
+        });
+
+        function nhanThuongNV(id){
+          const userr = JSON.parse(sessionStorage.getItem("currentUser"));
+          if (!userr) return showToast("⚠️ Cần đăng nhập để nhận thưởng!");
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const me = users.find(u => u.email === userr.email);
+          const email = me.email
+          const key = `nvhn_${email}`;
+          const ngay = new Date().toISOString().split("T")[0];
+          const data = JSON.parse(localStorage.getItem(key)) || {};
+          if (!data[ngay]) data[ngay] = [];
+
+          if (data[ngay].includes(id)) {
+            return showToast("❌ Nhiệm vụ này đã nhận hôm nay!");
+          }
+
+          const phanThuong = [2000, 3000, 2000, 5000, 2000, 10000];
+          // 👉 Kiểm tra riêng với nhiệm vụ nạp tiền
+          if (id === 5) {
+            const daNap = (me.history || []).some(log => {
+              const ngayLog = new Date(log.time).toISOString().split("T")[0];
+              return ngayLog === ngay;
+            });
+            if (!daNap) {
+              return showToast("❌ Bạn cần nạp tiền hôm nay mới nhận được nhiệm vụ này!");
+            }
+          }
+
+          me.kimcuong = (me.kimcuong || 0) + phanThuong[id];
+          localStorage.setItem("users", JSON.stringify(users));
+
+          document.getElementById("kc-hientai").textContent = me.kimcuong;
+          data[ngay].push(id);
+          localStorage.setItem(key, JSON.stringify(data));
+
+          showToast(`✅ Đã nhận ${phanThuong[id].toLocaleString()} Zeni!`);
+          capNhatTienTrinhNV();
+        }
+
+
+        function capNhatTienTrinhNV(){
+          const email = JSON.parse(sessionStorage.getItem("currentUser")).email;
+          const key = `nvhn_${email}`;
+          const ngay = new Date().toISOString().split("T")[0];
+          const data = JSON.parse(localStorage.getItem(key)) || {};
+          const daNhan = data[ngay];
+          const progress = (daNhan.length / 6) * 100;
+          document.getElementById("nv-bar").style.width = progress + "%";
+          document.getElementById("nv-so-hoan-thanh").textContent = `${Math.floor(progress)}%`;
+        }
+
+        window.onload = capNhatTienTrinhNV;
+        </script>
       </body>
 </html>
