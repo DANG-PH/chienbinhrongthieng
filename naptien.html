@@ -121,11 +121,21 @@
     pointer-events: none;
     }
     @media (max-width: 600px) {
+      .bg-content{
+        padding:25px
+      }
       .goi-grid {
         grid-template-columns: repeat(2, 1fr);
       }
       .goi-nap {
-        height:175px
+        height:150px;
+      }
+      .goi-noidung{
+        padding:3px;
+      }
+      .nut-tang{
+        font-size: 9px !important;
+        width: 20px;height:20px;
       }
       .goi-nap img{
         height:110px
@@ -134,10 +144,17 @@
         font-size:8px;
       }
       details summary{
-        font-size: 14px;
+        font-size: 12px;
       }
       table {
         font-size: 11px;
+      }
+      button{
+        font-size: 9px;
+        padding:8px 12px
+      }
+      #nut-dang-nhap{
+        font-size: 9px;
       }
     }
   </style>
@@ -187,7 +204,7 @@
         <h2>Chào mừng chiến binh đến với cổng nạp Zeni Rồng Thiêng!</h2>
         <p><i><b>Gia tăng sức mạnh, mở khóa kỹ năng tối thượng và sẵn sàng cho những trận chiến long trời lở đất! Mỗi Zeni bạn nạp chính là bước tiến gần hơn đến vinh quang bất diệt!</b></i></p>
     </div>
-    <div class="bg-content1">
+    <div class="bg-content">
         <h2>Nạp Zeni</h2>
         <p>Xin chào chiến binh: <span id="ten-nguoi-choi"></span></p>
         <p>Số Zeni hiện tại: <span id="kc-hientai">0</span></p>
