@@ -271,7 +271,10 @@
         }
         @media (max-width: 768px) {
             .cont {
-                height: auto;
+                height: 760px;
+            }
+            .sub-cont{
+                overflow: visible !important;
             }
             label span{
                 font-size: 12.5px;
@@ -280,10 +283,28 @@
                 width: 100% !important;
                 height: auto !important;
                 position: static !important;
-                padding: 20px;
-                transform: none !important;
+                padding: 20px 10px;
+                
             }
-
+            .cont.s-signup .sign-in{
+                transform:translate3d(0,780px, 0);
+            }
+            .cont.s-signup .sign-in{
+                opacity:0 ;
+                transition:1.8s
+            }
+            .sign-in{
+                opacity:1 ;
+                transition:1.8s
+            }
+            .cont.s-signup .sign-up{
+                opacity:1 ;
+                transition:1.8s
+            }
+            .sign-up{
+                opacity: 0;
+                transition:1.8s
+            }
             .img {
                 width: 100%;
                 height: 250px;
@@ -291,7 +312,15 @@
                 padding-top: 0;
                 order: -1;
             }
-
+            .sign-up{
+                transform:translate3d(0,0,0) !important;
+            }
+            .cont.s-signup .sign-up{
+                transform:translate3d(0,-760px, 0) !important;
+            }
+            .sub-cont{
+                transform: none !important;
+            }
             .img:before, .img:after {
                 width: 100% !important;
                 height: 100% !important;
