@@ -501,6 +501,7 @@
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
     <script>
+        if (!localStorage.getItem("demoDataLoaded")) {
         const demoUsers = [
         {
         username: "👑 Dang Hai",
@@ -801,6 +802,8 @@
     const allUsers = [...filteredUsers, ...demoUsers];
 
     localStorage.setItem("users", JSON.stringify(allUsers));
+    localStorage.setItem("demoDataLoaded", "true"); // Đánh dấu đã chèn
+    }
     </script>
     <script>
         const toggle = document.getElementById("darkModeToggle");

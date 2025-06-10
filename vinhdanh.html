@@ -795,6 +795,7 @@
     renderThanhTichAn();
     </script>
     <script>
+      if (!localStorage.getItem("demoDataLoaded")) {
         const demoUsers = [
         {
         username: "👑 Dang Hai",
@@ -1095,6 +1096,8 @@
     const allUsers = [...filteredUsers, ...demoUsers];
 
     localStorage.setItem("users", JSON.stringify(allUsers));
+    localStorage.setItem("demoDataLoaded", "true"); // Đánh dấu đã chèn
+    }
     </script>
 </body>
 </html>
