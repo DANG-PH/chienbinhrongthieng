@@ -501,6 +501,308 @@
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
     <script>
+        const demoUsers = [
+        {
+        username: "👑 Dang Hai",
+        email: "admin",
+        password:"1",
+        kimcuong:9999999,
+        history: [
+          {
+            "time": "2006-09-27T17:00:00.315Z",
+            "zeni": 9999999,
+            "vnd": 0,
+          }
+        ],
+        "thanhTich": [
+          "rongvang",
+          "vipmax",
+          "hunter10",
+          "hunter17",
+          "login5",
+          "login15"
+        ],
+        "items": [
+          {
+            "id": "halo1",
+            "code": "DANGHAI1",
+            "gia": 20000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "shield1",
+            "code": "DANGHAI2",
+            "gia": 30000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "skinKaioken",
+            "code": "DANGHAI3",
+            "gia": 50000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "petRong",
+            "code": "DANGHAI4",
+            "gia": 80000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "startHP",
+            "code": "DANGHAI5",
+            "gia": 100000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "emoVIP",
+            "code": "DANGHAI6",
+            "gia": 25000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "skinVegetaBlue",
+            "code": "DANGHAI7",
+            "gia": 70000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "x2Zeni48h",
+            "code": "DANGHAI8",
+            "gia": 20000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip1gift",
+            "code": "DANGHAIvip1",
+            "gia": 0,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip2gift",
+            "code": "DANGHAIvip2",
+            "gia": 0,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip3gift",
+            "code": "DANGHAIvip3",
+            "gia": 0,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip4gift",
+            "code": "DANGHAIvip4",
+            "gia": 30000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip5gift",
+            "code": "DANGHAIvip5",
+            "gia": 50000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip6gift",
+            "code": "DANGHAIvip6",
+            "gia": 80000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip7gift",
+            "code": "DANGHAIvip7",
+            "gia": 100000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip8gift",
+            "code": "DANGHAIvip8",
+            "gia": 150000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip10gift",
+            "code": "ChienBinhRongThieng",
+            "gia": 300000,
+            "time": "00:00:00 28/9/2006"
+          }
+        ]
+        },
+        {
+        username: "Dũnggg",
+        email: "vip2@demo.cbrt",
+        history: [{ zeni: 50000 }],
+        },
+        {
+        username: "Saidepchiu",
+        email: "vip3@demo.cbrt",
+        history: [{ zeni: 158250 }],
+        },
+    
+        {
+        username: "LD Thànhh",
+        email: "ledinhthanh2006@gmail.com",
+        password:"1",
+        kimcuong:9999999,
+        history: [
+          {
+            "time": "2006-09-27T17:00:00.315Z",
+            "zeni": 200000,
+            "vnd": 0,
+          }
+        ],
+        "thanhTich": [
+          "rongvang",
+          "vipmax",
+          "hunter10",
+          "hunter17",
+          "login5",
+          "login15"
+        ],
+        "items": [
+          {
+            "id": "halo1",
+            "code": "DANGHAI1",
+            "gia": 20000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "shield1",
+            "code": "DANGHAI2",
+            "gia": 30000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "skinKaioken",
+            "code": "DANGHAI3",
+            "gia": 50000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "petRong",
+            "code": "DANGHAI4",
+            "gia": 80000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "startHP",
+            "code": "DANGHAI5",
+            "gia": 100000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "emoVIP",
+            "code": "DANGHAI6",
+            "gia": 25000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "skinVegetaBlue",
+            "code": "DANGHAI7",
+            "gia": 70000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "x2Zeni48h",
+            "code": "DANGHAI8",
+            "gia": 20000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip1gift",
+            "code": "DANGHAIvip1",
+            "gia": 0,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip2gift",
+            "code": "DANGHAIvip2",
+            "gia": 0,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip3gift",
+            "code": "DANGHAIvip3",
+            "gia": 0,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip4gift",
+            "code": "DANGHAIvip4",
+            "gia": 30000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip5gift",
+            "code": "DANGHAIvip5",
+            "gia": 50000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip6gift",
+            "code": "DANGHAIvip6",
+            "gia": 80000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip7gift",
+            "code": "DANGHAIvip7",
+            "gia": 100000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip8gift",
+            "code": "DANGHAIvip8",
+            "gia": 150000,
+            "time": "00:00:00 28/9/2006"
+          },
+          {
+            "id": "vip10gift",
+            "code": "ChienBinhRongThieng",
+            "gia": 300000,
+            "time": "00:00:00 28/9/2006"
+          }
+        ]
+        },
+        {
+        username: "Huy Quang",
+        email: "vip5@demo.cbrt",
+        history: [{ zeni: 327500 }],
+        },
+        {
+        username: "LQC-Nopee",
+        email: "vip6@demo.cbrt",
+        history: [{ zeni: 488250 }],
+        },
+        {
+        username: "Hẹ Hẹ Hẹ",
+        email: "vip7@demo.cbrt",
+        history: [{ zeni: 32250 }],
+        },
+        {
+        username: "chillboy",
+        email: "vip8@demo.cbrt",
+        history: [{ zeni: 124250 }],
+        },
+        {
+        username: "admin",
+        email: "vip9@demo.cbrt",
+        history: [{ zeni: 1250 }],
+        },
+    ];
+
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Loại bỏ bản cũ bị trùng (nếu có)
+    const filteredUsers = existingUsers.filter(u =>
+    !demoUsers.some(bot => bot.email === u.email)
+    );
+
+    // Gộp lại: giữ user thật, thêm bot 1 lần duy nhất
+    const allUsers = [...filteredUsers, ...demoUsers];
+
+    localStorage.setItem("users", JSON.stringify(allUsers));
+    </script>
+    <script>
         const toggle = document.getElementById("darkModeToggle");
 
         // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
@@ -563,16 +865,14 @@
                 showToast("❌ Bạn chưa sẵn sàng – hãy điền đầy đủ thông tin để khai sinh chiến binh mới.");
                 return;
             }
-
+            if (email==="admin"){
+                showToast("❌ Đây là email của admin chiến binh hãy đăng ký email khác!")
+                return;
+            }
             if (password !== confirm) {
                 showToast("⚠️ Sức mạnh chưa đồng bộ – mật khẩu xác nhận không trùng khớp.");
                 return;
             }
-            //cach lay 1 user
-            // const user = { username, email, password };
-            // localStorage.setItem("user", JSON.stringify(user));
-            // alert("Đăng ký thành công! Giờ bạn có thể đăng nhập.");
-            // document.querySelector('.cont').classList.remove('s-signup');
             let users = JSON.parse(localStorage.getItem("users")) || [];
             const emailExists = users.some(user => user.email === email);
             if (emailExists) {
@@ -588,25 +888,22 @@
         function handleLogin() {
             const email = document.getElementById("login-email").value;
             const password = document.getElementById("login-password").value;
-
-            // const user = JSON.parse(localStorage.getItem("user"));
-            // if (!user) {
-            //     alert("Chưa có tài khoản nào. Vui lòng đăng ký.");
-            //     return;
-            // }
-
-            // if (email === user.email && password === user.password) {
-            //     alert("Đăng nhập thành công! Chào mừng chiến binh " + user.username + "!");
-            //     // Bạn có thể chuyển trang: window.location.href = 'choingay.html';
-            // } else {
-            //     alert("Email hoặc mật khẩu không đúng!");
-            // }
             let users = JSON.parse(localStorage.getItem("users")) || [];
-            // Tìm người dùng có email trùng khớp
             const user = users.find(user => user.email === email);
             if (!user) {
                 showToast("❌ Không tìm thấy chiến binh – hãy đăng ký trước khi tham chiến.");
                 return;
+            }
+            if (user.email==="admin" && user.password !== password){
+                showToast("❌ Đây là tài khoản của admin")
+                return
+            }
+            if (user.email==="admin" && user.password === password){
+                sessionStorage.setItem("currentUser", JSON.stringify(user));
+                showToast("✅ Chào mừng admin đã trở lại")
+                return setTimeout(()=>{
+                    window.location.href = "profile.html";
+                },2000)
             }
             if (user.password === password) {
                 sessionStorage.setItem("currentUser", JSON.stringify(user));
