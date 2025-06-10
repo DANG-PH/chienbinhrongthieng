@@ -271,17 +271,38 @@
         }
         @media (max-width: 768px) {
             .cont {
-                height: auto;
+                height: 760px !important;
             }
 
             .form, .sub-cont {
                 width: 100% !important;
                 height: auto !important;
                 position: static !important;
-                padding: 20px;
+                padding: 20px 10px;
                 transform: none !important;
             }
-
+            .sub-cont{
+                overflow:visible !important;
+            }
+            .sign-up{
+                transform: translate3d(0,0,0);
+                opacity:0;
+                transition: 1.8s;
+            }
+            .sign-in{
+                opacity: 1;
+                transition: 1.8s;
+            }
+            .cont.s-signup .sign-up{
+                transform: translate3d(0,-760px,0) !important;
+                opacity:1;
+                transition:1.8s;
+            }
+            .cont.s-signup .sign-in{
+                transform: translate3d(0,760px,0) !important;
+                opacity:0;
+                transition: 1.8s;
+            }
             .img {
                 width: 100%;
                 height: 250px;

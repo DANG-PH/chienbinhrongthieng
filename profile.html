@@ -173,7 +173,7 @@
     }
 
     .vip strong{
-      color:#1976d2
+      color:#1976d2;
     }
     body.dark-mode .vip strong{
       color:#ffa500;
@@ -333,7 +333,7 @@
       border-radius:8px;font-size:14px;
     }
     body.dark-mode #form-nhap-code {
-      background-color: #2e2e2e;  /* xám tối vừa phải */
+      background-color: #2e2e2e;  
     }
     body.dark-mode #code-input {
       background-color: #3a3a3a;
@@ -447,6 +447,11 @@
           width: 20% !important;
           margin-right: 20px;
         }
+        .mediaX{
+          top:0;
+          right:0;
+          margin:0
+        }
       }
 
 
@@ -549,7 +554,7 @@
     <div id="nv-overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
 
     <div id="nv-popup-online">
-      <button onclick="anNhiemvuHangNgay()" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:18px;box-shadow:none">❌</button>
+      <button class="mediaX"onclick="anNhiemvuHangNgay()" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:18px;box-shadow:none">❌</button>
       <h3 style="text-align:center;margin-top:0;">🎁 Nhiệm Vụ Hằng Ngày</h3>
       <div class="nv-online-grid">
         <div class="nv-online-item">

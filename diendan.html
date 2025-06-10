@@ -11,7 +11,11 @@
       background-color: #ccc;
     }
     .tinhot a{
-      color: #a65c00;
+      color: #2979ff;
+      text-decoration: none;
+    }
+    .guibaoloi{
+      color: #2979ff;
       text-decoration: none;
     }
     .tinhot a:hover{
@@ -19,7 +23,7 @@
       filter:brightness(1.7)
     }
     body.dark-mode .tinhot{
-      border-top:2px solid #181818;
+      
       background-color:#181818 !important;
     }
     body.dark-mode .tinhot a{
@@ -38,7 +42,7 @@
     }
     .tinhotbox:hover {
       transform:translateY(-7px);
-      box-shadow: 0 0 10px rgba(0, 0, 18, 0.6);
+      box-shadow: 0 0 10px #00e5ff;
       filter:brightness(1.05);
       background-color: #ddd;
       color:black;
@@ -48,15 +52,16 @@
     body.dark-mode .tinhotbox:hover{
       filter:brightness(0.9);
       background-color: #000000;
+      box-shadow: 0 0 10px rgba(255,165,0,0.5);
       color:white;
     }
     .thaoluan a{
-      color: #a65c00;
+      color: #2979ff;
       text-decoration: none;
     }
     .thaoluan a:hover{
       text-decoration: underline;
-      filter:brightness(1.7)
+      filter:brightness(1.6)
     }
     body.dark-mode .thaoluan a{
       color:#ffa500;
@@ -73,15 +78,18 @@
     font-size: 10pt;
     }
     .thaoluan:hover{
-      box-shadow: 0 0 10px rgba(0, 0, 18, 0.6);
-      transform: translateY(-5px);
+      box-shadow: 0 0 10px #1976d2;
+      transform: translateX(-5px);
+      border-color:#1976d2;
       transition: 0.4s;
-      border-left-color: black;
-      background-color: #e6e6e6
     }
     body.dark-mode .thaoluan{
       border:3px solid #888;
       background: #3a3a3a;
+    }
+    body.dark-mode .thaoluan:hover{
+      box-shadow: 0 0 10px #ffa500;
+      border-color:#ffa500;
     }
     textarea::placeholder{
       color:black
@@ -224,28 +232,28 @@
           <h4>🔥 [Thảo luận] Gohan Beast mạnh nhất không? 🔥</h4>
           <p>Đăng bởi: <strong>BestGohan123</strong> | <span>12 phản hồi</span></p>
           <p>Gohan Beast mới ra mạnh thật nhưng có ai cảm thấy chiêu biến hình dễ bị khựng không? Anh em vào phân tích thử!</p>
-          <a href="baiviet1.html">>> Vào thảo luận</a>
+          <a href="#">>> Vào thảo luận</a>
         </div>
 
         <div class="thaoluan">
           <h4>⚔️ [Thảo luận] Kỹ năng combo Broly SSJ4 thế nào cho hiệu quả? ⚔️</h4>
           <p>Đăng bởi: <strong>NewbieBrolyZzz</strong> | <span>8 phản hồi</span></p>
           <p>Combo của Broly giờ có thêm đòn bắn siêu tốc, anh em ai có mẹo gì chia sẻ nhé!</p>
-          <a href="baiviet2.html">>> Vào thảo luận</a>
+          <a href="#">>> Vào thảo luận</a>
         </div>
 
         <div class="thaoluan"> 
           <h4>💥 [Thảo luận] AI né ulti như thế nào ? 💥</h4>
           <p>Đăng bởi: <strong>ProAIcanWin</strong> | <span>15 phản hồi</span></p>
           <p>AI giờ đã biết né ulti và bật khiên, thử thách tăng cao! Anh em có chiến thuật nào hay không?</p>
-          <a>>> Vào thảo luận</a>
+          <a href="#">>> Vào thảo luận</a>
         </div>
 
         <div class="thaoluan">
           <h4>🛡️  [Thảo luận] Tăng sức chống chịu cho Vegeta sao cho tốt? 🛡️</h4>
           <p>Đăng bởi: <strong>NVHvegeta</strong> | <span>5 phản hồi</span></p>
           <p>Mọi người chia sẻ build đồ, kỹ năng và cách né đòn giúp Vegeta sống lâu hơn với nhé!</p>
-          <a>>> Vào thảo luận</a>
+          <a href="#">>> Vào thảo luận</a>
         </div>
       </div>
 
@@ -319,13 +327,13 @@
           ✅ Thử khởi động lại trình duyệt hoặc máy. Nếu vẫn không được, xin báo lỗi qua email bên dưới.</p>
 
           <p><strong>❓ Tôi muốn góp ý thêm tính năng mới thì gửi ở đâu?</strong><br>
-          ✅ Bạn có thể gửi email tới <a href="mailto:dangph.ptit@gmail.comcom">dangph.ptit@gmail.com</a> hoặc nhắn tin qua <a href="http://ffacebook.com/profile.php?id=100051966107038" target="_blank">Facebook</a>.</p>
+          ✅ Bạn có thể gửi email tới <a class="guibaoloi"href="https://www.facebook.com/anghai.325820" target="_blank">dangph.ptit@gmail.com</a> hoặc nhắn tin qua <a class="guibaoloi" href="http://ffacebook.com/profile.php?id=100051966107038" target="_blank">Facebook</a>.</p>
 
           <p><strong>❓ Giao diện game lỗi font chữ, phải làm gì?</strong><br>
           ✅ Kiểm tra xem bạn có đang dùng trình duyệt cũ không. Nên cập nhật Chrome hoặc Edge mới nhất để đảm bảo tương thích.</p>
 
           <p><strong>❓ Tôi gặp lỗi lạ, không biết diễn tả sao?</strong><br>
-          ✅ Bạn có thể chụp màn hình lỗi và gửi qua Google Form tại đây: <a href="#">Gửi báo lỗi</a>.</p>
+          ✅ Bạn có thể chụp màn hình lỗi và gửi qua Google Form tại đây: <a class="guibaoloi" href="http://ffacebook.com/profile.php?id=100051966107038" target="_blank">Gửi báo lỗi</a>.</p>
 
           <p><strong>❓ Có được góp ý nội dung hoặc thay đổi thiết kế game không?</strong><br>
           ✅ Tất nhiên rồi! Bất kỳ góp ý nào đều đáng quý. Hãy gửi cho nhà phát triển để cân nhắc trong các bản cập nhật sắp tới.</p>
@@ -418,6 +426,7 @@
             <h4>📝 [Thảo luận từ bạn]</h4>
             <p>Đăng bởi: <strong>${currentUser.username}</strong> | <span>0 phản hồi</span></p>
             <p>${text}</p>
+            <a href="#">>> Vào thảo luận</a>
           `;
           list.appendChild(div);
         });
