@@ -7,6 +7,32 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
   <style>
+    #xac-nhan-popup{
+      width: 700px;
+      position: fixed;
+      display:none;
+      top:50%;left:50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border-radius: 12px;
+      text-align: center;
+      padding:20px;
+      z-index: 9999;
+      animation: fadeIn 0.3s ease-out;
+      box-shadow: 0 0 38px rgba(0, 0, 0, 0.9);
+    }
+
+    #xac-nhan-popup button:hover {
+      transform: scale(1.02);
+      transition:0.2s ;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    body.dark-mode #xac-nhan-popup{
+      background-color: #222;
+    }
     .vip {
       margin: 0px !important;
     }
@@ -156,6 +182,9 @@
       #nut-dang-nhap{
         font-size: 9px;
       }
+      #xac-nhan-popup{
+        width: 400px;
+      }
     }
   </style>
 </head>
@@ -286,6 +315,17 @@
     <footer>
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
+
+    <div id="overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+    <div id="xac-nhan-popup">
+      <h3>Xác nhận chuyển khoản</h3>
+      <p>Vui lòng chuyển khoản đến QR bên dưới. Sau khi chuyển xong, hãy bấm "Tôi đã chuyển khoản".</p>
+      <img src="images/qr.jpg" alt="QR Code" style="width:200px; margin: 10px 0;">
+      <br>
+      <button onclick="xacNhanChuyenKhoan()" style="margin-top:10px">✅ Tôi đã chuyển khoản</button><br>
+      <button onclick="dongPopup()" style="margin-top:10px;color:red">✖ Đóng</button>
+    </div>
+
     <script>
         const toggle = document.getElementById("darkModeToggle");
 
@@ -391,54 +431,65 @@
         }
       
         function napTien() {
-        if (!user) {
+          if (!user) {
             alert("Bạn cần đăng nhập để nạp tiền!");
             window.location.href = "dangnhap.html";
-            return
-        }
-        if (tongTien === 0) {
+            return;
+          }
+          if (tongTien === 0) {
             showToast("⚠️ Bạn chưa chọn gói nạp nào.");
             return;
+          }
+          document.getElementById("overlay-online").style.display= "block"
+          document.getElementById("xac-nhan-popup").style.display = "block";
         }
-        setTimeout(() => {
-            if (userr) {
-                userr.kimcuong = (userr.kimcuong||0)  + tongKC;
-                if (!userr.history) userr.history = [];
-                userr.history.push({
+        function dongPopup() {
+          document.getElementById("overlay-online").style.display= "none"
+          document.getElementById("xac-nhan-popup").style.display = "none";
+        }
+
+        function xacNhanChuyenKhoan() {
+          dongPopup();
+          showToast("⏳ Đang xác nhận giao dịch...");
+
+          setTimeout(() => {
+              userr.kimcuong = (userr.kimcuong || 0) + tongKC;
+              userr.history = userr.history || [];
+              userr.history.push({
                 time: new Date().toISOString(),
                 zeni: tongKC,
                 vnd: tongTien
+              });
+              localStorage.setItem("users", JSON.stringify(users));
+              document.getElementById("kc-hientai").textContent = userr.kimcuong;
+              showToast(`✅ Nạp thành công ${tongKC} Zeni!`);
+              tongTien = 0;
+              tongKC = 0;
+              document.getElementById("tong-nap").textContent = `Tổng tiền: 0 VNĐ | Tổng Zeni: 0`;
+
+              // Cập nhật lịch sử
+              let tongZeniDaNap = 0;
+              const tbody = document.getElementById("lich-su-nap");
+              tbody.innerHTML = userr.history.map(log => {
+                tongZeniDaNap += log.zeni;
+                const thoiGian = new Date(log.time).toLocaleString("vi-VN", {
+                  timeZone: "Asia/Ho_Chi_Minh"
                 });
-                localStorage.setItem("users", JSON.stringify(users));
-                user.kimcuong = userr.kimcuong;
-                document.getElementById("kc-hientai").textContent = userr.kimcuong;
-                showToast(`✅ Nạp thành công ${tongKC} Zeni!`);
-                tongTien = 0;
-                tongKC = 0;
-                document.getElementById("tong-nap").textContent = `Tổng tiền: 0 VNĐ | Tổng Zeni: 0`;
-                // Cập nhật bảng lịch sử ngay sau khi nạp
-                let tongZeniDaNap = 0;
-                const tbody = document.getElementById("lich-su-nap");
-                tbody.innerHTML = userr.history.map(log => {
-                    tongZeniDaNap += log.zeni;
-                    const thoiGian = new Date(log.time).toLocaleString("vi-VN", {
-                      timeZone: "Asia/Ho_Chi_Minh"
-                    });
-                    return `<tr>
+                return `<tr>
                     <td>${thoiGian}</td>
                     <td>${log.zeni}</td>
                     <td>${log.vnd.toLocaleString()}</td>
-                    </tr>`;
-                }).join('');
+                  </tr>`;
+              }).join('');
 
-                // Gắn cấp bậc vào giao diện
-                const capBac = document.getElementById("cap-bac");
-                if (capBac) {
+              // Cập nhật cấp bậc
+              const capBac = document.getElementById("cap-bac");
+              if (capBac) {
                 capBac.textContent = getCapBac(tongZeniDaNap);
-                }
-            }
-        }, 2000);
+              }
+            }, 3000);
         }
+
         // Xác định cấp bậc
         function getCapBac(tong) {
         if (tong < 1000) return "VIP 0";

@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
   <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
     #nv-popup-online{
       position:fixed;
       display:none;
@@ -19,6 +23,7 @@
       max-width:845px;
       background-color: #333;
       box-shadow: 0 0 8px rgba(255,255,255,0.6);
+      animation: fadeIn 0.3s ease-out;
     }
     body:not(.dark-mode) #nv-popup-online{
       background-color: 	#f8f6f1;
@@ -108,6 +113,7 @@
       padding-right:0px;
       background-color: #333;
       box-shadow: 0 0 8px rgba(255,255,255,0.6);
+      animation: fadeIn 0.3s ease-out;
     }
     body:not(.dark-mode) #popup-online{
       background-color: 	#f8f6f1;
@@ -323,6 +329,7 @@
       width:90%;
       box-shadow:0 8px 20px rgba(0,0,0,0.4);
       font-family:'Segoe UI',sans-serif;
+      animation: fadeIn 0.3s ease-out;
     }
 
     #code-input{
