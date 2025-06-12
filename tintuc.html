@@ -37,7 +37,7 @@
       padding: 10px;
     }
     body.dark-mode .highlight-title{
-      border-bottom: 2px solid #aaa;
+      border-bottom: 2px solid #060303;
     }
     .highlight-title img {
       height: 18px;
@@ -85,13 +85,13 @@
       transform:translate(-50%,-50%);
       animation: fadeIn 0.3s ease-out;
       box-shadow: 0 0 38px rgba(0, 0, 0, 0.9);
-      animation: fadeIn 0.3s ease-out;
       z-index: 9999;
       background-color: #fff;
       width: 800px;
       display: none;
       border-radius: 10px;
       padding:20px;
+      color:black
     }
     .xemchitiet button{
       position: absolute;
@@ -104,6 +104,7 @@
     }
     body.dark-mode .xemchitiet{
       background-color: #222;
+      color: #eee;
     }
     .xct img{
       height: 428px;
@@ -112,6 +113,14 @@
       height:200px;
       overflow-y: auto;
       scrollbar-width: none;
+    }
+    .trai button:hover{
+      transform: translateX(-8px);
+      transition: transform 0.3s ;
+    }
+    .phai button:hover{
+      transform: translateX(8px);
+      transition: transform 0.3s ;
     }
     @media (max-width: 768px) {
       .main {
@@ -161,6 +170,10 @@
       .textchitiet {
         height:140px;
         font-size: 10px !important;
+      }
+      .nutbam button{
+        padding:6px 12px;
+        font-size:10px
       }
     }
 
@@ -342,6 +355,10 @@
           Goku trong phiên bản này không phải để spam skill hay chơi an toàn – anh là lựa chọn cho những người chơi mạo hiểm, quyết đoán, biết canh thời điểm. Sai một ly, mất tất cả. Nhưng nếu đánh đúng, Goku sẽ đưa bạn lên đỉnh cao như chính anh trong Tournament of Power.
         </p>
       </div>
+      <div class="nutbam">
+        <a href="diendan.html" class="trai" style="float:left"><button style="position: static !important">🔹 Thảo luận tin tức</button></a>
+        <a href="choingay.html" style="float:right" class="phai"><button style="position: static !important">Trải nghiệm ngay 🔸</button></a>
+      </div>
     </div>
     <div class="xemchitiet" id="xemchitiet2">
       <h3>Vegeta Oozaru – Chiến binh hồi sinh và hút máu</h3>
@@ -369,7 +386,10 @@
           Vegeta phù hợp với người chơi ưu tiên counter – nếu đối thủ nghĩ bạn sắp chết mà dồn đòn, họ có thể phải trả giá rất đắt. Nếu biết "diễn", Vegeta có thể từ thế yếu lật ngược cả trận đấu chỉ trong vài giây.
         </p>
       </div>
-
+      <div class="nutbam">
+        <a href="diendan.html" class="trai" style="float:left"><button style="position: static !important">🔹 Thảo luận tin tức</button></a>
+        <a href="choingay.html" style="float:right" class="phai"><button style="position: static !important">Bắt đầu trận chiến 🔸</button></a>
+      </div>
     </div>
     <div class="xemchitiet" id="xemchitiet3">
       <h3>Piccolo Orange – Tường thành bất khả xâm phạm</h3>
@@ -397,6 +417,10 @@
           <br><br>
           Điểm trừ duy nhất là damage không cao, nhưng bù lại, khả năng sống sót cực cao giúp ông luôn có mặt trong giai đoạn quyết định. Với lối chơi kiên nhẫn, Piccolo Orange là nỗi ám ảnh thật sự.
         </p>
+      </div>
+      <div class="nutbam">
+        <a href="diendan.html" class="trai" style="float:left"><button style="position: static !important">🔹 Thảo luận tin tức</button></a>
+        <a href="huongdanchoi.html" style="float:right" class="phai"><button style="position: static !important">Chi tiết kỹ năng 🔸</button></a>
       </div>
     </div>
     <div class="xemchitiet" id="xemchitiet4">
@@ -429,6 +453,10 @@
           <br><br>
           Nếu bạn thích phong cách tàn bạo, bất cần phòng thủ, Broly là lựa chọn hoàn hảo.
         </p>
+      </div>
+      <div class="nutbam">
+        <a href="diendan.html" class="trai" style="float:left"><button style="position: static !important">🔹 Thảo luận tin tức</button></a>
+        <a href="choingay.html" style="float:right" class="phai"><button style="position: static !important"> Hoá thân thành Broly 🔸</button></a>
       </div>
     </div>
     <audio id="bg-music" autoplay loop>
@@ -497,7 +525,7 @@
         document.getElementById(`xemchitiet${index+1}`).style.display="block";
         document.getElementById("overlay-online").style.display = "block";
       } 
-      const anchitiet=document.querySelectorAll(".xemchitiet button")
+      const anchitiet=document.querySelectorAll(".xemchitiet > button")
       anchitiet.forEach((btn,index) => {
         btn.onclick = () => anpopup(index)
       })
