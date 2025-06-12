@@ -77,6 +77,42 @@
     a:hover{
       text-decoration: underline;
     }
+    .xemchitiet{
+      text-align: center;
+      position: fixed;
+      top:50%;
+      left: 50%;
+      transform:translate(-50%,-50%);
+      animation: fadeIn 0.3s ease-out;
+      box-shadow: 0 0 38px rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease-out;
+      z-index: 9999;
+      background-color: #fff;
+      width: 800px;
+      display: none;
+      border-radius: 10px;
+      padding:20px;
+    }
+    .xemchitiet button{
+      position: absolute;
+      top:0;
+      right:0
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    body.dark-mode .xemchitiet{
+      background-color: #222;
+    }
+    .xct img{
+      height: 428px;
+    }
+    .textchitiet{
+      height:200px;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
     @media (max-width: 768px) {
       .main {
         flex-direction: column;
@@ -115,6 +151,16 @@
 
       .sidebar ul, .others ul {
         padding-left: 15px;
+      }
+      .xemchitiet{
+        width:400px;
+      }
+      .xemchitiet img{
+        height:200px !important;
+      }
+      .textchitiet {
+        height:140px;
+        font-size: 10px !important;
       }
     }
 
@@ -202,9 +248,7 @@
                           <br />
                           <i>5 giây bất khả xâm phạm – Goku UI bước vào trận chiến với khả năng né 90% đòn. Bạn có đủ bản lĩnh để đối đầu?...</i>
                           <br />
-                          <a href="choingay.html">
-                            <button style="width:37%">Xem chi tiết</button>
-                          </a>
+                          <button style="width:37%">Xem chi tiết</button>
                       </div>
                   </div>
               </div>
@@ -219,9 +263,7 @@
                           <br />
                           <i> Sức mạnh hoang dã bùng nổ! Vegeta hồi sinh giữa trận, cộng máu, cộng damage – cỗ máy hủy diệt chính thức tái xuất...</i>
                           <br />
-                          <a href="choingay.html">
-                            <button style="width:37%">Xem chi tiết</button>
-                          </a>
+                          <button style="width:37%">Xem chi tiết</button>
                       </div>
                   </div>
               </div>
@@ -236,9 +278,7 @@
                           <br />
                           <i>Khả năng hồi máu, phản sát thương, tạo phân thân tấn công từ xa – Piccolo đang trở thành lựa chọn "meta" trong mọi trận đánh đôi với khả năng câu kéo cực mạnh!...</i>
                           <br />
-                          <a href="choingay.html">
-                            <button style="width:37%">Xem chi tiết</button>
-                          </a>
+                          <button style="width:37%">Xem chi tiết</button>
                       </div>
                   </div>
               </div>
@@ -253,9 +293,7 @@
                           <br />
                           <i>Bị đánh càng mạnh, phản đòn càng khét! Broly SSJ4 với skill Rage Pulse gây damage diện rộng theo lượng máu đã mất – tướng đấu đơn hoàn hảo cho mọi trận đấu!...</i>
                           <br />
-                          <a href="choingay.html">
-                            <button style="width:37%">Xem chi tiết</button>
-                          </a>
+                          <button style="width:37%">Xem chi tiết</button>
                       </div>
                   </div>
               </div>
@@ -275,6 +313,124 @@
           </div>
       </div>
   </div>
+    <!-- Overlay nền mờ -->
+    <div id="overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+    <div class="xemchitiet" id="xemchitiet1">
+      <h3>Goku Ultra Instinct – Bản năng vô cực thức tỉnh</h3>
+      <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
+      <div class="xct" style="position: relative;transform: translate(-50%,-50%);">
+        <img src="images/gkui1.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="images/gkui2.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="images/goku2.jpg" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+      </div>
+      <img src="images/gkui1.jpg" alt="" style="width: 100%;">
+      <div class="textchitiet">
+        <p>
+          Trong suốt chiều dài của Dragon Ball, Goku luôn là hình ảnh đại diện cho sự tiến hóa không ngừng của một chiến binh. Từ cậu bé Saiyan ngây thơ, cho đến Super Saiyan, rồi Super Saiyan Blue – và giờ đây, trong "Chiến Binh Rồng Thiêng", Goku chính thức chạm đến đỉnh cao: Bản Năng Vô Cực (Ultra Instinct).
+          <br><br>
+          Trong game, hành trình chạm đến Ultra Instinct không hề dễ dàng. Đầu tiên, người chơi phải kích hoạt **Kaioken** bằng cách nhấn T khi đủ 50 KI. Trạng thái Kaioken cho Goku hiệu ứng hào quang đỏ, tăng mạnh sát thương đòn đánh, nhưng đi kèm với cái giá: **mỗi giây mất máu**, tái hiện đúng đặc trưng của chiêu này trong phim. Trong thời gian Kaioken, Goku sẽ tích KI và khi đủ 50 nữa, người chơi có thể chuyển sang **Ultra Instinct** bằng phím O.
+          <br><br>
+          Goku Ultra Instinct có các đặc điểm nổi bật:
+          <ul>
+            <li>Miễn sát thương trong 5 giây đầu (UI Duration).</li>
+            <li>Né đòn đánh thường và kỹ năng đến 90% xác suất.</li>
+            <li>Giao diện sprite thay đổi – ánh sáng trắng xanh huyền ảo, đúng như bản anime.</li>
+            <li>Ultimate (Big Beam màu xanh lam): Sát thương 70, hiệu ứng mở rộng, cực kỳ mạnh.</li>
+          </ul>
+          Không những vậy, Goku còn có khả năng stun từ Skill 2, tạo điều kiện combo liên hoàn cực mạnh. Với người chơi tinh tế, bạn có thể dùng Kaioken để bait đối thủ, sau đó đột ngột bật UI và phản công với Big Beam, kết liễu đối thủ ngay lập tức.
+          <br><br>
+          Goku trong phiên bản này không phải để spam skill hay chơi an toàn – anh là lựa chọn cho những người chơi **mạo hiểm, quyết đoán, biết canh thời điểm**. Sai một ly, mất tất cả. Nhưng nếu đánh đúng, Goku sẽ đưa bạn lên đỉnh cao như chính anh trong Tournament of Power.
+        </p>
+      </div>
+    </div>
+    <div class="xemchitiet" id="xemchitiet2">
+      <h3>Vegeta Oozaru – Chiến binh hồi sinh và hút máu</h3>
+      <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
+      <div class="xct" style="position: relative;transform: translate(-50%,-50%);">
+        <img src="images/vegeta1.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="images/ozr1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="images/ozr2.webp" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+      </div>
+      <img src="images/vegeta1.jpg" alt="" style="width: 100%;">
+      <div class="textchitiet">
+        <p>
+          Vegeta – Hoàng tử Saiyan – nổi tiếng với sự kiêu hãnh và không bao giờ chịu thua. Trong "Chiến Binh Rồng Thiêng", điều đó được thể hiện rõ ràng thông qua bộ kỹ năng đặc trưng: **hồi sinh, bất tử, và hút máu**. Không chỉ mạnh – Vegeta là một "kẻ lì đòn" đúng nghĩa.
+          <br><br>
+          Khi đủ 50 KI, nhấn T sẽ kích hoạt **chế độ bất tử (resurrect mode)**. Nếu kích khi máu của bạn bằng 0, Vegeta sẽ lập tức **hồi sinh** với toàn bộ máu và thời gian bất tử 2 giây – trong thời gian đó, bất kỳ đòn đánh nào gây sát thương đều được **hút máu 100%**. Hiệu ứng này được minh họa bằng hào quang vàng, khiến Vegeta trở thành cỗ máy càn quét không thể ngăn cản.
+          <br><br>
+          Tuy nhiên, nếu bạn kích hoạt T khi máu vẫn còn nhiều, hiệu ứng hút máu sẽ **giảm mạnh (xuống còn 40–60%)** và mất luôn trạng thái bất tử. Đây là điều khiến Vegeta trở thành tướng "nguy hiểm khi sắp chết" – một thiết kế cực kỳ đúng tinh thần phim.
+          <br><br>
+          Điểm nổi bật khác:
+          <ul>
+            <li>Skill 2: Tăng damage trong 3 giây – hiệu ứng tỏa viền xanh, dễ nhận diện.</li>
+            <li>Ultimate: Big Beam vàng cực cao, dễ chạm mục tiêu dù nhảy hay phòng thủ.</li>
+            <li>Biến hình SSJ7 (nhấn O): Tăng máu, tăng damage, hiệu ứng cooldown ngắn hơn.</li>
+          </ul>
+          Vegeta phù hợp với người chơi **ưu tiên counter** – nếu đối thủ nghĩ bạn sắp chết mà dồn đòn, họ có thể phải trả giá rất đắt. Nếu biết "diễn", Vegeta có thể từ thế yếu lật ngược cả trận đấu chỉ trong vài giây.
+        </p>
+      </div>
+
+    </div>
+    <div class="xemchitiet" id="xemchitiet3">
+      <h3>Piccolo Orange – Tường thành bất khả xâm phạm</h3>
+      <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
+      <div class="xct"style="position: relative;transform: translate(-50%,-50%);">
+        <img src="images/piccolo2.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="images/org1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="images/org2.webp" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+      </div>
+      <img src="images/piccolo2.jpg" alt="" style="width: 100%;">
+      <div class="textchitiet">
+        <p>
+          Trong một game thiên về tấn công như "Chiến Binh Rồng Thiêng", Piccolo là nhân vật hiếm hoi thiên về **phòng thủ, câu giờ và phản đòn**. Với trạng thái Orange, ông trở thành "bức tường sống" đúng nghĩa – cực kỳ khó bị kết liễu, và càng lâu càng mạnh.
+          <br><br>
+          Khi kích hoạt T (50 KI), Piccolo tạo **khiên phản đòn** trong 6 giây, chặn mọi sát thương, và phản ngược lại một phần cho đối phương. Kết hợp với skill 2 (hồi máu +120), bạn có thể "troll" đối thủ cực mạnh khi tưởng chừng Piccolo sắp gục ngã.
+          <br><br>
+          Sau khi dùng T, người chơi có thể tiếp tục kích hoạt O để biến hình thành **Piccolo Orange**:
+          <ul>
+            <li>Hồi máu mỗi giây + tạo clone tấn công từ xa.</li>
+            <li>Clone bắn đạn liên tục mỗi 1.5 giây – hỗ trợ áp lực tầm xa.</li>
+            <li>Ultimate: Big Beam màu tím xuyên thủng mọi lớp phòng thủ.</li>
+            <li>Nếu đứng yên 3 giây, sẽ hồi máu thêm.</li>
+          </ul>
+          Đây là vị tướng hoàn hảo để “mồi chiêu” đối phương, dụ kỹ năng mạnh, sau đó bật khiên và clone để phản công. Trong team 2v2, Piccolo là người sống lâu nhất – và người tạo không gian cho đồng đội.
+          <br><br>
+          Điểm trừ duy nhất là damage không cao, nhưng bù lại, **khả năng sống sót cực cao** giúp ông luôn có mặt trong giai đoạn quyết định. Với lối chơi kiên nhẫn, Piccolo Orange là nỗi ám ảnh thật sự.
+        </p>
+      </div>
+    </div>
+    <div class="xemchitiet" id="xemchitiet4">
+      <h3>Broly SSJ4 – Ác thần cuối trận đấu</h3>
+      <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
+      <div class="xct"style="position: relative;transform: translate(-50%,-50%);">
+        <img src="images/broly2.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="images/ssj4.1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="images/ssj4.2.jpg" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+      </div>
+      <img src="images/broly2.jpg" alt="" style="width: 100%;">
+      <div class="textchitiet">
+        <p>
+          Broly là hiện thân của sự hỗn loạn – một cơn thịnh nộ không thể kiểm soát. Trong "Chiến Binh Rồng Thiêng", Broly là mẫu tướng cực kỳ nguy hiểm về late game, với cơ chế "bị đánh càng nhiều, sát thương càng tăng".
+          <br><br>
+          Ở dạng T (LSSJ), Broly được:
+          <ul>
+            <li>Tăng damage mỗi khi đánh hoặc bị đánh (+1~2, tối đa +15).</li>
+            <li>Giảm 25% sát thương nhận vào.</li>
+            <li>Không thể phòng thủ – bắt buộc phải áp sát hoặc di chuyển linh hoạt.</li>
+          </ul>
+          Sau khi dùng T, hệ thống bắt đầu **ghi lại lượng máu đã mất trong 10s**. Sau đó, người chơi có thể nhấn O để kích hoạt **SSJ4**:
+          <br><br>
+          ➤ Broly sẽ **nổ AOE toàn bản đồ** với sát thương bằng 60% máu đã mất và hồi lại 50% lượng máu đã mất. Ngay sau đó, Broly bước vào Rage Mode:
+          <ul>
+            <li>Mỗi 2 giây gây 5 damage lên tất cả mục tiêu xung quanh (Rage Pulse).</li>
+            <li>+10 damage cơ bản, đòn đánh thường trở thành cơn ác mộng.</li>
+          </ul>
+          Với skill 2 (berserker), Broly cũng có thể khiến đối thủ bị hoảng sợ, và làm giảm KI mỗi đòn. Anh là mẫu tướng "ăn hành trước, càn quét sau" điển hình – rất dễ bị đánh giá thấp ở đầu trận, nhưng là **cơn ác mộng ở phút cuối**.
+          <br><br>
+          Nếu bạn thích phong cách tàn bạo, bất cần phòng thủ, Broly là lựa chọn hoàn hảo.
+        </p>
+      </div>
+    </div>
     <audio id="bg-music" autoplay loop>
         <source src="sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
@@ -331,6 +487,24 @@
         window.addEventListener("beforeunload", () => {
           sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
         });
+    </script>
+    <script>
+      const nutxemchitiet=document.querySelectorAll(".dt button")
+      nutxemchitiet.forEach((btn,index) => {
+        btn.onclick = () => hienthipopup(index)
+      })
+      function hienthipopup(index){
+        document.getElementById(`xemchitiet${index+1}`).style.display="block";
+        document.getElementById("overlay-online").style.display = "block";
+      } 
+      const anchitiet=document.querySelectorAll(".xemchitiet button")
+      anchitiet.forEach((btn,index) => {
+        btn.onclick = () => anpopup(index)
+      })
+      function anpopup(index){
+        document.getElementById(`xemchitiet${index+1}`).style.display="none";
+        document.getElementById("overlay-online").style.display = "none";
+      }
     </script>
 </body>
 </html>
