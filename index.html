@@ -52,11 +52,11 @@
     <h2 style="margin-top:5px">🔥 Bắt đầu hành trình Chiến Binh Rồng Thiêng!</h2>
     <p>Chiến đấu cùng Goku, Vegeta và những chiến binh huyền thoại khác ngay hôm nay!</p>
     <div class="download-buttons">
-      <a href="gctcn.html"><button>JAVA</button></a>
-      <a href="gctcn.html"><button>ANDROID (APK)</button></a>
-      <a href="gctcn.html"><button>ANDROID (Google Play)</button></a>
-      <a href="gctkn.html"><button>PC</button></a>
-      <a href="choingay.html"><button>IPHONE</button></a>
+      <a href="gctcn.html"><button onclick="checkdangnhap()">JAVA</button></a>
+      <a href="gctcn.html"><button onclick="checkdangnhap()">ANDROID (APK)</button></a>
+      <a href="gctcn.html"><button onclick="checkdangnhap()">ANDROID (Google Play)</button></a>
+      <a href="gctkn.html"><button onclick="checkdangnhap()">PC</button></a>
+      <a href="choingay.html"><button onclick="checkdangnhap()">IPHONE</button></a>
     </div>
   </div>
   <div class="bg-content1">
@@ -168,15 +168,12 @@
       localStorage.setItem("darkMode", isDark);
     });
 
-    const isLoggedIn = sessionStorage.getItem("currentUser")
-    if (!isLoggedIn) {
-      window.onload = function () {
-      const downloadLinks = document.querySelectorAll(".download-buttons a");
-      downloadLinks.forEach(link => {
-        if (!isLoggedIn) {
-          link.href = "dangnhap.html"; // nếu chưa đăng nhập thì ép link về đăng nhập
-        }});
-    }}
+    function checkdangnhap(){
+      const user=JSON.parse(sessionStorage.getItem("currentUser"));
+      if (!user){
+        window.location.href="dangnhap.html"
+      }
+    }
     const bgMusic = document.getElementById("bg-music");
     bgMusic.volume=0.8
     const toggleMusicBtn = document.getElementById("toggle-music");
@@ -209,19 +206,6 @@
     window.addEventListener("beforeunload", () => {
       sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
     });
-    if (!sessionStorage.getItem("pendingThanhTich")) {
-      sessionStorage.setItem("pendingThanhTich", JSON.stringify([
-        "rongvang",
-        "hunter10",
-        "login5",
-        "vipmax",
-        "hunter17",
-        "login15",
-        "ronglua",
-        "collector",
-        "trungthanh"
-      ]));
-    }
   </script>
 </body>
 </html>
