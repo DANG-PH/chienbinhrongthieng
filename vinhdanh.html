@@ -455,8 +455,8 @@
         container.innerHTML = '<p style="text-align:center;grid-column: 1 / -1;">⚠️ Bạn cần đăng nhập để xem huy hiệu của mình.</p>';
     } else {
         const user = users.find(u => u.email === currentSession.email);
-        const tongZeni = user.history?.reduce((sum, h) => sum + h.zeni, 0) || 0;
-        const items = user.items?.length || 0;
+        const tongZeni = user.history||[].reduce((sum, h) => sum + h.zeni, 0);
+        const items = user.items||[].length ;
         const soNgay = demSoNgayOnline(user.email);
         user.thanhTich = user.thanhTich || [];
         let html = "";
@@ -648,7 +648,7 @@
     if (zeni < 300000) return 7;
     if (zeni < 500000) return 8;
     if (zeni < 9999999) return 9;
-    return 10; // Nếu bạn muốn có cấp “vượt max”
+    return 10; 
     }
 
     function getTitle(vip) {
@@ -665,7 +665,7 @@
         "💠 Đại Thiên Sứ",            // VIP 9
         "<strong>👑 Chiến Binh Truyền Thuyết</strong>" // VIP 10+
     ];
-    return titles[Math.min(vip, titles.length - 1)];
+    return titles[vip];
     }
 
     function renderBangXepHang() {
