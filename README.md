@@ -35,8 +35,8 @@
 <p><strong>Phạm Hải Đăng</strong><br>
 Dự án cuối kỳ | B24DCCC047 – D24CQCC05_B – PTIT
 </p>
-- 📫 Email: dangph.ptit@gmail.com  
-- 🌐 GitHub: [DANG-PH](https://github.com/DANG-PH)
+<p>- 📫 Email: dangph.ptit@gmail.com  </p>
+<p>- 🌐 GitHub: [DANG-PH](https://github.com/DANG-PH)</p>
 
 ---
 
