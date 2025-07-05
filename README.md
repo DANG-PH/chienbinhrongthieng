@@ -37,5 +37,5 @@ Dự án cuối kỳ | B24DCCC047 – D24CQCC05_B – PTIT
 </p>
 
 <p align="center">
-  <a href="https://github.com/DANG-PH/chienbinhrongthieng">👉 Xem chi tiết trên GitHub</a>
+  <a href="chienbinhrongthieng.online">👉 Xem chi tiết trên Web</a>
 </p>
