@@ -4,191 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chiến Binh Rồng Thiêng</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/icongame1.png" type="image/png" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    .bg-content{
-      padding:0;
-    }
-    .main {
-      display: flex;
-    }
-    .sidebar {
-      width: 25%;
-      border-right: 2px solid black;
-      padding: 10px;
-    }
-    body.dark-mode .sidebar{
-      border-right: 2px solid #aaa;
-    }
-    .sidebar ul {
-      padding-left: 20px;
-    }
-    .content-area {
-      width: 75%;
-      display: flex;
-      flex-direction: column;
-    }
-    .highlight-title {
-      border-bottom: 2px solid  black;
-      padding: 10px;
-    }
-    body.dark-mode .highlight-title{
-      border-bottom: 2px solid #060303;
-    }
-    .highlight-title img {
-      height: 18px;
-    }
-    .articles {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .article {
-      width: 50%;
-      padding: 2px;
-    }
-    .article img {
-      width: 100%;
-    }
-    .more {
-      padding: 10px;
-    }
-    .more img {
-      height: 18px;
-      vertical-align: middle;
-    }
-    .others {
-      border-top: 2px solid black;
-      padding: 10px;
-    }
-    body.dark-mode .others{
-      border-top: 2px solid #aaa;
-    }
-    .others ul {
-      padding-left: 20px;
-    }
-    a {
-        color:black;
-        text-decoration: none;
-    }
-    a:hover{
-      text-decoration: underline;
-    }
-    .xemchitiet{
-      text-align: center;
-      position: fixed;
-      top:50%;
-      left: 50%;
-      transform:translate(-50%,-50%);
-      animation: fadeIn 0.3s ease-out;
-      box-shadow: 0 0 38px rgba(0, 0, 0, 0.9);
-      z-index: 9999;
-      background-color: #fff;
-      width: 800px;
-      display: none;
-      border-radius: 10px;
-      padding:20px;
-      color:black
-    }
-    .xemchitiet button{
-      position: absolute;
-      top:0;
-      right:0
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -60%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
-    body.dark-mode .xemchitiet{
-      background-color: #222;
-      color: #eee;
-    }
-    .xct img{
-      height: 428px;
-    }
-    .textchitiet{
-      height:200px;
-      overflow-y: auto;
-      scrollbar-width: none;
-    }
-    .trai button:hover{
-      transform: translateX(-8px);
-      transition: transform 0.3s ;
-    }
-    .phai button:hover{
-      transform: translateX(8px);
-      transition: transform 0.3s ;
-    }
-    @media (max-width: 768px) {
-      .main {
-        flex-direction: column;
-        font-size: 12px;
-      }
-
-      .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 2px solid black;
-      }
-      body.dark-mode .sidebar{
-        border-bottom: 2px solid #aaa;
-        border-right:none;
-      }
-      .content-area {
-        width: 100%;
-      }
-
-      .article {
-        width: 100%;
-        padding: 5px 0;
-        text-align: center;
-      }
-      .article img{
-        height:250px !important;
-        left:0 !important;
-      }
-      .dt {
-        margin-top: 238px !important;
-      }
-
-      .highlight-title, .more, .others {
-        padding: 10px 5px;
-      }
-
-      .sidebar ul, .others ul {
-        padding-left: 15px;
-      }
-      .xemchitiet{
-        width:400px;
-      }
-      .xemchitiet img{
-        height:200px !important;
-      }
-      .textchitiet {
-        height:140px;
-        font-size: 10px !important;
-      }
-      .nutbam button{
-        padding:6px 12px;
-        font-size:10px
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/icongame1.png" type="image/png" />
+  <link rel="stylesheet" href="../css/tintuc.css">
 </head>
 <body>
   <div class="header">
     <div style="overflow: hidden;">
-      <video autoplay muted loop playsinline preload="metadata"poster="images/tintuc2.webp" class="header-video" style="animation: vid1 10s infinite;height:150%;filter: brightness(0.9)">
-        <source src="images/tintuc2.webm" type="video/webm">
-        <source src="images/tintuc2.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata"poster="../images/tintuc2.webp" class="header-video" style="animation: vid1 10s infinite;height:150%;filter: brightness(0.9)">
+        <source src="../images/tintuc2.webm" type="video/webm">
+        <source src="../images/tintuc2.mp4" type="video/mp4">
       </video>
-      <video autoplay muted loop playsinline preload="metadata" poster="images/tintuc1.webp" class="header-video" style="animation: vid2 10s infinite;filter: brightness(0.9)">
-        <source src="images/tintuc1.webm" type="video/webm">
-        <source src="images/tintuc1.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata" poster="../images/tintuc1.webp" class="header-video" style="animation: vid2 10s infinite;filter: brightness(0.9)">
+        <source src="../images/tintuc1.webm" type="video/webm">
+        <source src="../images/tintuc1.mp4" type="video/mp4">
       </video>
     </div>
     <div class="overlay"></div>
@@ -196,7 +25,7 @@
             <h1>Cập Nhật Mới Nhất</h1>
             <div>
                 <ul>
-                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="../index.html">Trang chủ</a></li>
                 <li><a href="gioithieu.html">Giới thiệu</a></li>
                 <li><a href="nhanvat.html">Nhân Vật</a></li>
                 <li><a href="diendan.html">Diễn đàn</a></li>
@@ -246,15 +75,15 @@
 
       <div class="content-area">
           <div class="highlight-title" >
-              <img src="images/icongame1.png" style="vertical-align:bottom" />
+              <img src="../images/icongame1.png" style="vertical-align:bottom" />
               <b style="vertical-align:middle">Bài viết nổi bật</b>
           </div>
 
           <div class="articles">
               <div class="article">
                   <div style="position:relative">
-                      <img src="images/tt1.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
-                      <img src="images/tt2.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <img src="../images/tt1.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="../images/tt2.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
                       <br />
                       <div class="dt"style="margin-top:185px">
                           <b >[TIN NÓNG] Goku chính thức đạt tới Bản Năng Vô Cực!</b>
@@ -268,8 +97,8 @@
 
               <div class="article">
                   <div style="position:relative">
-                      <img src="images/tt3.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
-                      <img src="images/tt4.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <img src="../images/tt3.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="../images/tt4.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
                       <br />
                       <div class="dt" style="margin-top:185px">
                           <b>[PHÂN TÍCH] Vegeta hóa Oozaru – đối thủ gục trong 3 đòn</b>
@@ -283,8 +112,8 @@
 
               <div class="article">
                   <div style="position:relative">
-                      <img src="images/tt5.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
-                      <img src="images/tt6.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <img src="../images/tt5.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="../images/tt6.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
                       <br />
                       <div class="dt" style="margin-top:185px">
                           <b>[CHIẾN THUẬT] Piccolo Orange: Phòng thủ tối thượng</b>
@@ -298,8 +127,8 @@
 
               <div class="article">
                   <div style="position:relative">
-                      <img src="images/tt7.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
-                      <img src="images/tt8.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
+                      <img src="../images/tt7.jpg" style="height:200px;position:absolute;animation: aanh1 6s infinite" />
+                      <img src="../images/tt8.jpg" style="height:200px;position:absolute;animation: aanh2 6s infinite"  alt="">
                       <br />
                       <div class="dt" style="margin-top:185px">
                           <b>[META MỚI] Broly SSJ4 – Ác mộng cuối trận!</b>
@@ -313,7 +142,7 @@
           </div>
 
           <div class="more">
-              <img src="images/icongame1.png" style="vertical-align:bottom;" />
+              <img src="../images/icongame1.png" style="vertical-align:bottom;" />
               <b style="vertical-align: middle;">Các bài viết khác</b>
           </div>
 
@@ -332,11 +161,11 @@
       <h3>Goku Ultra Instinct – Bản năng vô cực thức tỉnh</h3>
       <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
       <div class="xct" style="position: relative;transform: translate(-50%,-50%);">
-        <img src="images/gkui1.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
-        <img src="images/gkui2.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
-        <img src="images/goku2.jpg" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+        <img src="../images/gkui1.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="../images/gkui2.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="../images/goku2.jpg" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
       </div>
-      <img src="images/gkui1.jpg" alt="" style="width: 100%;">
+      <img src="../images/gkui1.jpg" alt="" style="width: 100%;">
       <div class="textchitiet">
         <p>
           Trong suốt chiều dài của Dragon Ball, Goku luôn là hình ảnh đại diện cho sự tiến hóa không ngừng của một chiến binh. Từ cậu bé Saiyan ngây thơ, cho đến Super Saiyan, rồi Super Saiyan Blue – và giờ đây, trong "Chiến Binh Rồng Thiêng", Goku chính thức chạm đến đỉnh cao: Bản Năng Vô Cực (Ultra Instinct).
@@ -364,11 +193,11 @@
       <h3>Vegeta Oozaru – Chiến binh hồi sinh và hút máu</h3>
       <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
       <div class="xct" style="position: relative;transform: translate(-50%,-50%);">
-        <img src="images/vegeta1.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
-        <img src="images/ozr1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
-        <img src="images/ozr2.webp" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+        <img src="../images/vegeta1.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="../images/ozr1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="../images/ozr2.webp" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
       </div>
-      <img src="images/vegeta1.jpg" alt="" style="width: 100%;">
+      <img src="../images/vegeta1.jpg" alt="" style="width: 100%;">
       <div class="textchitiet">
         <p>
           Vegeta – Hoàng tử Saiyan – nổi tiếng với sự kiêu hãnh và không bao giờ chịu thua. Trong "Chiến Binh Rồng Thiêng", điều đó được thể hiện rõ ràng thông qua bộ kỹ năng đặc trưng: hồi sinh, bất tử, và hút máu. Không chỉ mạnh – Vegeta là một "kẻ lì đòn" đúng nghĩa.
@@ -395,11 +224,11 @@
       <h3>Piccolo Orange – Tường thành bất khả xâm phạm</h3>
       <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
       <div class="xct"style="position: relative;transform: translate(-50%,-50%);">
-        <img src="images/piccolo2.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
-        <img src="images/org1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
-        <img src="images/org2.webp" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+        <img src="../images/piccolo2.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="../images/org1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="../images/org2.webp" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
       </div>
-      <img src="images/piccolo2.jpg" alt="" style="width: 100%;">
+      <img src="../images/piccolo2.jpg" alt="" style="width: 100%;">
       <div class="textchitiet">
         <p>
           Trong một game thiên về tấn công như "Chiến Binh Rồng Thiêng", Piccolo là nhân vật hiếm hoi thiên về phòng thủ, câu giờ và phản đòn. Với trạng thái Orange, ông trở thành "bức tường sống" đúng nghĩa – cực kỳ khó bị kết liễu, và càng lâu càng mạnh.
@@ -427,11 +256,11 @@
       <h3>Broly SSJ4 – Ác thần cuối trận đấu</h3>
       <button style="border:none;background-color: transparent;box-shadow: none;">❌</button>
       <div class="xct"style="position: relative;transform: translate(-50%,-50%);">
-        <img src="images/broly2.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
-        <img src="images/ssj4.1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
-        <img src="images/ssj4.2.jpg" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
+        <img src="../images/broly2.jpg" alt="" style="width:100%;position: absolute;animation: anh1 6s infinite;">
+        <img src="../images/ssj4.1.jpg" alt="" style="width:100%;position: absolute;animation: anh2 6s infinite;">
+        <img src="../images/ssj4.2.jpg" alt="" style="width:100%;position: absolute;animation: anh3 6s infinite;">
       </div>
-      <img src="images/broly2.jpg" alt="" style="width: 100%;">
+      <img src="../images/broly2.jpg" alt="" style="width: 100%;">
       <div class="textchitiet">
         <p>
           Broly là hiện thân của sự hỗn loạn – một cơn thịnh nộ không thể kiểm soát. Trong "Chiến Binh Rồng Thiêng", Broly là mẫu tướng cực kỳ nguy hiểm về late game, với cơ chế "bị đánh càng nhiều, sát thương càng tăng".
@@ -460,32 +289,15 @@
       </div>
     </div>
     <audio id="bg-music" autoplay loop>
-        <source src="sounds/phepmau.mp3" type="audio/mpeg">
+        <source src="../sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
     </audio>
     <button id="toggle-music" class="music-toggle-btn">🔇</button>
     <footer>
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
-    <script src="darkmode.js"></script>
-    <script src="phatnhac.js"></script>
-    <script>
-      const nutxemchitiet=document.querySelectorAll(".dt button")
-      nutxemchitiet.forEach((btn,index) => {
-        btn.onclick = () => hienthipopup(index)
-      })
-      function hienthipopup(index){
-        document.getElementById(`xemchitiet${index+1}`).style.display="block";
-        document.getElementById("overlay-online").style.display = "block";
-      } 
-      const anchitiet=document.querySelectorAll(".xemchitiet > button")
-      anchitiet.forEach((btn,index) => {
-        btn.onclick = () => anpopup(index)
-      })
-      function anpopup(index){
-        document.getElementById(`xemchitiet${index+1}`).style.display="none";
-        document.getElementById("overlay-online").style.display = "none";
-      }
-    </script>
+    <script src="../js/darkmode.js"></script>
+    <script src="../js/phatnhac.js"></script>
+    <script src="../js/tintuc.js"></script>
 </body>
 </html>

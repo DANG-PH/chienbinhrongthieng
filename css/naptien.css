@@ -1,0 +1,151 @@
+#xac-nhan-popup{
+width: 700px;
+position: fixed;
+display:none;
+top:50%;left:50%;
+transform: translate(-50%, -50%);
+background-color: #fff;
+border-radius: 12px;
+text-align: center;
+padding:20px;
+z-index: 9999;
+animation: fadeIn 0.3s ease-out;
+box-shadow: 0 0 38px rgba(0, 0, 0, 0.9);
+}
+
+#xac-nhan-popup button:hover {
+transform: scale(1.02);
+transition:0.2s ;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translate(-50%, -60%); }
+to { opacity: 1; transform: translate(-50%, -50%); }
+}
+body.dark-mode #xac-nhan-popup{
+background-color: #222;
+}
+.vip {
+margin: 0px !important;
+}
+.vip strong{
+color:	#1976d2;
+}
+body.dark-mode .vip strong{
+color:	#ffa500;
+}
+.goi-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.goi-nap {
+border: 2px solid #ccc;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+.goi-nap:hover{
+transform: translateY(-5px);
+box-shadow: 0px 4px 8px rgba(0,0,0,0.8);
+transition: .4s;
+}
+body.dark-mode .goi-nap:hover{
+box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
+}
+.goi-nap img {
+width: 100%;
+height: 160px;
+object-fit: cover;
+}
+
+.goi-noidung {
+font-size: 14px;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding:10px
+}
+.goi-noidung p{
+margin:0
+}
+
+.nut-tang {
+margin-top: 0px;
+border: none;
+display:flex;
+align-items: center;
+justify-content: center;
+height: 30px;
+width: 30px;
+border-radius: 100%;
+font-size:11px;
+padding:0;
+}
+
+#tong-nap {
+font-weight: bold;
+margin-top: 20px;
+}
+
+#qr-anh {
+width: 200px;
+margin: auto;
+display: block;
+}
+details summary{
+font-size: 20px;
+font-weight: bold;
+}
+details {
+box-shadow: 0px 0px 50px rgba(0,0,0,0.2);
+padding:10px;
+border-left:4px solid #555;
+margin-top:15px;
+}
+body.dark-mode details{
+border-left-color:#ffa500;
+}
+@media (max-width: 600px) {
+.bg-content{
+padding:25px
+}
+.goi-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.goi-nap {
+height:150px;
+}
+.goi-noidung{
+padding:3px;
+}
+.nut-tang{
+font-size: 9px !important;
+width: 20px;height:20px;
+}
+.goi-nap img{
+height:110px
+}
+.goi-nap p{
+font-size:8px;
+}
+details summary{
+font-size: 12px;
+}
+table {
+font-size: 11px;
+}
+button{
+font-size: 9px;
+padding:8px 12px
+}
+#nut-dang-nhap{
+font-size: 9px;
+}
+#xac-nhan-popup{
+width: 400px;
+}
+#xac-nhan-popup img{
+width: 140px !important;
+}
+}

@@ -4,270 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chiến Binh Rồng Thiêng</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/icongame1.png" type="image/png" />
-  <style>
-    details {
-      padding: 10px 10px;
-      border-left: 5px solid #555;
-      border-radius: 5px;
-      margin: 10px 0;
-      cursor: pointer;
-      box-shadow: 0px 0px 38px rgba(0,0,0,0.2);
-    }
-    details:hover{
-      transform: translateX(-4px);
-      border-left-color: black!important;
-      transition: .2s;
-    }
-    details summary{
-      font-size: 20px;
-      font-weight: bold;
-    }
-    body.dark-mode details{
-      background: #222;
-      border-left-color:#ffa500 !important;
-    }
-
-    .huong-dan-choi .character {
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-      height:938px
-    }
-    .huong-dan-choi .character h3{
-      margin-top: -20px;
-    }
-    .nutbam {
-      margin-top: 475px;
-    }
-    .trai button:hover{
-      transform: translateX(-8px);
-      transition: transform 0.3s ;
-    }
-    .phai button:hover{
-      transform: translateX(8px);
-      transition: transform 0.3s ;
-    }
-
-    .huong-dan-choi table {
-      width: 100%;
-      margin-top: 1rem;
-      border-collapse: collapse;
-    }
-    .huong-dan-choi table th,
-    .huong-dan-choi table td {
-      border: 1px solid #999;
-      padding: 10px;
-    }
-
-    .huong-dan-choi .chedo details {
-      padding: 10px 15px;
-      border-left: 4px solid #555;
-      border-radius: 5px;
-      margin: 10px 0;
-      cursor: pointer;
-    }
-    .huong-dan-choi .flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: 1rem;
-    }
-    .huong-dan-choi .p1:hover{
-      transform: translateY(-5px);
-      box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
-      border-left-color: #444;
-      transition: .4s;
-    }
-    .huong-dan-choi .p2:hover{
-      transform: translateY(-5px);
-      box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
-      border-left-color: #444;
-      transition: .4s;
-    }
-    body.dark-mode .p1:hover{
-      box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
-      border-left-color:#ffa500;
-    }
-    body.dark-mode .p2:hover{
-      box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
-      border-left-color:#ffa500;
-    }
-    .dieukhien{
-      border-left: 5px solid #555;
-      padding: 1rem;
-      border-radius: 6px;
-      box-shadow: 12px 12px 38px rgba(0,0,0,0.2);
-    }
-    .howtoplay-box {
-      border-left: 5px solid #555;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    .howtoplay-box:hover{
-      box-shadow: 0px 0px 38px rgba(0,0,0,0.6);
-      border-left-color: #444;
-      transform: translateY(-5px);
-      transition: .4s;
-    }
-    body.dark-mode .howtoplay-box:hover{
-      box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
-    }
-    body.dark-mode .howtoplay-box {
-      background: #1b1b1b;
-      border-left-color: #00bfff;
-    }
-    body.dark-mode .howtoplay-box h3 {
-      color: #ffa500;
-    }
-
-    .hud-box {
-      background: rgba(255,255,255,0.05);
-      border-left: 5px solid #555;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      margin-top: 1rem;
-    }
-    .hud-box:hover{
-      box-shadow: 0px 0px 38px rgba(0,0,0,0.6);
-      border-left-color: #444;
-      transform: translateY(-5px);
-      transition: .4s;
-    }
-    body.dark-mode .hud-box:hover{
-      box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
-    }
-    body.dark-mode .hud-box {
-      background: #1a1a1a;
-      border-left-color: #00bfff;
-    }
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .tip-card {
-      background: rgba(255,255,255,0.1);
-      border-left: 5px solid #555;
-      padding: 1rem;
-      border-radius: 6px;
-      font-weight: 500;
-      box-shadow: 0 0 6px rgba(0,0,0,0.2);
-    }
-    .tip-card:hover{
-      box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
-      border-left-color: #333;
-      transform: translateY(-5px);
-      transition: .4s;
-    }
-    body.dark-mode .tip-card:hover{
-      box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
-    }
-    body.dark-mode .tip-card {
-      background: #222;
-      border-left-color: #00bfff;
-    }
-    .chedo details {
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-    /* Dark mode*/
-    body.dark-mode .huong-dan-choi .character {
-      background: #222;
-    }
-    body.dark-mode .dieukhien {
-      background: #222;
-      border-left-color: #ffa500;
-    }
-    body.dark-mode .huong-dan-choi table {
-      background: #1a1a1a;
-      color: #ccc;
-    }
-
-    body.dark-mode .huong-dan-choi table th {
-      background: #333;
-      color: #fff;
-    }
-
-    body.dark-mode .huong-dan-choi .chedo details {
-      background: #2a2a2a;
-      border-left:4px solid #ffa500 ;
-    }
-
-    body.dark-mode .huong-dan-choi h2 {
-      color: #ffa500;
-      border-color: #ffa500;
-    }
-    @media (max-width: 768px){
-      .character p, ul li{
-        font-size: 10px;
-      }
-      .p1 {
-        width: 100% !important;
-        margin-bottom: -25px;
-      }
-      .p2 {
-        width: 100% !important;
-      }
-      .dieukhien ul li {
-        font-size: 12px;
-      }
-      .cachchoi ul{
-        margin-top:-10px
-      }
-      .cachchoi ul li{
-        font-size: 12px;
-      }
-      .hud ul li {
-        font-size: 12px;
-      }
-      .meochoi{
-        font-size: 12px;
-      }
-      .tips-grid{
-        grid-template-columns: repeat(2,1fr);
-      }
-      .huong-dan-choi table {
-        font-size: 11px;
-      }
-      .huong-dan-choi .chedo{
-        font-size: 12px;
-      }
-      .pb ul li{
-        font-size: 10px;
-      }
-      .huong-dan-choi .character{
-        height:670px;
-      }
-      .huong-dan-choi .character img{
-        height:220px !important;
-      }
-      button{
-        padding:6px 12px;
-        font-size:8px;
-      }
-      .nutbam {
-        margin-top: 240px;
-      }
-      details summary{
-        font-size: 13px !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/icongame1.png" type="image/png" />
+  <link rel="stylesheet" href="../css/huongdanchoi.css">
 </head>
 <body>
   <div class="header">
     <div style="overflow: hidden;">
-      <video autoplay muted loop playsinline preload="metadata"poster="images/huongdanchoi1.webp" class="header-video" style="animation: vid1 10s infinite;filter: brightness(0.9)">
-        <source src="images/huongdanchoi1.webm" type="video/webm">
-        <source src="images/huongdanchoi1.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata"poster="../images/huongdanchoi1.webp" class="header-video" style="animation: vid1 10s infinite;filter: brightness(0.9)">
+        <source src="../images/huongdanchoi1.webm" type="video/webm">
+        <source src="../images/huongdanchoi1.mp4" type="video/mp4">
       </video>
-      <video autoplay muted loop playsinline preload="metadata" poster="images/huongdanchoi2.webp" class="header-video" style="animation: vid2 10s infinite;;height:130%;filter: brightness(0.9)">
-        <source src="images/huongdanchoi2.webm" type="video/webm">
-        <source src="images/huongdanchoi2.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline preload="metadata" poster="../images/huongdanchoi2.webp" class="header-video" style="animation: vid2 10s infinite;;height:130%;filter: brightness(0.9)">
+        <source src="../images/huongdanchoi2.webm" type="video/webm">
+        <source src="../images/huongdanchoi2.mp4" type="video/mp4">
       </video>
     </div>
     <div class="overlay"></div>
@@ -275,7 +25,7 @@
             <h1>Kỹ Năng - Chiến Thuật</h1>
             <div>
                 <ul>
-                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="../index.html">Trang chủ</a></li>
                 <li><a href="gioithieu.html">Giới thiệu</a></li>
                 <li><a href="nhanvat.html">Nhân Vật</a></li>
                 <li><a href="diendan.html">Diễn đàn</a></li>
@@ -324,9 +74,9 @@
           <p><i>Goku là hiện thân của tinh thần chiến đấu không ngừng – dám hy sinh, dám vượt giới hạn bản thân vì lý tưởng. Trong tay người chơi tinh tế, Goku không bao giờ chết – anh luôn trở lại mạnh mẽ hơn.</i></p>
 
           <div style="position:relative;width: 100%;">
-            <img src="images/ggoku.png" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
-            <img src="images/ggoku1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
-            <img src="images/ggoku2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+            <img src="../images/ggoku.png" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="../images/ggoku1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="../images/ggoku2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
           </div>
           <div class="nutbam">
             <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
@@ -351,9 +101,9 @@
           <p style="margin-top: 10px;"><i>Vegeta là hiện thân của lòng kiêu hãnh và sự khát khao vượt qua mọi giới hạn. Trong tay người chơi tinh tế, Vegeta có thể trở thành cơn ác mộng với bất kỳ đối thủ nào dám coi thường sức mạnh hoàng tộc Saiyan.</i></p>
 
           <div style="position:relative;width: 100%;">
-            <img src="images/gvegeta.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
-            <img src="images/gvegeta1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
-            <img src="images/gvegeta2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+            <img src="../images/gvegeta.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="../images/gvegeta1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="../images/gvegeta2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
           </div>
           <div class="nutbam">
             <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
@@ -378,9 +128,9 @@
           <p><i>Là một chiến binh vừa thông minh vừa lạnh lùng, Piccolo không bao giờ hấp tấp. Sức mạnh của ông đến từ sự tính toán – và khi bạn mắc sai lầm, ông sẽ phản lại toàn bộ.</i></p>
 
           <div style="position:relative;width: 100%;">
-            <img src="images/gpiccolo.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
-            <img src="images/gpiccolo1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
-            <img src="images/gpiccolo2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+            <img src="../images/gpiccolo.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="../images/gpiccolo1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="../images/gpiccolo2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
           </div>
           <div class="nutbam">
             <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
@@ -405,9 +155,9 @@
           <p><i>Broly là quái vật không thể kiểm soát – nếu để hắn sống quá lâu, mọi đòn đánh của bạn sẽ trở nên vô nghĩa. Người chơi Broly giỏi là người biết "chịu đòn" để trở nên không thể ngăn cản.</i></p>
 
           <div style="position:relative;width: 100%;">
-            <img src="images/gbroly.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
-            <img src="images/gbroly1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
-            <img src="images/gbroly2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+            <img src="../images/gbroly.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="../images/gbroly1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="../images/gbroly2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
           </div>
           <div class="nutbam">
             <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
@@ -432,9 +182,9 @@
           <p><i>Gohan là minh chứng cho sức mạnh tiềm ẩn – càng bị dồn ép, cậu càng bộc phát. Nếu bạn là người chơi giỏi kiểm soát tình huống và thời điểm, Gohan chính là át chủ bài trong tay bạn.</i></p>
 
           <div style="position:relative;width: 100%;">
-            <img src="images/ggohan.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
-            <img src="images/ggohan1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
-            <img src="images/ggohan2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
+            <img src="../images/ggohan.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh1 6s infinite">
+            <img src="../images/ggohan1.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh2 6s infinite">
+            <img src="../images/ggohan2.jpg" alt="" style="position:absolute;width:100%;height:450px;top:0;left:0;animation:anh3 6s infinite">
           </div>
           <div class="nutbam">
             <a href="nhanvat.html" class="trai"><button>🔹 Tiểu sử nhân vật</button></a>
@@ -615,14 +365,14 @@
     </div>
 
     <audio id="bg-music" autoplay loop>
-        <source src="sounds/phepmau.mp3" type="audio/mpeg">
+        <source src="../sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
     </audio>
     <button id="toggle-music" class="music-toggle-btn">🔇</button>
     <footer>
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
-    <script src="darkmode.js"></script>
-    <script src="phatnhac.js"></script>
+    <script src="../js/darkmode.js"></script>
+    <script src="../js/phatnhac.js"></script>
 </body>
 </html>

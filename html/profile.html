@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chiến Binh Rồng Thiêng</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/icongame1.png" type="image/png" />
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/toast.css">
+</head>
+<body>
+  <div class="header">
+    <div style="overflow: hidden;">
+      <video autoplay muted loop playsinline preload="metadata" poster="../images/quenmatkhau2.webp" class="header-video" style="animation: vid1 10s infinite;height:100%;filter: brightness(0.9)">
+        <source src="../images/quenmatkhau2.webm" type="video/webm">
+        <source src="../images/quenmatkhau2.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline preload="metadata" poster="../images/tintuc2.webp" class="header-video" style="animation: vid2 10s infinite;filter: brightness(0.9)">
+        <source src="../images/tintuc2.webm" type="video/webm">
+        <source src="../images/tintuc2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+        <div class="header-content" >
+            <h1>Profile Chiến Binh!</h1>
+            <div>
+              <ul>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="nhanvat.html">Nhân Vật</a></li>
+                <li><a href="diendan.html">Diễn đàn</a></li>
+                <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="huongdanchoi.html">Hướng dẫn chơi</a></li>
+                <li><a href="choingay.html">Chơi ngay</a></li>
+                <li><a href="naptien.html">Nạp game</a></li>
+                <li><a href="shop.html">Shop rồng thiêng</a></li>
+                <li><a href="chatbot.html">Chat bot hỗ trợ</a></li>
+                <li><a href="profile.html" id="selected">Profile</a></li>
+                <li><a href="vinhdanh.html">Vinh danh chiến binh</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bg-content1">
+        <div style="float:right;margin-top:5px">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <h2>Truyền Thuyết Rồng Thiêng Bắt Đầu Từ Bạn</h2>
+        <p><i><b>Không phải ai cũng đủ sức mạnh để viết nên huyền thoại... Nhưng bạn đang làm điều đó ngay lúc này!</b></i></p>
+    </div>
+    <div class="bg-content1">
+        <h2>Thông tin người chơi</h2>
+        <div style="text-align:center; margin-bottom:10px;">
+            <img id="avatar-nguoi-choi" class="avatar-frame" src="images/head1.webp" style="width:140px; height:140px;">
+        </div>
+        <p>Tên tài khoản: <strong id="ten-nguoi-choi">...</strong></p>
+        <p>Số Zeni hiện có: <strong id="kc-hientai">0</strong></p>
+        <p class="vip">Cấp bậc chiến binh: <strong id="cap-bac"><span>VIP 0</span></strong></p>
+        <div id="danh-hieu" style="margin:10px 0;"></div>
+        <div style="margin-top:10px;">
+            <div class="vbar"style="background:#ccc; width:100%; height:20px; border-radius:10px; overflow:hidden;">
+                <div id="vip-bar" style="height:100%; width:0%; background:#f90;"></div>
+            </div>
+            <p id="vip-next" style="margin-top:5px;font-style: italic;">Hãy nạp Zeni để lên VIP , thay đổi avatar và sở hữu nhiều đặc quyền khác nhé chiến binh !</p>
+        </div>
+        <!-- Nút mở form -->
+        <div style="display:flex;justify-content: space-between;padding: 0;margin: 0px;">
+          <button id="nut-dang-nhap" style="margin-top: 10px;">Đăng nhập</button>
+          <button class="download-buttons"onclick="hienNhapCode()">🔑 Nhập mã đổi thưởng</button>
+        </div>
+        <div style="display:flex;justify-content: space-between;padding: 0;margin: 0px;">
+          <button onclick="hienPopupOnline()">🎁 Nhận quà online</button>
+          <button onclick="hienNhiemvuHangNgay()">🎁 Nhiệm vụ hằng ngày</button>
+        </div>
+    </div>
+    <!-- Overlay nền mờ -->
+    <div id="overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+
+    <!-- Popup phần quà online -->
+    <div id="popup-online">
+      <button onclick="anPopupOnline()" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:18px;box-shadow:none">❌</button>
+      <h3 style="text-align:center;margin-top:0;">🎁 Quà online hằng ngày</h3>
+      <div class="online-grid">
+        <div class="online-item"><img src="../images/ol1.png"><button onclick="nhanThuongMoc(10)">Nhận</button><p>10 phút</p></div>
+        <div class="online-item"><img src="../images/ol2.png"><button onclick="nhanThuongMoc(20)">Nhận</button><p>20 phút</p></div>
+        <div class="online-item"><img src="../images/ol3.png"><button onclick="nhanThuongMoc(40)">Nhận</button><p>40 phút</p></div>
+        <div class="online-item"><img src="../images/ol3.png"><button onclick="nhanThuongMoc(70)">Nhận</button><p>70 phút</p></div>
+        <div class="online-item"><img src="../images/ol4.png"><button onclick="nhanThuongMoc(100)">Nhận</button><p>100 phút</p></div>
+        <div class="online-item"><img src="../images/ol4.png"><button onclick="nhanThuongMoc(140)">Nhận</button><p>140 phút</p></div>
+
+        <div class="online-item large">
+          <img src="../images/ol5.png">
+          <button onclick="nhanThuongMoc(180)">Nhận</button>
+          <p>180 phút</p>
+          <p>🎉 Phần thưởng tối đa trong ngày! <br> Nhận ngay 7250 Zeni khi online 180 phút!</p>
+          <p id="online-time"><i></i></p>
+        </div>
+      </div>
+    </div>
+    <!-- Overlay nền mờ -->
+    <div id="nv-overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+
+    <div id="nv-popup-online">
+      <button class="mediaX"onclick="anNhiemvuHangNgay()" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:18px;box-shadow:none">❌</button>
+      <h3 style="text-align:center;margin-top:0;">🎁 Nhiệm Vụ Hằng Ngày</h3>
+      <div class="nv-online-grid">
+        <div class="nv-online-item">
+          <img src="../images/nhanvat1.webp">
+          <div class="box-chua-nv">
+            <h3>Thấu hiểu nhân vật</h3>
+            <p>Khám phá hồ sơ nhân vật – nơi ẩn chứa bí mật sức mạnh và tiềm năng vô hạn!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>2000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="../images/diendan1.webp">
+          <div class="box-chua-nv">
+            <h3>Thảo luận chiến binh</h3>
+            <p>Tương tác diễn đàn chiến binh, chia sẻ chiến thuật và truyền cảm hứng bất tận!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>3000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="../images/tintuc2.webp">
+          <div class="box-chua-nv">
+            <h3>Nắm rõ chiến thuật</h3>
+            <p>Vào trang tin tức và cập nhật meta mới nhất!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>2000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="../images/choingay1.webp">
+          <div class="box-chua-nv">
+            <h3>Bắt đầu cuộc chiến !</h3>
+            <p>Chiến đấu không chần chừ – hãy lao vào trận chiến và khẳng định bản lĩnh!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>5000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="../images/vid1.webp">
+          <div class="box-chua-nv">
+            <h3>Động lực là sức mạnh</h3>
+            <p>Chiến binh huyền thoại không chỉ chiến đấu giỏi, mà còn để lại dấu ấn rực rỡ trong lịch sử! - Vào trang Vinh Danh</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>2000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+        <div class="nv-online-item">
+          <img src="../images/goku2.jpg">
+          <div class="box-chua-nv">
+            <h3>Khí chất của thần</h3>
+            <p>Nạp tiền lần đầu trong ngày, tăng cường sức mạnh, nâng cấp đột phá, mở khoá kỹ năng bá đạo!</p>
+            <div class="nv-nhan-thuong">
+              <p>Nhận thưởng : <span class="vip"><strong>10000 Zeni !</strong></span></p>
+              <button>Nhận thưởng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 20px;display:flex;align-items: center;">
+        <div id="mediaht" style="width:16%;text-align: center;">
+          <p>Hoàn thành</p>
+          <p id="nv-so-hoan-thanh">0%</p>
+        </div>
+        <div class="nvbar"style="background:#ccc; width:84%; height:20px; border-radius:10px; overflow:hidden">
+          <div id="nv-bar" style="height:100%; width:0%; background:#f90;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-content1">
+    <h2>Lịch sử nạp Zeni gần đây</h2>
+    <table border="1" style="width:100%;text-align:center">
+        <thead>
+        <tr>
+            <th>Thời gian</th>
+            <th>Số Zeni</th>
+            <th>VNĐ</th>
+        </tr>
+        </thead>
+        <tbody id="lich-su-nap"></tbody>
+    </table>
+    </div>
+    <div class="bg-content1">
+    <h2>🎒 Vật phẩm đã sở hữu</h2>
+    <table border="1" style="width:100%;text-align:center">
+        <thead>
+        <tr>
+            <th>Thời gian</th>
+            <th>Vật phẩm</th>
+            <th>Giá (Zeni)</th>
+            <th>Mã Code</th>
+        </tr>
+        </thead>
+        <tbody id="lich-su-item"></tbody>
+    </table>
+    </div>
+    <!-- Overlay nền mờ -->
+    <div id="overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+
+    <!-- Popup nhập code -->
+    <div id="form-nhap-code" >
+      <button onclick="anNhapCode()" style="position:absolute;top:10px;right:5px;background:none;border:none;font-size:10px;cursor:pointer;box-shadow:none">❌</button>
+      <h3 style="margin:0 0 15px 0;text-align:center;font-size:20px;">🎁 Nhập mã Code đổi thưởng</h3>
+      <input id="code-input" type="text" placeholder="Nhập mã code..."  />
+      <button onclick="doiCode()" style="margin-top:15px;width:100%;padding:10px;border:none;border-radius:8px;font-size:16px;cursor:pointer;">Đổi mã ngay</button>
+    </div>
+    <audio id="bg-music" autoplay loop>
+        <source src="../sounds/phepmau.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <button id="toggle-music" class="music-toggle-btn">🔇</button>
+    <footer>
+        <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
+    </footer>
+    <!-- Nút chuông thông báo -->
+    <div id="notification-bell" style="position:fixed;top:20px;right:20px;z-index:1100;cursor:pointer;">
+      🔔
+    </div>
+
+    <!-- Popup thông báo -->
+    <div id="notification-popup"style="display:none;position:fixed;top:70px;right:20px;width:280px;padding:15px;border-radius:10px;z-index:1101;">
+      <h3 style="margin-top:0;margin-bottom:10px;font-size:16px;">🔔 Thông báo</h3>
+      <ul style="padding-left:18px;margin:0;font-size:14px;">
+        <li>🎖 Bạn đã đạt cấp VIP mới? Kiểm tra ngay!</li>
+        <li>🛒 Đừng bỏ lỡ khuyến mãi tại <a href="shop.html">Shop Rồng Thiêng</a>.</li>
+        <li>📣 Hãy cập nhật hồ sơ của bạn trong phần <a href="profile.html">Profile</a>.</li>
+      </ul>
+    </div>
+    <div id="toast"></div>
+    <script src="../js/darkmode.js"></script>
+    <script src="../js/phatnhac.js"></script>
+    <script src="../js/thongbao.js"></script>
+    <script src="../js/profile.js"></script>
+  </body>
+</html>

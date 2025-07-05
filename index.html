@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chiến Binh Rồng Thiêng</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/icongame1.png" type="image/png" />
 </head>
 <body>
@@ -25,18 +25,18 @@
       <div>
         <ul>
           <li><a href="index.html"id="selected">Trang chủ</a></li>
-          <li><a href="gioithieu.html">Giới thiệu</a></li>
-          <li><a href="nhanvat.html">Nhân Vật</a></li>
-          <li><a href="diendan.html">Diễn đàn</a></li>
+          <li><a href="html/gioithieu.html">Giới thiệu</a></li>
+          <li><a href="html/nhanvat.html">Nhân Vật</a></li>
+          <li><a href="html/diendan.html">Diễn đàn</a></li>
           <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
-          <li><a href="tintuc.html">Tin tức</a></li>
-          <li><a href="huongdanchoi.html">Hướng dẫn chơi</a></li>
-          <li><a href="choingay.html">Chơi ngay</a></li>
-          <li><a href="naptien.html">Nạp game</a></li>
-          <li><a href="shop.html">Shop rồng thiêng</a></li>
-          <li><a href="chatbot.html">Chat bot hỗ trợ</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="vinhdanh.html">Vinh danh chiến binh</a></li>
+          <li><a href="html/tintuc.html">Tin tức</a></li>
+          <li><a href="html/huongdanchoi.html">Hướng dẫn chơi</a></li>
+          <li><a href="html/choingay.html">Chơi ngay</a></li>
+          <li><a href="html/naptien.html">Nạp game</a></li>
+          <li><a href="html/shop.html">Shop rồng thiêng</a></li>
+          <li><a href="html/chatbot.html">Chat bot hỗ trợ</a></li>
+          <li><a href="html/profile.html">Profile</a></li>
+          <li><a href="html/vinhdanh.html">Vinh danh chiến binh</a></li>
         </ul>
       </div>
     </div>
@@ -52,11 +52,11 @@
     <h2 style="margin-top:5px">🔥 Bắt đầu hành trình Chiến Binh Rồng Thiêng!</h2>
     <p>Chiến đấu cùng Goku, Vegeta và những chiến binh huyền thoại khác ngay hôm nay!</p>
     <div class="download-buttons">
-      <a href="gctcn.html"><button onclick="checkdangnhap()">JAVA</button></a>
-      <a href="gctcn.html"><button onclick="checkdangnhap()">ANDROID (APK)</button></a>
-      <a href="gctcn.html"><button onclick="checkdangnhap()">ANDROID (Google Play)</button></a>
-      <a href="gctkn.html"><button onclick="checkdangnhap()">PC</button></a>
-      <a href="choingay.html"><button onclick="checkdangnhap()">IPHONE</button></a>
+      <a href="game/gctcn.html"><button onclick="checkdangnhap()">JAVA</button></a>
+      <a href="game/gctcn.html"><button onclick="checkdangnhap()">ANDROID (APK)</button></a>
+      <a href="game/gctcn.html"><button onclick="checkdangnhap()">ANDROID (Google Play)</button></a>
+      <a href="game/gctkn.html"><button onclick="checkdangnhap()">PC</button></a>
+      <a href="html/choingay.html"><button onclick="checkdangnhap()">IPHONE</button></a>
     </div>
   </div>
   <div class="bg-content1">
@@ -152,13 +152,13 @@
   <footer>
     <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
   </footer>
-  <script src="darkmode.js"></script>
-  <script src="phatnhac.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script src="js/phatnhac.js"></script>
   <script>
     function checkdangnhap(){
       const user=JSON.parse(sessionStorage.getItem("currentUser"));
       if (!user){
-        window.location.href="dangnhap.html"
+        window.location.href="html/dangnhap.html"
       }
     }
   </script>

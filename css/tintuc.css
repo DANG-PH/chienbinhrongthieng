@@ -1,0 +1,169 @@
+* {
+box-sizing: border-box;
+}
+.bg-content{
+padding:0;
+}
+.main {
+display: flex;
+}
+.sidebar {
+width: 25%;
+border-right: 2px solid black;
+padding: 10px;
+}
+body.dark-mode .sidebar{
+border-right: 2px solid #aaa;
+}
+.sidebar ul {
+padding-left: 20px;
+}
+.content-area {
+width: 75%;
+display: flex;
+flex-direction: column;
+}
+.highlight-title {
+border-bottom: 2px solid  black;
+padding: 10px;
+}
+body.dark-mode .highlight-title{
+border-bottom: 2px solid #060303;
+}
+.highlight-title img {
+height: 18px;
+}
+.articles {
+display: flex;
+flex-wrap: wrap;
+}
+.article {
+width: 50%;
+padding: 2px;
+}
+.article img {
+width: 100%;
+}
+.more {
+padding: 10px;
+}
+.more img {
+height: 18px;
+vertical-align: middle;
+}
+.others {
+border-top: 2px solid black;
+padding: 10px;
+}
+body.dark-mode .others{
+border-top: 2px solid #aaa;
+}
+.others ul {
+padding-left: 20px;
+}
+a {
+color:black;
+text-decoration: none;
+}
+a:hover{
+text-decoration: underline;
+}
+.xemchitiet{
+text-align: center;
+position: fixed;
+top:50%;
+left: 50%;
+transform:translate(-50%,-50%);
+animation: fadeIn 0.3s ease-out;
+box-shadow: 0 0 38px rgba(0, 0, 0, 0.9);
+z-index: 9999;
+background-color: #fff;
+width: 800px;
+display: none;
+border-radius: 10px;
+padding:20px;
+color:black
+}
+.xemchitiet button{
+position: absolute;
+top:0;
+right:0
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translate(-50%, -60%); }
+to { opacity: 1; transform: translate(-50%, -50%); }
+}
+body.dark-mode .xemchitiet{
+background-color: #222;
+color: #eee;
+}
+.xct img{
+height: 428px;
+}
+.textchitiet{
+height:200px;
+overflow-y: auto;
+scrollbar-width: none;
+}
+.trai button:hover{
+transform: translateX(-8px);
+transition: transform 0.3s ;
+}
+.phai button:hover{
+transform: translateX(8px);
+transition: transform 0.3s ;
+}
+@media (max-width: 768px) {
+.main {
+flex-direction: column;
+font-size: 12px;
+}
+
+.sidebar {
+width: 100%;
+border-right: none;
+border-bottom: 2px solid black;
+}
+body.dark-mode .sidebar{
+border-bottom: 2px solid #aaa;
+border-right:none;
+}
+.content-area {
+width: 100%;
+}
+
+.article {
+width: 100%;
+padding: 5px 0;
+text-align: center;
+}
+.article img{
+height:250px !important;
+left:0 !important;
+}
+.dt {
+margin-top: 238px !important;
+}
+
+.highlight-title, .more, .others {
+padding: 10px 5px;
+}
+
+.sidebar ul, .others ul {
+padding-left: 15px;
+}
+.xemchitiet{
+width:400px;
+}
+.xemchitiet img{
+height:200px !important;
+}
+.textchitiet {
+height:140px;
+font-size: 10px !important;
+}
+.nutbam button{
+padding:6px 12px;
+font-size:10px
+}
+}

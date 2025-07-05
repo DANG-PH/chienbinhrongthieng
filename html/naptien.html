@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chiến Binh Rồng Thiêng</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/icongame1.png" type="image/png" />
+  <link rel="stylesheet" href="../css/naptien.css">
+  <link rel="stylesheet" href="../css/toast.css">
+</head>
+<body>
+  <div class="header">
+    <div style="overflow: hidden;">
+      <video autoplay muted loop playsinline preload="metadata" poster="../images/gioithieu.webp" class="header-video" style="animation: vid1 10s infinite;;filter: brightness(0.9)">
+        <source src="../images/gioithieu.webm" type="video/webm">
+        <source src="../images/gioithieu.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline preload="metadata" poster="../images/gioithieu2.webp" class="header-video" style="animation: vid2 10s infinite;height:120%;filter: brightness(0.9)">
+        <source src="../images/gioithieu2.webm" type="video/webm">
+        <source src="../images/gioithieu2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+        <div class="header-content" >
+            <h1>Kho Báu Zeni Đang Chờ!</h1>
+            <div>
+                <ul>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="nhanvat.html">Nhân Vật</a></li>
+                <li><a href="diendan.html">Diễn đàn</a></li>
+                <li><a href="https://www.facebook.com/people/Chi%E1%BA%BFn-Binh-R%E1%BB%93ng-Thi%C3%AAng/61576541835732/" target="_blank">Fanpage</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="huongdanchoi.html">Hướng dẫn chơi</a></li>
+                <li><a href="choingay.html">Chơi ngay</a></li>
+                <li><a href="naptien.html" id="selected">Nạp game</a></li>
+                <li><a href="shop.html">Shop rồng thiêng</a></li>
+                <li><a href="chatbot.html">Chat bot hỗ trợ</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="vinhdanh.html">Vinh danh chiến binh</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-content1">
+        <div style="float:right;margin-top:5px">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <h2>Chào mừng chiến binh đến với cổng nạp Zeni Rồng Thiêng!</h2>
+        <p><i><b>Gia tăng sức mạnh, mở khóa kỹ năng tối thượng và sẵn sàng cho những trận chiến long trời lở đất! Mỗi Zeni bạn nạp chính là bước tiến gần hơn đến vinh quang bất diệt!</b></i></p>
+    </div>
+    <div class="bg-content">
+        <h2>Nạp Zeni</h2>
+        <p>Xin chào chiến binh: <span id="ten-nguoi-choi"></span></p>
+        <p>Số Zeni hiện tại: <span id="kc-hientai">0</span></p>
+        <div class="download-buttons" style="display:flex;justify-content: space-between;align-items: center;margin-top:-17px">
+          <p class="vip">Cấp bậc chiến binh: <strong id="cap-bac"><span>VIP 0</span></strong></p>
+          <button id="nut-dang-nhap" style="margin-bottom:12px;margin-top:0px;padding:5px 8px">Đăng nhập</button>
+        </div>
+        <div class="goi-grid">
+            <div class="goi-nap" data-value="10000">
+                <img src="../images/50k.png" alt="10k">
+                <div class="goi-noidung">
+                <p>50.000 VNĐ → 250 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(50000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="20000">
+                <img src="../images/100k.png" alt="20k">
+                <div class="goi-noidung">
+                <p>100.000 VNĐ → 500 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(100000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="50000">
+                <img src="../images/200k.png" alt="50k">
+                <div class="goi-noidung">
+                <p>200.000 VNĐ → 1050 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(200000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="100000">
+                <img src="../images/300k.png" alt="100k">
+                <div class="goi-noidung">
+                <p>500.000 VNĐ → 2825 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(500000)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="200000">
+                <img src="../images/400k.png" alt="200k">
+                <div class="goi-noidung">
+                <p>888.888 VNĐ → 5825 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(888888)">+</button>
+                </div>
+            </div>
+            <div class="goi-nap" data-value="500000">
+                <img src="../images/400k.png" alt="500k">
+                <div class="goi-noidung">
+                <p>1.000.000 VNĐ → 5825 Zeni</p>
+                <button class="nut-tang" onclick="themGoi(1000000)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <p id="tong-nap">Tổng tiền: 0 VNĐ | Tổng Zeni: 0</p>
+        <button class="download-buttons" onclick="napTien()">Nạp Tiền</button>
+        <details>
+            <summary>QR donate</summary>
+            <img id="qr-anh" src="../images/qr.jpg" alt="QR Code">
+        </details>
+
+        <h2>Lịch sử nạp Zeni</h2>
+        <table border="1" style="width:100%;text-align:center">
+        <thead>
+            <tr>
+            <th>Thời gian</th>
+            <th>Số Zeni</th>
+            <th>Số tiền (VNĐ)</th>
+            </tr>
+        </thead>
+        <tbody id="lich-su-nap"></tbody>
+        </table>
+    </div>
+    <audio id="bg-music" autoplay loop>
+        <source src="../sounds/phepmau.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <button id="toggle-music" class="music-toggle-btn">🔇</button>
+    <footer>
+        <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
+    </footer>
+
+    <div id="overlay-online" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;"></div>
+    <div id="xac-nhan-popup">
+      <h3>Xác nhận chuyển khoản</h3>
+      <p>Vui lòng chuyển khoản đến QR bên dưới. Sau khi chuyển xong, hãy bấm "Tôi đã chuyển khoản".</p>
+      <img src="../images/qr.jpg" alt="QR Code" style="width:200px; margin: 10px 0;">
+      <br>
+      <button onclick="xacNhanChuyenKhoan()" style="margin-top:10px">✅ Tôi đã chuyển khoản</button><br>
+      <button onclick="dongPopup()" style="margin-top:10px;color:red">✖ Đóng</button>
+    </div>
+    <div id="toast"></div>
+    <script src="../js/darkmode.js"></script>
+    <script src="../js/phatnhac.js"></script>
+    <script src="../js/thongbao.js"></script>
+    <script src="../js/naptien.js"></script>
+</body>
+</html>

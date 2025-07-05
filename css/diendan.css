@@ -1,0 +1,128 @@
+.tinhot {
+    background-color: #ccc;
+}
+.tinhot a{
+    color: #2979ff;
+    /* color:#a65c00; */
+    text-decoration: none;
+}
+.guibaoloi{
+    color: #2979ff;
+    text-decoration: none;
+}
+.tinhot a:hover{
+    text-decoration: underline;
+    filter:brightness(1.7)
+}
+body.dark-mode .tinhot{
+    
+    background-color:#181818 !important;
+}
+body.dark-mode .tinhot a{
+    color:#ffa500;
+}
+body.dark-mode .tinhot a:hover{
+    filter:brightness(1.2)
+}
+@keyframes aanh1{
+    0%,50%{opacity: 1;}
+    53%,100%{opacity: 0;}
+}
+@keyframes aanh2{
+    0%,50%{opacity: 0;}
+    53%,100%{opacity: 1;}
+}
+.tinhotbox:hover {
+    transform:translateY(-7px);
+    box-shadow: 0 0 10px #00e5ff;
+    filter:brightness(1.05);
+    background-color: #ddd;
+    color:black;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+body.dark-mode .tinhotbox:hover{
+    filter:brightness(0.9);
+    background-color: #000000;
+    box-shadow: 0 0 10px rgba(255,165,0,0.5);
+    color:white;
+}
+.thaoluan a{
+    color: #2979ff;
+    text-decoration: none;
+}
+.thaoluan a:hover{
+    text-decoration: underline;
+    filter:brightness(1.6)
+}
+body.dark-mode .thaoluan a{
+    color:#ffa500;
+}
+body.dark-mode .thaoluan a:hover{
+    filter:brightness(1.2)
+}
+.thaoluan {
+background-color:#f2f2f2;
+padding: 5px 12px;
+margin: 5px 0;
+border: 3px solid #444;
+border-radius: 15px;
+font-size: 10pt;
+}
+.thaoluan:hover{
+    box-shadow: 0 0 10px #1976d2;
+    transform: translateX(-5px);
+    border-color:#1976d2;
+    transition: 0.4s;
+}
+body.dark-mode .thaoluan{
+    border:3px solid #888;
+    background: #3a3a3a;
+}
+body.dark-mode .thaoluan:hover{
+    box-shadow: 0 0 10px #ffa500;
+    border-color:#ffa500;
+}
+textarea::placeholder{
+    color:black
+}
+.thanhtimkiem{
+    display:flex;
+    justify-content: flex-start;
+    
+}
+.thanhtimkiem input{
+    width: 50%;
+    height:20px;
+    outline:none;
+    border:none;
+    background-color: #f5f5f5;
+    border-color: black;
+    font-size:17px;
+}
+.thanhtimkiem input::placeholder{
+    color:#222;
+    font-size:14px !important;
+}
+body.dark-mode .thanhtimkiem input{
+    background:#1E1E1E ;
+    caret-color: #eee;
+    color:#eee;
+}
+body.dark-mode .thanhtimkiem input::placeholder{
+    color:#eee;
+}
+@media (max-width: 600px){
+    button {
+    padding:10px !important;
+    font-size:10px;
+    }
+    .thanhtimkiem input{
+    width: 100%;
+    height:14px;
+    font-size:10px !important;
+    }
+    .thanhtimkiem input::placeholder{
+    font-size: 10px !important;
+    }
+}

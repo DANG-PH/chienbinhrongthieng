@@ -1,0 +1,95 @@
+.vip strong{
+color:#1976d2
+}
+body.dark-mode .vip strong{
+color:#ffa500;
+}
+.shop-grid {
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 20px;
+padding-top: 10px;
+}
+.item-card {
+background: rgba(255,255,255,0.9);
+border-radius: 12px;
+padding: 12px;
+text-align: center;
+box-shadow: 0px 0px 12px rgba(0,0,0,0.3);
+}
+.item-card:hover{
+transform: translateY(-5px);
+box-shadow: 0px 0px 38px rgba(0,0,0,0.3);
+transition: .4s;
+}
+body.dark-mode .item-card:hover{
+box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
+}
+body.dark-mode .item-card {
+background: rgba(30,30,30,0.9);
+}
+.item-card img {
+width: 100%;
+height: 120px;
+object-fit: cover;
+border-radius: 8px;
+}
+.item-card button {
+margin-top: 10px;
+padding: 6px 12px;
+font-weight: bold;
+}
+.thanhtimkiem{
+display:flex;
+justify-content: flex-start;
+margin-top: -10px;
+}
+.thanhtimkiem input{
+width: 50%;
+height:20px;
+outline:none;
+border:none;
+background-color: #f5f5f5;
+border-color: black;
+font-size:17px;
+}
+.thanhtimkiem input::placeholder{
+color:#222;
+font-size:14px !important;
+}
+body.dark-mode .thanhtimkiem input{
+background:#1E1E1E ;
+caret-color: #eee;
+color:#eee;
+}
+body.dark-mode .thanhtimkiem input::placeholder{
+color:#eee;
+}
+@media (max-width: 768px){
+.shop-grid {
+grid-template-columns: repeat(2,1fr);
+}
+.item-card img{
+height:90px;
+}
+.item-card p{
+font-size:9px;
+}
+.item-card h4{
+font-size: 12px;
+}
+.item-card button{
+font-size: 10px;
+}
+table {
+font-size:10px
+}
+.thanhtimkiem input{
+width: 100%;
+height:14px;
+font-size:10px !important;
+}
+.thanhtimkiem input::placeholder{
+font-size: 10px !important;
+}
+}

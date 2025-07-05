@@ -1,0 +1,55 @@
+.trai button:hover{
+transform: translateX(-8px);
+transition: transform 0.3s ;
+}
+.phai button:hover{
+transform: translateX(8px);
+transition: transform 0.3s ;
+}
+.thanhtimkiem{
+display:flex;
+justify-content: flex-end;
+
+}
+.thanhtimkiem input{
+width: 20% !important;
+height:15px;
+outline:none;
+border:none;
+background: linear-gradient(to bottom, #f5f5f5, #d8d8d8);
+}
+.thanhtimkiem input::placeholder{
+color:#222;
+font-size:12px !important;
+}
+body.dark-mode .thanhtimkiem input{
+background:#1E1E1E ;
+caret-color: #eee;
+color:#eee
+}
+body.dark-mode .thanhtimkiem input::placeholder{
+color:#eee;
+}
+@media (max-width: 650px){
+button{
+    padding:8px;
+    font-size:8px;
+    margin-top:2px;
+}
+.anhdong {
+height:480px !important;
+}
+.anhdong p{
+    margin-top:245px !important;
+}
+.anhdong img{
+    height:220px !important;
+}
+.thanhtimkiem input{
+    width: 40% !important;
+    height:14px;
+}
+.thanhtimkiem input::placeholder{
+    font-size: 10px;
+}
+}

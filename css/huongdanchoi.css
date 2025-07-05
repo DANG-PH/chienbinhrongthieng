@@ -1,0 +1,249 @@
+details {
+padding: 10px 10px;
+border-left: 5px solid #555;
+border-radius: 5px;
+margin: 10px 0;
+cursor: pointer;
+box-shadow: 0px 0px 38px rgba(0,0,0,0.2);
+}
+details:hover{
+transform: translateX(-4px);
+border-left-color: black!important;
+transition: .2s;
+}
+details summary{
+font-size: 20px;
+font-weight: bold;
+}
+body.dark-mode details{
+background: #222;
+border-left-color:#ffa500 !important;
+}
+
+.huong-dan-choi .character {
+padding: 1rem;
+margin: 1rem 0;
+border-radius: 6px;
+height:938px
+}
+.huong-dan-choi .character h3{
+margin-top: -20px;
+}
+.nutbam {
+margin-top: 475px;
+}
+.trai button:hover{
+transform: translateX(-8px);
+transition: transform 0.3s ;
+}
+.phai button:hover{
+transform: translateX(8px);
+transition: transform 0.3s ;
+}
+
+.huong-dan-choi table {
+width: 100%;
+margin-top: 1rem;
+border-collapse: collapse;
+}
+.huong-dan-choi table th,
+.huong-dan-choi table td {
+border: 1px solid #999;
+padding: 10px;
+}
+
+.huong-dan-choi .chedo details {
+padding: 10px 15px;
+border-left: 4px solid #555;
+border-radius: 5px;
+margin: 10px 0;
+cursor: pointer;
+}
+.huong-dan-choi .flex {
+display: flex;
+flex-wrap: wrap;
+gap: 2rem;
+margin-bottom: 1rem;
+}
+.huong-dan-choi .p1:hover{
+transform: translateY(-5px);
+box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
+border-left-color: #444;
+transition: .4s;
+}
+.huong-dan-choi .p2:hover{
+transform: translateY(-5px);
+box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
+border-left-color: #444;
+transition: .4s;
+}
+body.dark-mode .p1:hover{
+box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
+border-left-color:#ffa500;
+}
+body.dark-mode .p2:hover{
+box-shadow: 0px 0px 38px rgba(255,165,0,0.3);
+border-left-color:#ffa500;
+}
+.dieukhien{
+border-left: 5px solid #555;
+padding: 1rem;
+border-radius: 6px;
+box-shadow: 12px 12px 38px rgba(0,0,0,0.2);
+}
+.howtoplay-box {
+border-left: 5px solid #555;
+padding: 0.5rem 1rem;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.howtoplay-box:hover{
+box-shadow: 0px 0px 38px rgba(0,0,0,0.6);
+border-left-color: #444;
+transform: translateY(-5px);
+transition: .4s;
+}
+body.dark-mode .howtoplay-box:hover{
+box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
+}
+body.dark-mode .howtoplay-box {
+background: #1b1b1b;
+border-left-color: #00bfff;
+}
+body.dark-mode .howtoplay-box h3 {
+color: #ffa500;
+}
+
+.hud-box {
+background: rgba(255,255,255,0.05);
+border-left: 5px solid #555;
+padding: 1rem;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+margin-top: 1rem;
+}
+.hud-box:hover{
+box-shadow: 0px 0px 38px rgba(0,0,0,0.6);
+border-left-color: #444;
+transform: translateY(-5px);
+transition: .4s;
+}
+body.dark-mode .hud-box:hover{
+box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
+}
+body.dark-mode .hud-box {
+background: #1a1a1a;
+border-left-color: #00bfff;
+}
+.tips-grid {
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 1rem;
+margin-top: 1rem;
+}
+.tip-card {
+background: rgba(255,255,255,0.1);
+border-left: 5px solid #555;
+padding: 1rem;
+border-radius: 6px;
+font-weight: 500;
+box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+.tip-card:hover{
+box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
+border-left-color: #333;
+transform: translateY(-5px);
+transition: .4s;
+}
+body.dark-mode .tip-card:hover{
+box-shadow: 0px 0px 38px rgba(0,91,255,0.3);
+}
+body.dark-mode .tip-card {
+background: #222;
+border-left-color: #00bfff;
+}
+.chedo details {
+box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+/* Dark mode*/
+body.dark-mode .huong-dan-choi .character {
+background: #222;
+}
+body.dark-mode .dieukhien {
+background: #222;
+border-left-color: #ffa500;
+}
+body.dark-mode .huong-dan-choi table {
+background: #1a1a1a;
+color: #ccc;
+}
+
+body.dark-mode .huong-dan-choi table th {
+background: #333;
+color: #fff;
+}
+
+body.dark-mode .huong-dan-choi .chedo details {
+background: #2a2a2a;
+border-left:4px solid #ffa500 ;
+}
+
+body.dark-mode .huong-dan-choi h2 {
+color: #ffa500;
+border-color: #ffa500;
+}
+@media (max-width: 768px){
+.character p, ul li{
+font-size: 10px;
+}
+.p1 {
+width: 100% !important;
+margin-bottom: -25px;
+}
+.p2 {
+width: 100% !important;
+}
+.dieukhien ul li {
+font-size: 12px;
+}
+.cachchoi ul{
+margin-top:-10px
+}
+.cachchoi ul li{
+font-size: 12px;
+}
+.hud ul li {
+font-size: 12px;
+}
+.meochoi{
+font-size: 12px;
+}
+.tips-grid{
+grid-template-columns: repeat(2,1fr);
+}
+.huong-dan-choi table {
+font-size: 11px;
+}
+.huong-dan-choi .chedo{
+font-size: 12px;
+}
+.pb ul li{
+font-size: 10px;
+}
+.huong-dan-choi .character{
+height:670px;
+}
+.huong-dan-choi .character img{
+height:220px !important;
+}
+button{
+padding:6px 12px;
+font-size:8px;
+}
+.nutbam {
+margin-top: 240px;
+}
+details summary{
+font-size: 13px !important;
+}
+}
