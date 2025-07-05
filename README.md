@@ -37,5 +37,5 @@ Dự án cuối kỳ | B24DCCC047 – D24CQCC05_B – PTIT
 </p>
 
 <p align="center">
-  <a href="https://github.com/DANG-PH/chienbinhrongthieng">👉 Xem chi tiết trên GitHub</a>
+  <a href="https://github.com/DANG-PH/HDG_DragonBall_FightGame">👉 Xem code game trên GitHub</a>
 </p>
