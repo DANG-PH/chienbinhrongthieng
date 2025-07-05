@@ -237,54 +237,10 @@
         <p style="font-style: italic;"><strong>© 2025 Chiến Binh Rồng Thiêng | Phạm Hải Đăng</strong></p>
     </footer>
     <div id="toast"></div>
+    <script src="darkmode.js"></script>
+    <script src="phatnhac.js"></script>
+    <script src="thongbao.js"></script>
     <script>
-        const toggle = document.getElementById("darkModeToggle");
-
-        // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
-        if (localStorage.getItem("darkMode") === "true") {
-        document.body.classList.add("dark-mode");
-        toggle.checked = true;
-        }
-
-        // Khi người dùng bật/tắt dark mode
-        toggle.addEventListener("change", function () {
-        const isDark = toggle.checked;
-        document.body.classList.toggle("dark-mode", isDark);
-        localStorage.setItem("darkMode", isDark);
-        });
-        //audio 
-        const bgMusic = document.getElementById("bg-music");
-        bgMusic.volume=0.8
-        const toggleMusicBtn = document.getElementById("toggle-music");
-
-        let isMusicPlaying = localStorage.getItem("musicPlaying") !== "false"; // mặc định là true
-
-        if (!isMusicPlaying) {
-          bgMusic.pause();
-          toggleMusicBtn.textContent = "🔇";
-        } else {
-          const savedTime = sessionStorage.getItem("bgMusicTime");
-          if (savedTime) {
-            bgMusic.currentTime = parseFloat(savedTime);
-          }
-          bgMusic.play();
-          toggleMusicBtn.textContent = "🔊";
-        }
-
-        toggleMusicBtn.addEventListener("click", function () {
-          isMusicPlaying = !isMusicPlaying;
-          if (isMusicPlaying) {
-            bgMusic.play();
-            toggleMusicBtn.textContent = "🔊";
-          } else {
-            bgMusic.pause();
-            toggleMusicBtn.textContent = "🔇";
-          }
-          localStorage.setItem("musicPlaying", isMusicPlaying);
-        });
-        window.addEventListener("beforeunload", () => {
-          sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
-        });
         const loginBtn = document.getElementById("login-btn");
         const loggedInUser = JSON.parse(sessionStorage.getItem("currentUser"));
         const container = document.getElementById("game-container");
@@ -395,17 +351,6 @@
           },15000)
           
         }
-        function showToast(message) {
-          const toast = document.getElementById("toast");
-          if (!toast) return;
-          toast.textContent = message;
-          toast.classList.add("show");
-          toast.classList.remove("hidden");
-          setTimeout(() => {
-              toast.classList.remove("show");
-              toast.classList.add("hidden");
-          }, 5000);
-      }
       function toggleFullScreen() {
         const iframe = document.getElementById("game-frame");
         if (!document.fullscreenElement) {
@@ -417,7 +362,6 @@
         showToast("✅ Đăng xuất thành công!");
         setTimeout(() => location.reload(), 1000); // Tải lại trang để quay về chế độ chưa đăng nhập
       }
-
     </script>
 </body>
 </html>

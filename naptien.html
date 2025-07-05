@@ -308,8 +308,6 @@
         <tbody id="lich-su-nap"></tbody>
         </table>
     </div>
-
-    <div id="toast"></div>
     <audio id="bg-music" autoplay loop>
         <source src="sounds/phepmau.mp3" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ âm thanh.
@@ -328,55 +326,11 @@
       <button onclick="xacNhanChuyenKhoan()" style="margin-top:10px">✅ Tôi đã chuyển khoản</button><br>
       <button onclick="dongPopup()" style="margin-top:10px;color:red">✖ Đóng</button>
     </div>
-
+    <div id="toast"></div>
+    <script src="darkmode.js"></script>
+    <script src="phatnhac.js"></script>
+    <script src="thongbao.js"></script>
     <script>
-        const toggle = document.getElementById("darkModeToggle");
-
-        // Khi tải trang: kiểm tra trạng thái dark mode đã lưu
-        if (localStorage.getItem("darkMode") === "true") {
-        document.body.classList.add("dark-mode");
-        toggle.checked = true;
-        }
-
-        // Khi người dùng bật/tắt dark mode
-        toggle.addEventListener("change", function () {
-        const isDark = toggle.checked;
-        document.body.classList.toggle("dark-mode", isDark);
-        localStorage.setItem("darkMode", isDark);
-        });
-        //audio 
-        const bgMusic = document.getElementById("bg-music");
-        bgMusic.volume=0.8
-        const toggleMusicBtn = document.getElementById("toggle-music");
-
-        let isMusicPlaying = localStorage.getItem("musicPlaying") !== "false"; // mặc định là true
-
-        if (!isMusicPlaying) {
-          bgMusic.pause();
-          toggleMusicBtn.textContent = "🔇";
-        } else {
-          const savedTime = sessionStorage.getItem("bgMusicTime");
-          if (savedTime) {
-            bgMusic.currentTime = parseFloat(savedTime);
-          }
-          bgMusic.play();
-          toggleMusicBtn.textContent = "🔊";
-        }
-
-        toggleMusicBtn.addEventListener("click", function () {
-          isMusicPlaying = !isMusicPlaying;
-          if (isMusicPlaying) {
-            bgMusic.play();
-            toggleMusicBtn.textContent = "🔊";
-          } else {
-            bgMusic.pause();
-            toggleMusicBtn.textContent = "🔇";
-          }
-          localStorage.setItem("musicPlaying", isMusicPlaying);
-        });
-        window.addEventListener("beforeunload", () => {
-          sessionStorage.setItem("bgMusicTime", bgMusic.currentTime);
-        });
         //nap
         const user = JSON.parse(sessionStorage.getItem("currentUser"));
         let tongTien = 0;
@@ -506,14 +460,6 @@
         if (tong < 500000) return "VIP 8";
         if (tong >= 500000) return "👑 Huyền Thoại Rồng Thiêng";
         }
-        function showToast(message) {
-            const toast = document.getElementById("toast");
-            toast.textContent = message;
-            toast.className = "show";
-            setTimeout(() => {
-                toast.className = "hidden";
-            }, 3000);
-        } 
         function logout() {
         sessionStorage.removeItem("currentUser");
         showToast("✅ Đăng xuất thành công!");
