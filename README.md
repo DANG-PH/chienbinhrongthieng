@@ -41,7 +41,7 @@ Dự án cuối kỳ | B24DCCC047 – D24CQCC05_B – PTIT
 4.🔗 Chơi ngay
 
 👉 **Link chơi web game:**  
-🎮 [chienbinhrongthieng.online](https://chienbinhrongthieng.online)
+🎮 [chienbinhrongthieng.online](https://chienbinhrongthieng.online/html/choingay.html)
 
 
 <p align="center">
