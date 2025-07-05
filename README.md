@@ -32,7 +32,7 @@
 
 3.👤 Tác giả
 
-<p align="center"><strong>Phạm Hải Đăng</strong><br>
+<p><strong>Phạm Hải Đăng</strong><br>
 Dự án cuối kỳ | B24DCCC047 – D24CQCC05_B – PTIT
 </p>
 
