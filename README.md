@@ -6,7 +6,7 @@
 
 <p align="center">
   Dự án cá nhân mô phỏng hệ thống web game đối kháng 1v1,<br>
-  xây dựng bằng <strong>HTML, CSS, JavaScript</strong> thuần – không backend.
+  xây dựng bằng <strong>HTML, CSS, JavaScript</strong>.
 </p>
 
 ---
