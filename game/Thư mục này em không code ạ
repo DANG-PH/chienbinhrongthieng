@@ -1,4 +1,0 @@
-file HTML và apk này là do pygbag tự động sinh ra khi em build game Python. 
-Em chủ yếu làm việc với mã nguồn Python và Pygame, còn phần HTML/Web hiển 
-thị game thì pygbag lo toàn bộ nên em không can thiệp vào và không đọc sâu 
-vào file này ạ.
