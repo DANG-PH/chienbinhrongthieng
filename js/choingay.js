@@ -91,7 +91,7 @@ if (!loggedInUser) {
     const gameWrapper = document.createElement("div");
     gameWrapper.style.marginTop="10px"
     gameWrapper.innerHTML = `
-    <iframe id="game-frame" src="../game/gktkn.html" style="width:100%; aspect-ratio: 2 / 1; border:none"></iframe>
+    <iframe id="game-frame" src="../game/chienbinhrongthieng.html" style="width:100%; aspect-ratio: 2 / 1; border:none"></iframe>
     <div class="download-buttons nut" style="margin-top:10px;text-align:right">
         <button onclick="toggleFullScreen()" style="padding:7px 9px">Toàn màn hình</button>
     </div>

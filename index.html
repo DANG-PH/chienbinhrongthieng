@@ -52,10 +52,10 @@
     <h2 style="margin-top:5px">🔥 Bắt đầu hành trình Chiến Binh Rồng Thiêng!</h2>
     <p>Chiến đấu cùng Goku, Vegeta và những chiến binh huyền thoại khác ngay hôm nay!</p>
     <div class="download-buttons">
-      <a href="game/gctcn.html"><button onclick="checkdangnhap()">JAVA</button></a>
-      <a href="game/gctcn.html"><button onclick="checkdangnhap()">ANDROID (APK)</button></a>
-      <a href="game/gctcn.html"><button onclick="checkdangnhap()">ANDROID (Google Play)</button></a>
-      <a href="game/gctkn.html"><button onclick="checkdangnhap()">PC</button></a>
+      <a href="#"><button onclick="checkdangnhap()">JAVA</button></a>
+      <a href="#"><button onclick="checkdangnhap()">ANDROID (APK)</button></a>
+      <a href="#"><button onclick="checkdangnhap()">ANDROID (Google Play)</button></a>
+      <a href="#"><button onclick="checkdangnhap()">PC</button></a>
       <a href="html/choingay.html"><button onclick="checkdangnhap()">IPHONE</button></a>
     </div>
   </div>
@@ -159,6 +159,8 @@
       const user=JSON.parse(sessionStorage.getItem("currentUser"));
       if (!user){
         window.location.href="html/dangnhap.html"
+      } else {
+        window.location.href="game/chienbinhrongthieng.html"
       }
     }
   </script>
