@@ -5,8 +5,10 @@ if (!currentSession) {
     container.innerHTML = '<p style="text-align:center;grid-column: 1 / -1;">⚠️ Bạn cần đăng nhập để xem huy hiệu của mình.</p>';
 } else {
     const user = users.find(u => u.email === currentSession.email);
-    const tongZeni = user.history?.reduce((sum, h) => sum + h.zeni, 0);
-    const items = user.items?.length ;
+    user.history = user.history || [];
+    const tongZeni = user.history.reduce((sum, h) => sum + h.zeni, 0);
+    user.items = user.items || [];
+    const items = user.items.length ;
     const soNgay = demSoNgayOnline(user.email);
     user.thanhTich = user.thanhTich || [];
     let html = "";
