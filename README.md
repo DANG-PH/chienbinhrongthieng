@@ -44,6 +44,20 @@ Dự án cuối kỳ – B24DCCC047 – D24CQCC05_B – PTIT
 👉 **Link chơi web game:**  
 🎮 [chienbinhrongthieng.online](https://chienbinhrongthieng.online/html/choingay.html)
 
+---
+
+5.⭐ Đóng góp
+
+Nếu bạn thấy web/game thú vị:
+- Hãy ⭐ repo để ủng hộ
+- Gửi đánh giá hoặc góp ý hoặc thêm tính năng mới
+- Chia sẻ đến bạn bè để cùng trải nghiệm!
+
+---
+
+<p align="center">
+  💥 Cảm ơn bạn đã trải nghiệm Chiến Binh Rồng Thiêng 💥
+</p>
 
 <p align="center">
   <a href="https://github.com/DANG-PH/HDG_DragonBall_FightGame">👉 Xem code game trên GitHub</a>
