@@ -1,23 +1,23 @@
 function sendMessage() {
-const message = document.getElementById('user-input').value.trim();
-if (!message) return;
+    const message = document.getElementById('user-input').value.trim();
+    if (!message) return;
 
-addMessage('👤 Player: ' + message, 'user');
-document.getElementById("user-input").value=""
+    addMessage('👤 Player: ' + message, 'user');
+    document.getElementById("user-input").value=""
 
-let reply = getBotReply(message);
-setTimeout(() => {
-    addMessage('🤖 bot game: ' + reply, 'bot');
-}, 500);
-}
+    let reply = getBotReply(message);
+    setTimeout(() => {
+        addMessage('🤖 bot game: ' + reply, 'bot');
+    }, 500);
+    }
 
 function addMessage(text, type) {
-const chatBox = document.getElementById('chat-box');
-const msg = document.createElement('div');
-msg.className =type;
-msg.textContent = text;
-chatBox.appendChild(msg);
-chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
+    const chatBox = document.getElementById('chat-box');
+    const msg = document.createElement('div');
+    msg.className = type;
+    msg.textContent = text;
+    chatBox.appendChild(msg);
+    chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
 }
 const replies = [
     { keyword: ['ok','uk','uki','okioki'],reply:'OK!'},

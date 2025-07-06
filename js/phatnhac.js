@@ -1,6 +1,6 @@
 // âm thanh 
 const amThanhNen = document.getElementById("bg-music");
-amThanhNen.volume = 0.8;
+amThanhNen.volume = 0.3;
 const nutChuyenAmThanh = document.getElementById("toggle-music");
 
 let dangPhatAmThanh = localStorage.getItem("dangPhatAmThanh") !== "false";

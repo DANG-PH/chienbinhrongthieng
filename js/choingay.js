@@ -26,18 +26,8 @@ if (!loggedInUser) {
     loginBtn.classList.remove("hidden");
     loginBtn.addEventListener("click", function () {
         window.location.href = "dangnhap.html";
-    });
-    // setTimeout(() => {
-    //     window.location.href = "dangnhap.html";
-    // }, 5000); // chờ 3s để toast hiển thị xong
-    window.onload = function () {
-    const downloadLinks = document.querySelectorAll(".download-buttons a");
-    downloadLinks.forEach(link => {
-        if (!loggedInUser) {
-        link.href = "dangnhap.html"; // nếu chưa đăng nhập thì ép link về đăng nhập
-        }});
-}} else {
-    // 1. Hiện tên người chơi + nút đăng xuất
+    });} else {
+    // Hiện tên người chơi + nút đăng xuất
     const userBar = document.createElement("div");
     userBar.style.display = "flex";
     userBar.style.alignItems = "center";
@@ -47,21 +37,21 @@ if (!loggedInUser) {
     const userData = users.find(u => u.email === loggedInUser.email);
     let tongZeni = 0;
     try {
-    for (let i = 0; i < userData.history.length; i++) {
-        tongZeni += userData.history[i].zeni;  // ✅ đúng
-    }
+        for (let i = 0; i < userData.history.length; i++) {
+            tongZeni += userData.history[i].zeni; 
+        }
     } catch (e) {
-    tongZeni = 0; // fallback nếu history bị lỗi
+        tongZeni = 0; 
     }
 
     const vipMoc = [0, 1000, 5000, 10000, 20000, 50000, 100000, 200000, 300000, 500000];
     let vip = 0;
     for (let i = 0; i < vipMoc.length; i++) {
-    if (tongZeni < vipMoc[i]) {
-        vip = i - 1;
-        break;
-    }
-    if (i === vipMoc.length - 1) vip = i;
+        if (tongZeni >= vipMoc[i]) {
+            vip = i;
+        } else {
+            break;
+        }
     }
 
     const avatarSrc = vip <= 8 ? `../images/avt${vip + 1}.webp` : "../images/vip10.1.avif";
@@ -75,8 +65,8 @@ if (!loggedInUser) {
     <div class="info"style="display: flex; align-items: center; gap: 12px;">
         <img src="${avatarSrc}" class="avatar-frame ${frameClass}" style="width: 65px; height: 65px;">
         <div>
-        <p style="margin: 0; font-weight: bold;">chiến binh <span class="vip userz" >${loggedInUser.username}</span></p>
-        <p style="margin: 0; font-size: 13px;"><span class="vip" style="font-weight: bold">VIP ${vip}</span> <span class="badge">${danhHieu[vip]}</span></p>
+            <p style="margin: 0; font-weight: bold;">chiến binh <span class="vip userz" >${loggedInUser.username}</span></p>
+            <p style="margin: 0; font-size: 13px;"><span class="vip" style="font-weight: bold">VIP ${vip}</span> <span class="badge">${danhHieu[vip]}</span></p>
         </div>
     </div>
     <div class="nut">
@@ -84,10 +74,9 @@ if (!loggedInUser) {
     </div>
     `;
 
-    // CHÈN userBar vào bên trong container
     container.appendChild(userBar);
     
-    // 2. Thêm iframe game + nút fullscreen
+    // Thêm iframe game + nút fullscreen
     const gameWrapper = document.createElement("div");
     gameWrapper.style.marginTop="10px"
     gameWrapper.innerHTML = `
@@ -98,7 +87,7 @@ if (!loggedInUser) {
     `;
     container.appendChild(gameWrapper);
 
-    // 3. Hiện toast thông báo đang tải
+    // Hiện toast thông báo đang tải
     showToast("🔄 Vui lòng chờ... Game đang được tải!");
     setTimeout(()=>{
     showToast("✅ Game đã sẵn sàng. Chiến thôi!")
@@ -109,13 +98,11 @@ if (!loggedInUser) {
     
 }
 function toggleFullScreen() {
-const iframe = document.getElementById("game-frame");
-if (!document.fullscreenElement) {
+    const iframe = document.getElementById("game-frame");
     iframe.requestFullscreen()
 }
-}
 function logout() {
-sessionStorage.removeItem("currentUser");
-showToast("✅ Đăng xuất thành công!");
-setTimeout(() => location.reload(), 1000); // Tải lại trang để quay về chế độ chưa đăng nhập
+    sessionStorage.removeItem("currentUser");
+    showToast("✅ Đăng xuất thành công!");
+    setTimeout(() => location.reload(), 1000);
 }
