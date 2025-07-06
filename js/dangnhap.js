@@ -49,6 +49,7 @@ function handleLogin() {
     if (user.email==="admin" && user.password === password){
         sessionStorage.setItem("currentUser", JSON.stringify(user));
         showToast("✅ Chào mừng admin đã trở lại")
+        dangnhap();
         return setTimeout(()=>{
             window.location.href = "profile.html";
         },2000)
@@ -56,10 +57,25 @@ function handleLogin() {
     if (user.password === password) {
         sessionStorage.setItem("currentUser", JSON.stringify(user));
         showToast("✅ Đăng nhập thành công! Chiến binh " + user.username + " đã trở lại chiến trường!");
+        dangnhap();
         setTimeout(()=>{
             window.location.href = "choingay.html";
         },2000)
     } else {
         showToast("❌ Sức mạnh không khớp – mật khẩu không chính xác.");
+    }
+}
+function dangnhap(){
+    const user = JSON.parse(sessionStorage.getItem("currentUser"));
+    if (!user) return;
+
+    const email = user.email;
+    const key = `onlineTimeData_${email}`;
+    const today = new Date().toISOString().split("T")[0];
+
+    let data = JSON.parse(localStorage.getItem(key)) || {};
+    if (!data[today]) {
+        data[today] = { start: Date.now() };
+        localStorage.setItem(key, JSON.stringify(data));
     }
 }

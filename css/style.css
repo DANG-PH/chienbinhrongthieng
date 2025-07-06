@@ -173,19 +173,19 @@ body.dark-mode textarea{
   background-color: #ccc;
 }
 footer {
-  background-image: url('images/f1.png');
+  background-image: url('../images/f1.png');
   background-size: 200px;
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: center;
   padding: 1rem;
-  background-color:  #bbb;  /* nền sáng hơn */
+  background-color:  #bbb; 
   color: #202020;
   margin-top: 2rem;
   max-width: 900px;
   margin: auto;
 }
-/* ẩn hiện 3 ảnh */
+/* 3 ảnh */
 @keyframes anh1{
   0%,33%{opacity:1;}
   35%,66%{opacity:0;}
@@ -298,12 +298,12 @@ body.dark-mode .a1 {
   color: #ddd;
 }
 body.dark-mode footer {
-  background-color: #181818; /* Đậm hơn background chính (#121212) */
+  background-color: #181818; 
   color: #ccc;
   border-top: 1px solid #333;
 }
 body.dark-mode button {
-  background: #f39c12;  /* Cam nổi bật */
+  background: #f39c12;  
   color: black;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(243, 156, 18, 0.6);

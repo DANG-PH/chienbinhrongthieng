@@ -168,16 +168,8 @@ if (!localStorage.getItem("demoDataLoaded")) {
     },
 ];
 
-const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-
-// Loại bỏ bản cũ bị trùng (nếu có)
-const filteredUsers = existingUsers.filter(u =>
-!demoUsers.some(bot => bot.email === u.email)
-);
-
-// Gộp lại: giữ user thật, thêm bot 1 lần duy nhất
-const allUsers = [...filteredUsers, ...demoUsers];
-
+const Users = JSON.parse(localStorage.getItem("users")) || [];
+const allUsers = [...Users, ...demoUsers];
 localStorage.setItem("users", JSON.stringify(allUsers));
-localStorage.setItem("demoDataLoaded", "true"); // Đánh dấu đã chèn
+localStorage.setItem("demoDataLoaded", "true"); 
 }
