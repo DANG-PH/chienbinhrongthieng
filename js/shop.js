@@ -1,10 +1,8 @@
-// Lấy dữ liệu người dùng hiện tại
 const user = JSON.parse(sessionStorage.getItem("currentUser"));
 const nutDangNhap = document.getElementById("nut-dang-nhap");
 let users = JSON.parse(localStorage.getItem("users")) || [];
 const userr = users.find(u => u.email === user?.email);
 
-// Cập nhật tên và zeni hiện tại
 const tenUser = document.getElementById("ten-user");
 const zeniHienTai = document.getElementById("zeni-hientai");
 if (!user) {
@@ -12,19 +10,15 @@ if (!user) {
     zeniHienTai.textContent = "0";
     nutDangNhap.textContent = "Đăng nhập";
     nutDangNhap.onclick = () => {
-    window.location.href = "dangnhap.html"; // chuyển tới trang đăng nhập
+        window.location.href = "dangnhap.html"; 
     };
 } else {
     tenUser.textContent = userr.username;
     zeniHienTai.textContent = userr.kimcuong || 0;
     let tongZeniDaNap = 0;
-    try {
-    userr.history.forEach(log => {
+    userr.history?.forEach(log => {
         tongZeniDaNap += log.zeni;
     });
-    } catch (err) {
-    tongZeniDaNap = 0;
-    }
     document.getElementById("cap-bac").textContent = getCapBac(tongZeniDaNap);
     capNhatLichSu();
     nutDangNhap.textContent = "Đăng xuất";
@@ -36,9 +30,9 @@ function randomCode(length = 10) {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     let result = '';
     for (let i = 0; i < length; i++) {
-    let randomIndex = parseInt(Math.random() * chars.length);
-    let randomChar = chars[randomIndex];
-    result += randomChar;
+        let randomIndex = Math.floor(Math.random() * chars.length);
+        let randomChar = chars[randomIndex];
+        result += randomChar;
     }
     return result;
 }
@@ -46,17 +40,17 @@ function randomCode(length = 10) {
 // Mua vật phẩm
 function muaVatPham(ma, gia) {
     if (!user) {
-    showToast("⚠️ Bạn cần đăng nhập!");
-    return;
+        showToast("⚠️ Bạn cần đăng nhập!");
+        return;
     }
     if ((userr.kimcuong || 0) < gia) {
-    showToast("❌ Không đủ Zeni!");
-    return;
+        showToast("❌ Không đủ Zeni!");
+        return;
     }
     userr.items = userr.items || [];
     if (userr.items.find(i => i.id === ma)) {
-    showToast("⚠️ Bạn đã mua vật phẩm này rồi!");
-    return;
+        showToast("⚠️ Bạn đã mua vật phẩm này rồi!");
+        return;
     }
 
     const code = randomCode();
@@ -116,25 +110,25 @@ function getVipLevel(tong) {
 
 function tinhTongZeniNap() {
     let tong = 0;
-    userr.history.forEach(log => tong += log.zeni);
+    userr.history?.forEach(log => tong += log.zeni);
     return tong;
 }
 
 function nhanQuaVip(ma, vipYeuCau) {
     if (!user) {
-    showToast("⚠️ Bạn cần đăng nhập!");
-    return;
+        showToast("⚠️ Bạn cần đăng nhập!");
+        return;
     }
     const tong = tinhTongZeniNap();
     const level = getVipLevel(tong);
     if (level < vipYeuCau) {
-    showToast("❌ Chưa đủ cấp VIP để nhận gói quà này!");
-    return;
+        showToast("❌ Chưa đủ cấp VIP để nhận gói quà này!");
+        return;
     }
     userr.items = userr.items || [];
     if (userr.items.find(i => i.id === ma)) {
-    showToast("⚠️ Bạn đã nhận gói này rồi!");
-    return;
+        showToast("⚠️ Bạn đã nhận gói này rồi!");
+        return;
     }
 
     const code = randomCode();
@@ -148,24 +142,24 @@ function nhanQuaVip(ma, vipYeuCau) {
 
 function muaVipGift(ma, vipYeuCau, gia) {
     if (!user) {
-    showToast("⚠️ Bạn cần đăng nhập!");
-    return;
+        showToast("⚠️ Bạn cần đăng nhập!");
+        return;
     }
     const tong = tinhTongZeniNap();
     const level = getVipLevel(tong);
     if (level < vipYeuCau) {
-    showToast("❌ Chưa đủ cấp VIP để mua gói này!");
-    return;
+        showToast("❌ Chưa đủ cấp VIP để mua gói này!");
+        return;
     }
 
     if ((userr.kimcuong || 0) < gia) {
-    showToast("❌ Không đủ Zeni để mua!");
-    return;
+        showToast("❌ Không đủ Zeni để mua!");
+        return;
     }
     userr.items = userr.items || [];
     if (userr.items.find(i => i.id === ma)) {
-    showToast("⚠️ Bạn đã mua gói này rồi!");
-    return;
+        showToast("⚠️ Bạn đã mua gói này rồi!");
+        return;
     }
 
     const code = randomCode();
