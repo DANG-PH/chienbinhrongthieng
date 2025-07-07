@@ -45,7 +45,6 @@ body.dark-mode .vip {
     border-color: 		#B0F1FF;
     box-shadow: 0 0 25px 	#B0F1FF;
     animation: glow-pulse 2.5s infinite
-
 }
 body.dark-mode .legendary-frame {
     border-color: #ffffff;
@@ -103,14 +102,14 @@ body.dark-mode .legendary-frame {
     }
 }
 .badge {
-display: inline-block;
-background: linear-gradient(to right, #ffcc00, #ff9900);
-color: white;
-padding: 4px 10px;
-border-radius: 20px;
-font-size: 13px;
-margin: 3px;
-box-shadow: 0 2px 15px rgba(255,165,0,0.5);
+    display: inline-block;
+    background: linear-gradient(to right, #ffcc00, #ff9900);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 3px;
+    box-shadow: 0 2px 15px rgba(255,165,0,0.5);
 }
 @media (max-width: 768px){
     .nut button{
