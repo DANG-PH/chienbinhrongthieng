@@ -299,7 +299,6 @@ body.dark-mode .sub-cont{
         height: 250px;
         position: relative;
         padding-top: 0;
-        order: -1;
     }
     .sign-up{
         transform:translate3d(0,0,0) !important;

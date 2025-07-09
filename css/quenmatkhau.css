@@ -299,7 +299,6 @@ transform:translate3d(0, 0, 0);
     height: 250px;
     position: relative;
     padding-top: 0;
-    order: -1;
 }
 
 .img:before, .img:after {
