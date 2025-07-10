@@ -68,14 +68,11 @@ function handleLogin() {
 function dangnhap(){
     const user = JSON.parse(sessionStorage.getItem("currentUser"));
     if (!user) return;
-
     const email = user.email;
-    const key = `onlineTimeData_${email}`;
     const today = new Date().toISOString().split("T")[0];
-
-    let data = JSON.parse(localStorage.getItem(key)) || {};
+    let data = JSON.parse(localStorage.getItem(`onlineTimeData_${email}`)) || {};
     if (!data[today]) {
         data[today] = { start: Date.now() };
-        localStorage.setItem(key, JSON.stringify(data));
+        localStorage.setItem(`onlineTimeData_${email}`, JSON.stringify(data));
     }
 }

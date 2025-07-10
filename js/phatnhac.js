@@ -3,7 +3,10 @@ const amThanhNen = document.getElementById("bg-music");
 amThanhNen.volume = 0.3;
 const nutChuyenAmThanh = document.getElementById("toggle-music");
 
-let dangPhatAmThanh = localStorage.getItem("dangPhatAmThanh") !== "false";
+let dangPhatAmThanh = JSON.parse(localStorage.getItem("dangPhatAmThanh"));
+if (dangPhatAmThanh === null){
+  dangPhatAmThanh = true;
+}
 
 if (!dangPhatAmThanh) {
   amThanhNen.pause();
@@ -26,7 +29,7 @@ nutChuyenAmThanh.addEventListener("click", function () {
     amThanhNen.pause();
     nutChuyenAmThanh.textContent = "🔇";
   }
-  localStorage.setItem("dangPhatAmThanh", dangPhatAmThanh);
+  localStorage.setItem("dangPhatAmThanh", JSON.stringify(dangPhatAmThanh));
 });
 
 window.addEventListener("beforeunload", () => {
